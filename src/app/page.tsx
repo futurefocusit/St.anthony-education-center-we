@@ -14,6 +14,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { PiPinterestLogo } from 'react-icons/pi';
+import Image from 'next/image';
 
 const Home = () => {
   return (
@@ -53,7 +54,7 @@ const Home = () => {
           {posts.map((post, index) => (
             <div key={index} className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem]">
               <div className="flex flex-col gap-2 text-center">
-                <img className="w-full h-48 object-cover" src={post.image} alt="cyber" />
+                <Image src={post.image} alt="cyber" width={90} height={90} className="w-full h-48 object-cover" />
                 <h2 className="font-bold text-2xl">{post.title}</h2>
                 <p className="text-sm text-gray-600 p-2">{post.content}</p>
               </div>
@@ -75,14 +76,14 @@ const Home = () => {
             </p>
             <div className='w-[30px] md:w-[50px] h-[5px] md:h-[7px] bg-[#1B396E] my-2'></div>
             <p className='w-full md:w-[691px] h-auto font-[300] text-sm'>
-              CyberPro Academy's mission is to mitigate cybersecurity risk through instruction in cybersecurity, computer security, information security, and operations. We do so by providing high-quality classroom instruction and training to students, managers, executives, and employees with a focus on filling critical job-related skill gaps. The company will begin with a small group of practitioners/instructors who are subject-matter experts in our core offerings.
+              CyberPro Academy&apos;s mission is to mitigate cybersecurity risk through instruction in cybersecurity, computer security, information security, and operations. We do so by providing high-quality classroom instruction and training to students, managers, executives, and employees with a focus on filling critical job-related skill gaps. The company will begin with a small group of practitioners/instructors who are subject-matter experts in our core offerings.
             </p>
             <div className="flex w-full justify-center md:justify-start mt-5">
               <button className="bg-[#1B396E] py-2 px-3 w-fit text-[15px] md:text-[17px] text-white">READ MORE</button>
             </div>
           </div>
           <div className='mt-4 md:mt-0 md:ml-8'>
-            <img src="https://images.pexels.com/photos/5240548/pexels-photo-5240548.jpeg?auto=compress&cs=tinysrgb&w=600" alt="CyberPro" className='w-[300px] md:w-[400px] h-[300px] md:h-[400px] object-cover' />
+            <Image src="https://images.pexels.com/photos/5240548/pexels-photo-5240548.jpeg?auto=compress&cs=tinysrgb&w=600" alt="CyberPro" width={90} height={90} className='w-[300px] md:w-[400px] h-[300px] md:h-[400px] object-cover' />
           </div>
         </div>
 
@@ -105,7 +106,7 @@ const Home = () => {
             </div>
             <div className='flex flex-wrap items-center gap-4 justify-center'>
               <div className='w-[150px] lg:w-[200px] h-[150px] lg:h-[200px] rounded-full overflow-hidden shadow-2xl shadow-white/10'>
-                <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg" alt="" className='w-full h-full object-cover' />
+                <Image src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg" alt="photo" width={90} height={90} className='w-full h-full object-cover' />
               </div>
               <div className='w-[200px] h-fit bg-white p-4 rounded-md'>
                 <div className='flex items-center gap-3'>
@@ -114,9 +115,7 @@ const Home = () => {
                     Mucyo Blaise
                   </p>
                 </div>
-                <p className='text-[10px]'>
-                  "Working with EdgeReach Tech was a smooth and positive experience. Their clear communication and commitment to deadlines ensured the project stayed on track and delivered within budget."
-                </p>
+                <p className='text-[10px]'>&quote;Working with EdgeReach Tech was a smooth and positive experience. Their clear communication and commitment to deadlines ensured the project stayed on track and delivered within budget.&quote;</p>
               </div>
             </div>
           </div>
@@ -127,7 +126,7 @@ const Home = () => {
               <div className='flex card-holder  justify-center items-center gap-2 w-full md:w-[600px] lg:w-[1000px] overflow-x-auto'>
                 {project.map((project, index) => (
                   <div key={index} className='bg-[#D9D9D9]  min-w-fit h-fit pb-5'>
-                    <img src={project.Image} alt="" className='w-full h-32 object-cover clip-custom-shape' />
+                    <Image src={project.Image} alt="" width={90} height={90} className='w-full h-32 object-cover clip-custom-shape' />
                     <h2 className="font-bold text-[24px] text-[#1B396E] text-center">{project.title}</h2>
                     <p className="text-[28px] p-2 text-[#1ABC9C]">{project.content}</p>
                     <div className="flex items-center justify-center gap-[2px]">
@@ -203,9 +202,11 @@ const Home = () => {
         {/* tesimonies */}
         <h1 className='my-10 flex justify-center text-center font-[800] text-[36px] text-[#1ABC9C]'>TESTIMONIAL</h1>
         <div className='relative flex flex-col lg:flex-row'>
-          <img
+          <Image
             src="https://images.pexels.com/photos/5324988/pexels-photo-5324988.jpeg?auto=compress&cs=tinysrgb&w=600"
             alt=""
+            width={90}
+            height={90}
             className='lg:relative lg:left-[600px] lg:w-[620px] md:max-w-xl max-w-full mx-6 lg:mx-0 h-[395px] object-cover'
           />
 
@@ -213,7 +214,7 @@ const Home = () => {
             <ImQuotesRight className='w-[50px] h-[50px] md:w-[81px] md:h-[81px] text-sky-400' />
 
             <p className='font-[400] text-base md:text-lg mt-5 md:mt-10'>
-              Explore our portfolio of innovative solutions, detailing the challenges we&apos;ve solved and the successes we’ve delivered for businesses across diverse industries.
+              Explore our portfolio of innovative solutions, detailing the challenges we&apos;ve solved and the successes we&apos;ve delivered for businesses across diverse industries.
             </p>
 
             <div className='flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mt-10 md:mt-20'>
@@ -302,7 +303,7 @@ const Home = () => {
         <div className='flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto'>
           {staff.map((staff, index) => (
             <div key={index} className='bg-[#D9D9D9] min-w-fit h-fit pb-5'>
-              <img src={staff.Image} alt="" className='w-full h-32 object-cover' />
+              <Image src={staff.Image} alt="" width={90} height={90} className='w-full h-32 object-cover' />
               <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">{staff.title}</h2>
               <p className="text-[28px] p-2 text-[#49454F] text-center">{staff.content}</p>
               <div className="flex items-center justify-center gap-[2px]">
@@ -394,7 +395,7 @@ const Home = () => {
           {blogs.map((blog, index) => (
             <div key={index} className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px]">
               <div className="flex flex-col gap-2 text-center">
-                <img className="w-full h-48 object-cover" src={blog.image} alt="cyber" />
+                <Image src={blog.image} alt="cyber" width={90} height={90} className="w-full h-48 object-cover" />
                 <h2 className="font-bold text-2xl">{blog.title}</h2>
                 <p className="text-sm text-gray-600 p-2">{blog.content}</p>
               </div>

@@ -1,7 +1,8 @@
 "use client"
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-const SearchPage = () => {
+const SearchResults = () => {
     const searchParam = useSearchParams();
     const query = searchParam.get('query');
 
@@ -13,4 +14,13 @@ const SearchPage = () => {
     );
 };
 
+const SearchPage = () => {
+    return (
+        <Suspense fallback={<div>Loading search results...</div>}>
+            <SearchResults />
+        </Suspense>
+    );
+};
+
 export default SearchPage;
+
