@@ -35,6 +35,17 @@ const Footer = () => {
               <h1 className="text-[#1ABC9C]">ADDRESS</h1>
               <div className="w-[50px] bg-blue-700 p-[2px] rounded-md mb-4" />
               <div className="flex flex-col gap-4 mt-2 text-white text-xl footer-container">
+      }}
+    >
+      <Logo />
+      <div>
+        <div className="flex justify-between w-full flex-col md:flex-row">
+
+          <div className="flex justify-between w-full both">
+            <div className="mt-3">
+              <h1 className="text-[#1ABC9C]">ADDRESS</h1>
+              <div className="w-[50px] bg-blue-700 p-[2px] rounded-md mb-4" />
+              <div className="flex flex-col gap-4 mt-2 text-white">
                 {Locations.map((location, index) => {
                   const IconComponent = location.location;
                   return (
@@ -56,6 +67,12 @@ const Footer = () => {
                 <div className="w-[50px] bg-blue-700 p-[2px] rounded-md mb-4" />
               </div>
               <div className="flex flex-col gap-2 mt-2 text-white text-xl footer-container">
+            <div className="md:mx-auto">
+              <div className="mt-3">
+                <h1 className="text-[#1ABC9C]">USEFUL LINKS</h1>
+                <div className="w-[50px] bg-blue-700 p-[2px] rounded-md mb-4" />
+              </div>
+              <div className="flex flex-col gap-2 mt-2 text-white">
                 {NavigationItemsRoutes.map((navigationRoute, index) => (
                   <Link href={navigationRoute.path} key={index}>{navigationRoute.label}</Link>
                 ))}
@@ -64,6 +81,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-3 footer-container contact-container">
+          <div className="mt-3">
             <h1 className="text-[#1ABC9C]">CONTACTS</h1>
             <div className="w-[50px] bg-blue-700 p-[2px] rounded-md mb-4" />
             <div className="flex flex-col gap-4 mt-2 text-white">
@@ -84,6 +102,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-3 text-white text-medium sm:text-sm md:text-xl mt-4 w-[100%]">
               <MdOutlineEmail className="text-xl md:text-3xl text-red-600 bg-white email" /> info@cyberprogroup.com
+              <MdOutlineEmail className="text-xl md:text-3xl text-red-600 bg-white" /> info@cyberprogroup.com
             </div>
           </div>
         </div>
@@ -96,6 +115,7 @@ const Footer = () => {
           </div>
 
           <div className="bg-blue-700 w-[400px] p-2 follow-us">
+          <div className="bg-blue-700 w-[400px] p-2">
             <p className="text-white text-center">Follow Us</p>
             <div className="flex justify-between items-center gap-2 mt-2">
               <a href="#"><FaPinterestP /></a>

@@ -8,6 +8,11 @@
         flex-direction: column;
     }
 } */
+@media (max-width: 311px) {
+    .both {
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 292px) {
     .contacts {
