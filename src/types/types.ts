@@ -1,8 +1,8 @@
-export interface Blog{
-    _id:string
+export interface Blog {
+  _id: string
   title: string
   content: string
-  image:string
+  image: string
 }
 
 
@@ -25,8 +25,8 @@ export interface Team {
 
 export interface Testimony {
   _id: string;
-  content: { type: String; required: true };
-  authorName: { type: String; required: true };
-  authorCompany: { type: String; required: true };
-  authorRole: { type: String; required: true };
+  content: { type: string; required: true };
+  authorName: { type: string; required: true };
+  authorCompany: { type: string; required: true };
+  authorRole: { type: string; required: true };
 }
