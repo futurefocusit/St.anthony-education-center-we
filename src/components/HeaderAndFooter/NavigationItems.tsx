@@ -29,6 +29,9 @@ const NavigationItems = () => {
             </div>
             {showMenuItems && (
                 <div className={'flex lg:hidden absolute bg-black/15 left-0 h-full w-full top-0 transition-all duration-75 ease-linear popup'}>
+            </div>
+            {showMenuItems && (
+                <div className={'flex lg:hidden absolute bg-black/15 left-0 h-full w-full top-0 transition-all duration-75 ease-linear'}>
                     <div className={'bg-white w-fit px-[50px] py-20 h-screen overflow-y-auto flex flex-col gap-8'}>
                         <button className='text-3xl ml-[10rem]' onClick={() => setShowMenuItems((prev) => !prev)}><MdClose /></button>
                         {NavigationItemsRoutes.map((navigation) => {
