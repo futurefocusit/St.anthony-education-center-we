@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import "./globals.css";
 
 import { Roboto, Merriweather } from "@next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContextProvider from "@/components/HeaderAndFooter/contextProvider";
 const roboto = Roboto({
   weight: ["300", "400", "700"],
   subsets: ["latin"],
@@ -28,13 +29,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.variable} ${merriweather.variable} font-roboto`}
-      >
-        <Header/>
-        {children}
-        <Footer/>
-      </body>
+      <ContextProvider>
+        <body
+          className={`${roboto.variable} ${merriweather.variable} font-roboto`}
+        >
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </ContextProvider>
     </html>
   );
 }
