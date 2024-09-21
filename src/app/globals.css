@@ -54,3 +54,87 @@
 .clip-custom-shape {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%, 0 70%);
 }
+
+.essential-h1 {
+  width: "577px";
+  height: "100px";
+  position: "absolute";
+  top: "617px";
+  left: "199px";
+  fontFamily: "Merriweather Sans";
+  fontWeight: "700";
+  fontSize: "40px";
+  lineHeight: "50.28px";
+  color: "#1B396E";
+}
+
+.june {
+  width: "102px";
+  height: "24px";
+  position: "absolute";
+  top: "733px";
+  left: "199px";
+  fontFamily: "Merriweather Sans";
+  fontWeight: "800";
+  fontSize: "16px";
+  lineHeight: "24px";
+  color: "#1ABC9C";
+}
+
+.step-by {
+  width: "591px";
+  height: "71px";
+  position: "absolute";
+  top: "803px";
+  left: "183px";
+  fontFamily: "Roboto Serif";
+  fontWeight: "400";
+  fontSize: "16px";
+  lineHeight: "24px";
+  color: "#000000";
+}
+
+.cybersecurity {
+  width: "7px";
+  height: "84px";
+  position: "absolute";
+  top: "625px";
+  left: "179px";
+  backgroundColor: "#1B396E";
+  border: "none";
+}
+
+.headings {
+  width: "555px";
+  height: "96px";
+  position: "absolute";
+  top: "900px";
+  left: "201px";
+  fontFamily: "Roboto Serif";
+  fontWeight: "400";
+  fontSize: "16px";
+  lineHeight: "24px";
+  color: "#000000";
+}
+
+.headingstwo {
+  width: "545px";
+  height: "96px";
+  position: "absolute";
+  top: "1050px";
+  left: "199px";
+  fontFamily: "Roboto Serif";
+  fontWeight: "400";
+  fontSize: "16px";
+  lineHeight: "24px";
+  color: "#000000";
+}
+
+.image-responsive {
+  width: "327px";
+  height: "373px";
+  position: "absolute";
+  top: "630px";
+  left: "931px";
+  borderRadius: "10px";
+}

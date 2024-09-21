@@ -51,7 +51,7 @@ const BlogsAdmin: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 h-fit">
       <h1 className="text-2xl font-bold mb-4">Manage Blogs</h1>
 
       <form onSubmit={handleSubmit} className="mb-8">
