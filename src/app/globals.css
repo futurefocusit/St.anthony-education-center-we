@@ -64,10 +64,10 @@
   position: "absolute";
   top: "617px";
   left: "199px";
-  fontFamily: "Merriweather Sans";
-  fontWeight: "700";
-  fontSize: "40px";
-  lineHeight: "50.28px";
+  font-family: "Merriweather Sans";
+  font-weight: "700";
+  font-size: "40px";
+  line-height: "50.28px";
   color: "#1B396E";
 }
 
@@ -77,10 +77,10 @@
   position: "absolute";
   top: "733px";
   left: "199px";
-  fontFamily: "Merriweather Sans";
-  fontWeight: "800";
-  fontSize: "16px";
-  lineHeight: "24px";
+  font-family: "Merriweather Sans";
+  font-weight: "800";
+  font-size: "16px";
+  line-height: "24px";
   color: "#1ABC9C";
 }
 
@@ -90,10 +90,10 @@
   position: "absolute";
   top: "803px";
   left: "183px";
-  fontFamily: "Roboto Serif";
-  fontWeight: "400";
-  fontSize: "16px";
-  lineHeight: "24px";
+  font-family: "Roboto Serif";
+  font-weight: "400";
+  font-size: "16px";
+  line-height: "24px";
   color: "#000000";
 }
 
@@ -103,7 +103,7 @@
   position: "absolute";
   top: "625px";
   left: "179px";
-  backgroundColor: "#1B396E";
+  background-color: "#1B396E";
   border: "none";
 }
 
@@ -113,10 +113,10 @@
   position: "absolute";
   top: "900px";
   left: "201px";
-  fontFamily: "Roboto Serif";
-  fontWeight: "400";
-  fontSize: "16px";
-  lineHeight: "24px";
+  font-family: "Roboto Serif";
+  font-weight: "400";
+  font-size: "16px";
+  line-height: "24px";
   color: "#000000";
 }
 
@@ -126,10 +126,10 @@
   position: "absolute";
   top: "1050px";
   left: "199px";
-  fontFamily: "Roboto Serif";
-  fontWeight: "400";
-  fontSize: "16px";
-  lineHeight: "24px";
+  font-family: "Roboto Serif";
+  font-weight: "400";
+  font-size: "16px";
+  line-height: "24px";
   color: "#000000";
 }
 
@@ -139,5 +139,5 @@
   position: "absolute";
   top: "630px";
   left: "931px";
-  borderRadius: "10px";
+  border-radius: "10px";
 }
