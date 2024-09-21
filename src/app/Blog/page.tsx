@@ -1,12 +1,8 @@
-'use client'
-import React from 'react'
+"use client";
+import React from "react";
 
 const Blog = () => {
-  return (
-    <div className='bg-black'>
-      Blog
-    </div>
-  )
-}
+  return <div className="bg-black">Blog</div>;
+};
 
-export default Blog
+export default Blog;
