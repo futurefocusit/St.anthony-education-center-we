@@ -7,8 +7,13 @@ const Home = () => {
   return (
     <div>
       <section
-        className="lg:h-screen h-fit mb-10 pb-5 bg-cover bg-center lg:pt-32 pt-10 lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5"
-        style={{ backgroundImage: "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')" }}
+        className='h-fit lg:h-screen pb-10 relative -top-36  pt-36 -mb-32 lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5'
+        style={{
+          backgroundImage: "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
       >
         <hr className="bg-[#F39C12] h-[11px] w-[163px] top-[128px] left-[179px] border-0" />
         <h1
@@ -31,14 +36,12 @@ const Home = () => {
           guidance, or the latest in camera systems, we&apos;ve got you covered. Stay
           informed, stay secure, and enjoy exploring our articles!
         </p>
-        <div className="flex items-center lg:w-[737px] h-10 lg:h-[65px] gap-5 overflow-hidden " style={{
-          borderRadius: "10px", border: "1px solid #FFFFFF", color: "#FFFFFF", backgroundColor: "#1B396E",
-        }}>
-          <CiSearch className="w-7 h-7" />
+        <div className="z-30 flex items-center lg:w-[737px] h-10 lg:h-[65px] gap-5 overflow-hidden "
+          style={{ borderRadius: "10px", border: "1px solid #FFFFFF", color: "#FFFFFF", backgroundColor: "#1B396E" }}>
+          <CiSearch className="w-7 h-7 ml-5" />
           <input
             type="text"
             placeholder="WHAT ARE YOU LOOKING FOR ?"
-
             className="w-full h-full bg-transparent outline-none border-0"
           />
         </div>
@@ -74,7 +77,7 @@ const Home = () => {
                 width={90}
                 height={90}
                 style={{ borderRadius: "10px" }}
-                className="object-cover w-[400px] h-[373px]"
+                className="object-cover min-w-[400px] h-[373px]"
               />
             </div>
           </div>

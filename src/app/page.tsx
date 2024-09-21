@@ -19,7 +19,7 @@ import Image from 'next/image';
 const Home = () => {
   return (
     <>
-      <div className='h-fit pb-10 relative -top-36 -z-10 pt-36 lg:flex -mb-32' style={{
+      <div className='h-fit pb-10 relative -top-36 pt-36 lg:flex -mb-32' style={{
         backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
