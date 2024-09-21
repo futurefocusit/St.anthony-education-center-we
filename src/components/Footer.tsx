@@ -18,7 +18,7 @@ import { MdArrowUpward } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <div className="mt-10 p-5"
+    <div className=" p-5"
       style={{
         backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
         backgroundSize: 'cover',
