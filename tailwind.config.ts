@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'custom-blue': '#1B396E',
       },
       fontFamily: {
         roboto: ["var(--font-roboto)", "sans-serif"],
