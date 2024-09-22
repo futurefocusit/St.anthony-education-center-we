@@ -25,7 +25,7 @@ const NavigationItems = () => {
                         </Link>
                     )
                 })}
-                <button className='bg-blue-600 text-white px-2 py-2 cursor-pointer'>Report Incident</button>
+                <Link href="reportIncident" className='bg-blue-600 text-white px-2 py-2 cursor-pointer'>Report Incident</Link>
             </div>
             {showMenuItems && (
                 <div className={'flex lg:hidden absolute bg-black/15 left-0 h-full w-full top-0 transition-all duration-75 ease-linear popup'}>
@@ -39,7 +39,7 @@ const NavigationItems = () => {
                                 </Link>
                             )
                         })}
-                        <button className='bg-blue-600 text-white px-2 py-2 cursor-pointer'>Report Incident</button>
+                        <Link href="reportIncident" className='bg-blue-600 text-white px-2 py-2 cursor-pointer'>Report Incident</Link>
                     </div>
                 </div>
             )}

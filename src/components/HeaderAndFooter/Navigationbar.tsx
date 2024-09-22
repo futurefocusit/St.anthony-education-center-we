@@ -6,11 +6,14 @@ import SearchBar from './SearchBar'
 import { MyContext } from './contextProvider'
 
 import { MdClose } from "react-icons/md";
+import { usePathname } from 'next/navigation';
 
 const NavigationBar = () => {
 
   const context = useContext(MyContext);
   const [searchInput, setSearchInput] = useState("");
+  const pathname = usePathname();
+  if (pathname === "/reportIncident") return null;
   if (!context) {
     return null;
   }
