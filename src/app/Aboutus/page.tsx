@@ -17,7 +17,7 @@ const Aboutus = () => {
     <div className="relative mt-[-2em]">
       
       <section
-        className=' h-auto relative -top-36  pt-14 -mb-32 lg:pl-[50px]  pl-[5px] '
+        className=' h-auto relative -top-36  pt-32 pb-32 -mb-32 lg:pl-[50px]  pl-[5px] '
         style={{
           backgroundImage: "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",
           backgroundSize: 'cover',
@@ -26,8 +26,8 @@ const Aboutus = () => {
         }}
       >
         <div className=" h-auto pt-16 pb-3 ">
-        <h2 className="text-[#1B396E] pt-10 pl-10 text-2xl">About cyberpro</h2>
-        <p className="text-[#1B396E] pt-5 pl-10 text-xl">
+        <h2 className="text-[#1B396E] pt-10 pl-10 text-6xl">About cyberpro</h2>
+        <p className="text-[#1B396E] pt-5 pl-10 text-2xl">
           Your Trusted Partner in Cybersecurity and Consultancy
         </p>
       </div>
