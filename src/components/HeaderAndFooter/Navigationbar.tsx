@@ -13,7 +13,7 @@ const NavigationBar = () => {
   const context = useContext(MyContext);
   const [searchInput, setSearchInput] = useState("");
   const pathname = usePathname();
-  if (pathname === "/reportIncident") return null;
+  if (pathname === "/reportIncident" || pathname === '/registration') return null;
   if (!context) {
     return null;
   }

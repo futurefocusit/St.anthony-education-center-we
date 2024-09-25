@@ -4,7 +4,9 @@ import './HeaderAndFooter/style.css';
 
 const Header = () => {
   return (
-    <NavigationBar />
+    <>
+      <NavigationBar />
+    </>
   )
 }
 
