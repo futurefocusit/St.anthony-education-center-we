@@ -456,7 +456,7 @@ const Home = () => {
 
             <div className="flex w-full justify-center mt-5">
               <button className="bg-[#1B396E] py-2 px-4 sm:px-5 w-fit text-[16px] sm:text-[17px] text-white">
-                CHOOSE
+                {data.choose}
               </button>
             </div>
           </div>
