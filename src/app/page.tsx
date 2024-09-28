@@ -56,7 +56,7 @@ const Home = () => {
             {data.heroSubtitle}
           </p>
           <div className="bg-[#1ABC9C] w-[200px] h-2 mx-auto rounded-lg" />
-          <button className="button hover:bg-blue-600 hover:rounded-lg text-[16px] text-white w-fit mx-auto px-4 py-2">
+          <button className="button hover:bg-teal-500 hover:rounded-lg text-[16px] text-white w-fit mx-auto px-4 py-2">
             {data.readMore}
           </button>
         </div>
@@ -99,7 +99,7 @@ const Home = () => {
                 <p className="text-sm text-gray-600 p-2">{post.content}</p>
               </div>
               <div className="absolute bottom-2 flex w-full items-center justify-center">
-                <button className="bg-teal-500 rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg">
+                <button className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg">
                   {data.readMore}
                 </button>
               </div>
@@ -107,7 +107,7 @@ const Home = () => {
           ))}
         </div>
         <div className="flex w-full items-center justify-center mt-5">
-          <button className="bg-[#1B396E] py-2 px-3 w-fit text-[17px] text-white">
+          <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white ">
             {data.visitServicePage}
           </button>
         </div>
@@ -125,7 +125,7 @@ const Home = () => {
               {data.aboutUsDescription}
             </p>
             <div className="flex w-full justify-center md:justify-start mt-5">
-              <button className="bg-[#1B396E] py-2 px-3 w-fit text-[15px] md:text-[17px] text-white hover:rounded-lg">
+              <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[15px] md:text-[17px] text-white hover:rounded-lg">
                 {data.readMore}
               </button>
             </div>
@@ -197,7 +197,7 @@ const Home = () => {
                 {project.map((project, index) => (
                   <div
                     key={index}
-                    className="bg-[#D9D9D9]  min-w-fit h-fit pb-5"
+                    className="bg-[#D9D9D9]  min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105 "
                   >
                     <Image
                       src={project.Image}
@@ -225,7 +225,7 @@ const Home = () => {
               </div>
             </div>
             <div className="flex w-full items-center justify-center mt-5">
-              <button className="bg-[#1B396E] py-2 px-3 w-fit text-[17px] text-white">
+              <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white">
                 {data.viewMore}
               </button>
             </div>
@@ -274,7 +274,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <button className="bg-[#1B396E] py-2 px-3 w-[208px]   text-[15px] sm:text-[17px] text-white">
+            <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px]   text-[15px] sm:text-[17px] text-white">
               {data.enrollNow}
             </button>
           </div>
@@ -299,7 +299,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <button className="bg-[#1B396E] py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white">
+            <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white">
               {data.getExpertAdvice}
             </button>
           </div>
@@ -337,7 +337,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <button className="bg-[#1B396E] py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white">
+            <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white">
               {data.viewMore}
             </button>
           </div>
@@ -450,7 +450,7 @@ const Home = () => {
             </div>
 
             <div className="flex w-full justify-center mt-5">
-              <button className="bg-[#1B396E] py-2 px-4 sm:px-5 w-fit text-[16px] sm:text-[17px] text-white">
+              <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-4 sm:px-5 w-fit text-[16px] sm:text-[17px] text-white">
                 {data.choose}
               </button>
             </div>
@@ -468,7 +468,7 @@ const Home = () => {
         </div>
         <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
           {staff.map((staff, index) => (
-            <div key={index} className="bg-[#D9D9D9] min-w-fit h-fit pb-5">
+            <div key={index} className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105">
               <Image
                 src={staff.Image}
                 alt=""
@@ -593,7 +593,7 @@ const Home = () => {
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px]"
+              className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105"
             >
               <div className="flex flex-col gap-2 text-center">
                 <Image
@@ -607,7 +607,7 @@ const Home = () => {
                 <p className="text-sm text-gray-600 p-2">{blog.content}</p>
               </div>
               <div className="absolute bottom-2 flex w-full items-center justify-center">
-                <button className="bg-teal-500 rounded-full py-2 px-3 w-fit text-[7px] text-white">
+                <button className="bg-teal-500  hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
                   {data.readMore}
                 </button>
               </div>
@@ -615,7 +615,7 @@ const Home = () => {
           ))}
         </div>
         <div className="flex w-full items-center justify-center mt-5">
-          <button className="bg-[#1B396E] py-2 px-3 w-fit text-[17px] text-white">
+          <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white">
             {data.viewMore}
           </button>
         </div>
