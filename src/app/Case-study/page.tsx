@@ -20,12 +20,12 @@ const Card: React.FC<cardProps> =({imageSrc,uploadDate,projectName,statusText,pr
   return (
     <div className="bg-white flex flex-col items-center md:items-start lg:items-start md:flex-row px-20 mb-12 pt-2">
       <div className="flex flex-col">
-      <div className="bg-slate-300 min-w-[380px] h-[320px] md:mt-[35px] md:h-[320px] md:max-w-[400px] lg:max-w-[450px] overflow-hidden rounded-lg shadow-xl relative flex-shrink-0">
+      <div className="bg-slate-300 min-w-[380px] h-[320px] md:mt-[35px] md:h-[320px] md:max-w-[400px] lg:max-w-[450px] overflow-hidden rounded-lg shadow-xl relative flex-shrink-0 cursor-pointer transition-all duration-300 hover:scale-105">
         <Image
           src={imageSrc}
           alt="cyberimage"
           width={450}
-          className=" md:h-full md:w-full w-full h-full object-cover cursor-pointer transition-all duration-300 hover:opacity-60 clip-custom-shape"
+          className=" md:h-full md:w-full w-full h-full object-cover clip-custom-shape"
         />
         
       </div>
