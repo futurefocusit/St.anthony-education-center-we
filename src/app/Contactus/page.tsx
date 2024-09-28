@@ -89,7 +89,7 @@ const Contactus = () => {
     
         <div className='flex flex-col m-2'>
           <button id='submit'
-          className='bg-[#1b396e] w-[350px] md:w-[700px] h-10 text-center border-none outline-none text-[20px] font-roboto pl-3 rounded-[5px] text-[#ffff] font-bold transition-all duration-300 ease-in-out hover:bg-[#2c3e5d~] active:bg-[#6f9be6]'>
+          className='bg-[#1b396e] w-[350px] md:w-[700px] h-10 text-center border-none outline-none text-[20px] font-roboto pl-3 rounded-[5px] text-[#ffff] font-bold transition-all duration-300 ease-in-out hover:bg-[#42577c] active:bg-[#6f9be6]'>
             Send Message
           </button>
         </div>

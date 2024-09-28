@@ -19,7 +19,7 @@ interface cardProps{
 const Card: React.FC<cardProps> =({imageSrc,uploadDate,projectName,statusText,profileName,summary,testimonial,releaseDate})=>{
   return (
     <div className="bg-white flex flex-col items-center md:items-start lg:items-start md:flex-row px-20 mb-12 pt-2">
-      <div className="flex flex-col">
+      <div className="flex flex-col">~
       <div className="bg-slate-300 min-w-[380px] h-[320px] md:mt-[35px] md:h-[320px] md:max-w-[400px] lg:max-w-[450px] overflow-hidden rounded-lg shadow-xl relative flex-shrink-0">
         <Image
           src={imageSrc}
@@ -33,7 +33,7 @@ const Card: React.FC<cardProps> =({imageSrc,uploadDate,projectName,statusText,pr
       <div className="flex gap-2 mt-[20px] md:left-4 md:flex md:mt-[20px]">
           <Image src={shape} alt="shape image" width={5}/>
           <p className="text-[10px] font-light text-gray-600 italic mt-2 md:text-[14px] cursor-pointer">
-            Uploaded on:{" "} <span className="font-bold text-[#1abc9c] transition-all duration-300 ease-in-out hover:text-white">{uploadDate}</span>
+            Uploaded on:{" "} <span className="font-bold text-[#1abc9c] transition-all duration-300 ease-in-out hover:text-black">{uploadDate}</span>
           </p>
         </div>
         </div>
