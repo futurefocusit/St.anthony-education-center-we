@@ -56,7 +56,7 @@ const Home = () => {
             {data.heroSubtitle}
           </p>
           <div className="bg-[#1ABC9C] w-[200px] h-2 mx-auto rounded-lg" />
-          <button className="button text-[16px] text-white w-fit mx-auto px-4 py-2">
+          <button className="button hover:bg-blue-600 hover:rounded-lg text-[16px] text-white w-fit mx-auto px-4 py-2">
             {data.readMore}
           </button>
         </div>
@@ -85,7 +85,7 @@ const Home = () => {
           {posts.map((post, index) => (
             <div
               key={index}
-              className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem]"
+              className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105"
             >
               <div className="flex flex-col gap-2 text-center">
                 <Image
@@ -99,7 +99,7 @@ const Home = () => {
                 <p className="text-sm text-gray-600 p-2">{post.content}</p>
               </div>
               <div className="absolute bottom-2 flex w-full items-center justify-center">
-                <button className="bg-teal-500 rounded-full py-2 px-3 w-fit text-[7px] text-white">
+                <button className="bg-teal-500 rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg">
                   {data.readMore}
                 </button>
               </div>
@@ -125,7 +125,7 @@ const Home = () => {
               {data.aboutUsDescription}
             </p>
             <div className="flex w-full justify-center md:justify-start mt-5">
-              <button className="bg-[#1B396E] py-2 px-3 w-fit text-[15px] md:text-[17px] text-white">
+              <button className="bg-[#1B396E] py-2 px-3 w-fit text-[15px] md:text-[17px] text-white hover:rounded-lg">
                 {data.readMore}
               </button>
             </div>
@@ -394,7 +394,7 @@ const Home = () => {
         <div className="flex flex-col lg:flex-row gap-3 mt-10">
           <div className="bg-[#D9D9D9] max-w-[500px] w-full h-auto sm:h-[400px] p-4 sm:p-8 mx-auto flex flex-col items-center">
             <h1 className="w-full text-center font-[800] text-[36px] sm:text-[28px] text-[#1B396E]">
-           {data.customerReviews}
+              {data.customerReviews}
             </h1>
 
             <div className="w-full max-w-[300px] pb-[5px] py-[3px] mb-6 gap-[10px] flex justify-center bg-[#F3F4FF] rounded-full">
@@ -435,10 +435,10 @@ const Home = () => {
 
           <div className="bg-[#D9D9D9] w-full max-w-[500px] h-auto sm:h-[400px] p-4 sm:p-8 mx-auto flex flex-col items-center">
             <h1 className="font-[800] text-[#1B396E] text-[36px] sm:text-[28px] text-center mb-4">
-            {data.rateUs}
+              {data.rateUs}
             </h1>
             <p className="font-[300] text-[14px] text-center text-[#2D2A2A] mb-6">
-             {data.rateUsSubtitle}
+              {data.rateUsSubtitle}
             </p>
 
             <div className="w-full max-w-[487px] py-[10px] mb-6 gap-[21px] flex justify-center bg-[#F3F4FF]">
@@ -460,10 +460,10 @@ const Home = () => {
         {/* our staff  */}
         <div className="flex flex-col  justify-center items-center text-center md:text-left m-auto mt-11">
           <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
-           {data.ourStaffTitle}
+            {data.ourStaffTitle}
           </h1>
           <p className="font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5">
-          {data.ourStaffSubtitle}
+            {data.ourStaffSubtitle}
           </p>
         </div>
         <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
@@ -500,7 +500,7 @@ const Home = () => {
           }}
         >
           <h1 className="w-[265px] h-[60.57px] font-[800] text-[24px] sm:text-[36px] text-[#1ABC9C] text-center m-auto">
-          {data.contactTitle}
+            {data.contactTitle}
           </h1>
           <div className="flex flex-col lg:flex-row md:flex-row lg:gap-56 gap-10">
             <div
@@ -511,20 +511,20 @@ const Home = () => {
               }}
             >
               <h1 className="w-full text-center font-[800] text-[20px] sm:text-[24px] text-[#1ABC9C] mb-4">
-               {data.letsStart}
+                {data.letsStart}
               </h1>
               <p className="w-full text-center font-[800] text-[18px] sm:text-[20px] text-[#1B396E] mb-6">
-               {data.secureYourFuture}
+                {data.secureYourFuture}
               </p>
               <div className="w-[64px] h-[8px] bg-[#1B396E] mt-3 mx-auto mb-6" />
               <p className="w-full max-w-[555px] text-center font-[400] text-[14px] sm:text-[16px] mb-8">
                 Explore our portfolio of innovative solutions, detailing the
-                challenges we’ve solved and the successes we’ve delivered for
+                challenges we&apos;ve solved and the successes we&apos;ve delivered for
                 businesses across diverse industries.
               </p>
               <div className="flex flex-row items-center justify-center space-x-4">
                 <button className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white">
-                 {data.contactUs}
+                  {data.contactUs}
                 </button>
                 <FaGreaterThan
                   size={20}
@@ -564,7 +564,7 @@ const Home = () => {
 
               <div className="w-full max-w-[400px] py-[2px] mb-6 mt-10 gap-[21px] flex flex-col text-center justify-center bg-[#1B396E]">
                 <p className="w-auto h-auto font-[700] text-[20px] text-[#D9D9D9]">
-                {data.followUs}
+                  {data.followUs}
                 </p>
                 <div className="flex flex-row justify-center space-x-4">
                   <PiPinterestLogo className="w-[20px] lg:w-[30px] h-[20px] lg:h-[30px]" />
@@ -582,10 +582,10 @@ const Home = () => {
 
         <div className="flex flex-col justify-center items-center text-center md:text-left m-auto">
           <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px] mt-10">
-           {data.whatsNew}
+            {data.whatsNew}
           </h1>
           <p className="font-[800] text-[32px] sm:text-[36px] md:text-[48px]">
-          {data.latestBlog}
+            {data.latestBlog}
           </p>
         </div>
 
@@ -608,7 +608,7 @@ const Home = () => {
               </div>
               <div className="absolute bottom-2 flex w-full items-center justify-center">
                 <button className="bg-teal-500 rounded-full py-2 px-3 w-fit text-[7px] text-white">
-                 {data.readMore}
+                  {data.readMore}
                 </button>
               </div>
             </div>
@@ -616,7 +616,7 @@ const Home = () => {
         </div>
         <div className="flex w-full items-center justify-center mt-5">
           <button className="bg-[#1B396E] py-2 px-3 w-fit text-[17px] text-white">
-           {data.viewMore}
+            {data.viewMore}
           </button>
         </div>
 
