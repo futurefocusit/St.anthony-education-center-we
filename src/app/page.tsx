@@ -29,11 +29,11 @@ import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 
 const Home = () => {
-  const [language, setLanguage] = useState("en");
+  // const [language, setLanguage] = useState("en");
   const [data, setData] = useState(englishContent);
   useEffect(() => {
     const storedLang = localStorage.getItem("lang") || "en";
-    setLanguage(storedLang);
+    // setLanguage(storedLang);
     //@ts-expect-error error
     setData(storedLang === "en" ? englishContent : frenchContent);
   }, []);
