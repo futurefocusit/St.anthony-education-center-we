@@ -29,6 +29,7 @@ const Services = () => {
         </div>
       </section>
 
+      {/* training service section content*/}
       <section className="px-20 max-lg:px-5">
           <div className=" py-7 ">
             <h1 className="text-[#1B396E] max-md:ml-5 max-lg:ml-5 ml-[11em] font-merriweather  text-2xl pb-3">
@@ -145,7 +146,128 @@ const Services = () => {
         </section>
 
 
-      <div className="w-[100%] h-full  max-md:bg-[#BEB9B9] max-lg:bg[#BEB9B9] px-20 pb-2  max-md:px-5 mt-0 mx-auto ">
+    
+        {/* Consultancy service section content */}
+
+        <section className="flex flex-col px-20 max-lg:px-5 justify-start items-start pb-5 gap-4">
+          <div className=" py-7 ">
+            <h1 className="text-[#1B396E] font-merriweather text-10px text-2xl pb-3">
+              Cybersecurity Consultancy Services
+            </h1>
+            <p className="text-[#1B396E] font-merriweather pb-3 text-sm ">
+              Guiding your business towards a secure digital future
+            </p>
+          </div>
+
+          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:w-[100%] max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+            <Image
+              className="max-sm:w-[400px] max-md:p-3 "
+              src={Values}
+              alt="My Image"
+              width={250}
+              height={250}
+            />
+            <div>
+              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] max-md:p-3  ">
+                Cyber security AssAssessment
+              </h1>
+              <p className="pt-3 font-roboto max-lg:font-sans  max-md:p-3  ">
+                Explore our past consultancy work and see how we have helped
+                businesses enhance their cybersecurity measures. Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Obcaecati ducimus
+                provident porro doloribus magni odio, labore itaque error
+              </p>
+              <div>
+                <button className="bg-gradient-to-r max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+            <Image
+              className="max-sm:w-[400px]"
+              src={MyImagee}
+              alt="My Image"
+              width={250}
+              height={250}
+            />
+            <div>
+              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] ">
+                IT securitsecurity
+              </h1>
+              <p className="pt-3 font-roboto max-lg:font-sans  ">
+                We provide expert guidance on compliance with industry
+                regulations and standards to ensure your business meets
+                cybersecurity requirements. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Obcaecati ducimus provident porro
+                doloribus magni odio, labore itaque error
+              </p>
+              <div>
+                <button className="bg-gradient-to-r  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
+            <Image
+              className="max-sm:w-[400px]"
+              src={MyImagee}
+              alt="My Image"
+              width={250}
+              height={250}
+            />
+            <div>
+              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] ">
+                Threat Intelligence
+              </h1>
+              <p className="pt-3 font-roboto max-lg:font-sans  ">
+                Our consultancy services include thorough risk assessment and
+                strategic planning to mitigate potential cybersecurity threats.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati ducimus provident porro doloribus magni odio, labore
+                itaque error
+              </p>
+              <div>
+                <button className="bg-gradient-to-r  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
+            <Image
+              className="max-sm:w-[400px] max-md:p-3 "
+              src={Values}
+              alt="My Image"
+              width={250}
+              height={250}
+            />
+            <div>
+              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] max-md:p-3  ">
+                Third-party Risk Assessment
+              </h1>
+              <p className="pt-3 font-roboto max-lg:font-sans  max-md:p-3  ">
+                Explore our past consultancy work and see how we have helped
+                businesses enhance their cybersecurity measures. Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Obcaecati ducimus
+                provident porro doloribus magni odio, labore itaque error
+              </p>
+              <div>
+                <button className="bg-gradient-to-r max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* installation CCTV cameras  service section content*/}
+        <div className="w-[100%] h-full  max-md:bg-[#BEB9B9] max-lg:bg[#BEB9B9] px-20 pb-2  max-md:px-5 mt-0 mx-auto ">
         <div>
           <h1 className="text-[#1B396E] max-lg:ml-0 font-merriweather text-10px text-2xl ml-[11em] max-md:ml-0  py-3">
             CCTV Camera Security Solution
@@ -328,127 +450,6 @@ const Services = () => {
             </div>
           </section>
         </section>
-
-        {/* Consultancy service section content */}
-
-        <section className="flex flex-col justify-start items-start pb-5 gap-4">
-          <div className=" py-5 ">
-            <h1 className="text-[#1B396E] font-merriweather text-10px text-2xl pb-3">
-              Cybersecurity Consultancy Services
-            </h1>
-            <p className="text-[#1B396E] font-merriweather pb-3 text-sm ">
-              Guiding your business towards a secure digital future
-            </p>
-          </div>
-
-          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:w-[100%] max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
-            <Image
-              className="max-sm:w-[400px] max-md:p-3 "
-              src={Values}
-              alt="My Image"
-              width={250}
-              height={250}
-            />
-            <div>
-              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] max-md:p-3  ">
-                Cyber security AssAssessment
-              </h1>
-              <p className="pt-3 font-roboto max-lg:font-sans  max-md:p-3  ">
-                Explore our past consultancy work and see how we have helped
-                businesses enhance their cybersecurity measures. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Obcaecati ducimus
-                provident porro doloribus magni odio, labore itaque error
-              </p>
-              <div>
-                <button className="bg-gradient-to-r max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
-            <Image
-              className="max-sm:w-[400px]"
-              src={MyImagee}
-              alt="My Image"
-              width={250}
-              height={250}
-            />
-            <div>
-              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] ">
-                IT securitsecurity
-              </h1>
-              <p className="pt-3 font-roboto max-lg:font-sans  ">
-                We provide expert guidance on compliance with industry
-                regulations and standards to ensure your business meets
-                cybersecurity requirements. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Obcaecati ducimus provident porro
-                doloribus magni odio, labore itaque error
-              </p>
-              <div>
-                <button className="bg-gradient-to-r  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3">
-            <Image
-              className="max-sm:w-[400px]"
-              src={MyImagee}
-              alt="My Image"
-              width={250}
-              height={250}
-            />
-            <div>
-              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] ">
-                Threat Intelligence
-              </h1>
-              <p className="pt-3 font-roboto max-lg:font-sans  ">
-                Our consultancy services include thorough risk assessment and
-                strategic planning to mitigate potential cybersecurity threats.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Obcaecati ducimus provident porro doloribus magni odio, labore
-                itaque error
-              </p>
-              <div>
-                <button className="bg-gradient-to-r  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
-            <Image
-              className="max-sm:w-[400px] max-md:p-3 "
-              src={Values}
-              alt="My Image"
-              width={250}
-              height={250}
-            />
-            <div>
-              <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] max-md:p-3  ">
-                Third-party Risk Assessment
-              </h1>
-              <p className="pt-3 font-roboto max-lg:font-sans  max-md:p-3  ">
-                Explore our past consultancy work and see how we have helped
-                businesses enhance their cybersecurity measures. Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Obcaecati ducimus
-                provident porro doloribus magni odio, labore itaque error
-              </p>
-              <div>
-                <button className="bg-gradient-to-r max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff] hover:text-red-500 hover:bg-gradient-to-r hover:from-[#2682df] hover:to-[#175f54] from-[#e7c8c8] via-[#1B396E] to-[#45257b] shadow-[#71a7de]">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* training service section content*/}
 
       
       </div>
