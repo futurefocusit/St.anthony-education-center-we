@@ -44,7 +44,7 @@ const Aboutus = () => {
           Securing Your Future, Protecting Your Business
         </p>
 
-        <section className="flex flex-row gap-5  max-sm:flex-col max-md:pl-0 ">
+        <section className="flex flex-row gap-5   max-sm:flex-col max-md:pl-0 ">
           <Image
             className="max-sm:w-[400px]"
             src={myImage}
@@ -115,7 +115,7 @@ const Aboutus = () => {
             Meet Our Team
           </h1>
           <div className="flex flex-1 flex-row gap-5 max-sm:flex-wrap justify-evenly items-center ">
-            <div className="w-[300px] h-auto pb-3 rounded-2xl max-md:rounded-none max-md:w-screen   bg-[#2752BF] text-center shadow-2xl">
+            <div className="w-[300px] h-auto pb-3 rounded-2xl max-md:rounded-none max-md:w-screen transform transition-transform duration-300 hover:scale-105 cursor-pointer  bg-[#2752BF] text-center shadow-2xl">
               <Image
                 className="max-md:w-[550px] max-md:h-[200px] bg-contain max-md:rounded-none rounded-2xl"
                 src={Team}
@@ -139,7 +139,7 @@ const Aboutus = () => {
                 </div>
               </div>
             </div>
-            <div className="w-[300px]  rounded-2xl max-md:rounded-none h-auto pb-3 max-md:w-screen bg-[#2752BF] text-center shadow-2xl">
+            <div className="w-[300px]  rounded-2xl cursor-pointer transform transition-transform duration-300 hover:scale-105 max-md:rounded-none h-auto pb-3 max-md:w-screen bg-[#2752BF] text-center shadow-2xl">
               <Image
                 className=" bg-contain rounded-2xl max-md:rounded-none max-md:w-[550px] max-md:h-[200px]"
                 src={Team}
@@ -163,7 +163,7 @@ const Aboutus = () => {
                 </div>
               </div>
             </div>
-            <div className="w-[300px] h-auto pb-3 max-md:w-screen max-md:rounded-none  rounded-2xl bg-[#2752BF] text-center ">
+            <div className="w-[300px] h-auto pb-3 max-md:w-screen cursor-pointer transform transition-transform duration-300 hover:scale-105 max-md:rounded-none  rounded-2xl bg-[#2752BF] text-center ">
               <Image
                 className="bg-contain rounded-2xl max-md:w-[550px] max-md:rounded-none max-md:h-[200px]"
                 src={Team}
@@ -188,7 +188,7 @@ const Aboutus = () => {
               </div>
             </div>
 
-            <div className="w-[300px] max-md:w-screen  h-auto pb-3 max-md:rounded-none rounded-2xl bg-[#2752BF] text-center shadow-2xl">
+            <div className="w-[300px] max-md:w-screen  h-auto pb-3 max-md:rounded-none cursor-pointer transform transition-transform duration-300 hover:scale-105 rounded-2xl bg-[#2752BF] text-center shadow-2xl">
               <Image
                 className="bg-contain rounded-2xl max-md:w-[550px] max-md:rounded-none max-md:h-[200px]"
                 src={Team}
