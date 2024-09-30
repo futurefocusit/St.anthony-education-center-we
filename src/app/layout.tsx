@@ -4,7 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ContextProvider from "@/components/HeaderAndFooter/contextProvider";
-import { Merriweather, Roboto } from "@next/font/google";
+import { Merriweather, Roboto } from "next/font/google";
 const roboto = Roboto({
   weight: ["300", "400", "700"],
   subsets: ["latin"],
