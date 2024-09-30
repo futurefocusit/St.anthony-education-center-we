@@ -1,4 +1,4 @@
-
+'use client'
 import { MdOutlineEmail } from "react-icons/md";
 import { SiSpringsecurity } from "react-icons/si";
 import Link from "next/link";
@@ -15,8 +15,11 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 
 import { MdArrowUpward } from "react-icons/md";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+  if (pathname === '/registration') return null;
   return (
     <div className=" p-5"
       style={{
