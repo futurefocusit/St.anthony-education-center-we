@@ -108,7 +108,6 @@ const Aboutus = () => {
           </div>
         </section>
 
-        {/* team  section content */}
 
         <section className=" max-md:p-0 p-5 mt-3">
           <h1 className="text-[#1B396E] font-merriweather  text-2xl py-4">

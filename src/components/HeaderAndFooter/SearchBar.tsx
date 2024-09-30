@@ -1,11 +1,11 @@
 "use client";
 import { LuSearch } from "react-icons/lu";
-import { MyContext } from "./contextProvider";
-import { useContext } from "react";
+// import { useContext } from "react";
+import { useAppContext } from "@/context/appContext";
 
 const SearchBar = () => {
 
-    const context = useContext(MyContext);
+    const context = useAppContext()
     if (!context) {
         return null;
     }

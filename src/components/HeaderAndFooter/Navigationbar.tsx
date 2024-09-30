@@ -1,35 +1,30 @@
 "use client";
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import Logo from './Logo'
 import NavigationItems from './NavigationItems'
 import SearchBar from './SearchBar'
-import { MyContext } from './contextProvider'
-
-import { MdClose } from "react-icons/md";
 import { usePathname } from 'next/navigation';
+import LanguageSwitcher from '../languageSwitcher';
+import { useAppContext } from '@/context/appContext';
 
 const NavigationBar = () => {
-
-  const context = useContext(MyContext);
-  const [searchInput, setSearchInput] = useState("");
+const {theme} = useAppContext()
   const pathname = usePathname();
   if (pathname === "/reportIncident" || pathname === '/registration') return null;
-  if (!context) {
-    return null;
-  }
-  const { value, setValue } = context;
+ 
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && searchInput.trim()) {
-      window.location.href = `/search?query=${encodeURIComponent(searchInput)}`;
-    }
-  };
+
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === "Enter" && searchInput.trim()) {
+  //     window.location.href = `/search?query=${encodeURIComponent(searchInput)}`;
+  //   }
+  // };
 
   return (
-    <div className='w-full p-[2px] lg:p-2 relative z-50'>
-      <div className='anotherContainer flex justify-between bg-white m-5 rounded-[30px] py-4 lg:py-7 px-[50px] lg:px-[100px] box-border shadow-xl'>
+    <div className='w-full p-[2px]  lg:p-2 relative  z-50'>
+      <div className={`anotherContainer flex justify-between ${theme==='dark'?'bg-black text-white':'bg-white text-black'} m-5  rounded-[30px] py-4 lg:py-7 px-[50px] lg:px-[100px] box-border shadow-xl`}>
         <Logo />
-        {value ? (
+        {/* {value ? (
           <div className='searchButton flex items-center gap-5 -mt-[2px]'>
             <input
               type="text"
@@ -39,14 +34,16 @@ const NavigationBar = () => {
               onChange={(e) => setSearchInput(e.target.value)}
               onKeyDown={handleKeyDown}
             />
-            <button onClick={() => setValue(false)}><MdClose className="w-7 h-7" /></button>
+            <button 
+            onClick={() => setValue(false)}><MdClose className="w-7 h-7" /></button>
           </div>
-        ) : (
+        ) : ( */}
           <div className='flex items-center gap-5'>
             <NavigationItems />
             <SearchBar />
+            <LanguageSwitcher/>
           </div>
-        )}
+        {/* )} */}
       </div>
     </div>
   )

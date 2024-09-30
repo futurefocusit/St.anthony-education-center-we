@@ -1,32 +1,43 @@
 import { IoLocation } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa";
+export interface NavigationItem {
+  en: string;
+  fr: string;
+  path: string;
+}
+export const NavigationItemsRoutes: NavigationItem[] = [
+  {
+    en: "Home",
+    fr: "Accueil",
+    path: "/",
+  },
+  {
+    en: "About",
+    fr: "À propos",
+    path: "/Aboutus",
+  },
+  {
+    en: "Services",
+    fr: "Services",
+    path: "/Services",
+  },
+  {
+    en: "Case Studies",
+    fr: "Études de cas",
+    path: "/Case-study",
+  },
+  {
+    en: "Blog",
+    fr: "Blog",
+    path: "/Blog",
+  },
+  {
+    en: "Contact",
+    fr: "Contact",
+    path: "/Contactus",
+  },
+];
 
-export const NavigationItemsRoutes = [
-    {
-        label: 'Home',
-        path: '/',
-    },
-    {
-        label: 'About',
-        path: '/Aboutus',
-    },
-    {
-        label: 'Services',
-        path: '/Services',
-    },
-    {
-        label: 'Case Studies',
-        path: '/Case-study',
-    },
-    {
-        label: 'Blog',
-        path: '/Blog',
-    },
-    {
-        label: 'Contact',
-        path: '/Contactus',
-    },
-]
 
 export const Locations = [
     {

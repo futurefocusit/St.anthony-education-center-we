@@ -27,20 +27,25 @@ import { IoCall } from "react-icons/io5";
 import { PiPinterestLogo } from "react-icons/pi";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
+import { useAppContext } from "@/context/appContext"
+import {ThemeClass, themeClasses } from "@/lib/themes";
 
 const Home = () => {
-  // const [language, setLanguage] = useState("en");
+  const {language,theme} = useAppContext()
   const [data, setData] = useState(englishContent);
+  const [currentTheme, setCurrentTheme] = useState<ThemeClass>(themeClasses['light']);
   useEffect(() => {
-    const storedLang = localStorage.getItem("lang") || "en";
-    // setLanguage(storedLang);
     //@ts-expect-error error
-    setData(storedLang === "en" ? englishContent : frenchContent);
-  }, []);
+    setData(language === "en" ? englishContent : frenchContent);
+  }, [language]);
+  useEffect(() => {
+    //@ts-expect-error error
+    setCurrentTheme(themeClasses[theme]);
+  }, [theme]);
   return (
-    <>
+    <div className={`${currentTheme.bg}`}>
       <div
-        className="h-fit pb-10 relative -top-36 pt-36 lg:flex -mb-32"
+        className={`h-fit pb-10 relative -top-36 pt-36 lg:flex  ${currentTheme.text} ${currentTheme.bg}`}
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
           backgroundSize: "cover",
@@ -48,25 +53,34 @@ const Home = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="flex flex-col gap-2 lg:gap-5">
+        <div className={`flex flex-col gap-2 lg:gap-5 $`}>
           <p className="text-[#1ABC9C] lg:text-[48px] text-[28px] text-center">
             {data.heroTitle}
           </p>
-          <p className="text-[#FFFFFF] text-[30px] sm:text-[40px] md:text-[50px] lg:text-[30px] xl:text-[96px] lg:leading-[70px] text-center px-2">
+          <p
+            className={`${currentTheme.primary} text-[30px] sm:text-[40px] md:text-[50px] lg:text-[30px] xl:text-[96px] lg:leading-[70px] text-center px-2`}
+          >
             {data.heroSubtitle}
           </p>
           <div className="bg-[#1ABC9C] w-[200px] h-2 mx-auto rounded-lg" />
-          <button className="button hover:bg-teal-500 hover:rounded-lg text-[16px] text-white w-fit mx-auto px-4 py-2">
+          <button
+            className={`button hover:bg-teal-500 hover:rounded-lg text-[16px] ${currentTheme.text} w-fit mx-auto px-4 py-2`}
+          >
             {data.readMore}
           </button>
         </div>
       </div>
       <div className="font-roboto min-h-screen w-full">
-        {/* Feature section  */}
-        <div className="flex justify-between items-center h-full">
-          {/* Left Section */}
-          <div className="flex flex-col justify-center items-center text-center md:text-left m-auto">
-            <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
+        <div
+          className={`flex justify-between items-center h-full Z
+          }`}
+        >
+          <div
+            className={`flex flex-col justify-center items-center text-center md:text-left m-auto `}
+          >
+            <h1
+              className={`font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]`}
+            >
               {data.featureTitle}
             </h1>
             <p className="font-[800] text-[32px] sm:text-[36px] md:text-[48px]">
@@ -75,7 +89,6 @@ const Home = () => {
             <div className="w-[150px] sm:w-[200px] md:w-[242px] h-[6px] sm:h-[7px] md:h-[9px] bg-custom-blue mt-4" />
           </div>
 
-          {/* Right Section */}
           <div className="flex justify-center md:justify-end items-end mt-6 md:mt-0">
             <TbMessageCircleFilled className="text-sky-400 md:text-[40px] w-10 h-10" />
           </div>
@@ -85,7 +98,7 @@ const Home = () => {
           {posts.map((post, index) => (
             <div
               key={index}
-              className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105"
+              className={`relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105 ${currentTheme.card}`}
             >
               <div className="flex flex-col gap-2 text-center">
                 <Image
@@ -96,7 +109,11 @@ const Home = () => {
                   className="w-full h-48 object-cover"
                 />
                 <h2 className="font-bold text-2xl">{post.title}</h2>
-                <p className="text-sm text-gray-600 p-2">{post.content}</p>
+                <p
+                  className={` ${currentTheme.text} text-sm text-gray-600 p-2`}
+                >
+                  {post.content}
+                </p>
               </div>
               <div className="absolute bottom-2 flex w-full items-center justify-center">
                 <button className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg">
@@ -121,7 +138,9 @@ const Home = () => {
               {data.aboutUsSubtitle}
             </p>
             <div className="w-[30px] md:w-[50px] h-[5px] md:h-[7px] bg-[#1B396E] my-2"></div>
-            <p className="w-full md:w-[691px] h-auto font-[300] text-sm">
+            <p
+              className={`${currentTheme.text} w-full md:w-[691px] h-auto font-[300] text-sm`}
+            >
               {data.aboutUsDescription}
             </p>
             <div className="flex w-full justify-center md:justify-start mt-5">
@@ -152,14 +171,14 @@ const Home = () => {
             </p>
             <div className="w-[150px] sm:w-[200px] md:w-[242px] h-[6px] sm:h-[7px] md:h-[9px] bg-custom-blue mt-4" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 bg-[#D9D9D9] pt-5 px-2 pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2  pt-5 px-2 pb-24">
             <div className="flex flex-col gap-8 p-5">
               <h1 className="text-[40px] text-[#1B396E] leading-[40px]">
                 Our Featured Projects &
                 <br />
                 Case Studies.
               </h1>
-              <p className="text-[16px] font-[500]">
+              <p className={`${currentTheme.text} text-[16px] font-[500]`}>
                 Explore our portfolio of innovative solutions, detailing the
                 challenges we&apos;ve solved and the successes we&apos;ve
                 delivered for businesses across diverse industries.
@@ -180,7 +199,7 @@ const Home = () => {
                   <div className="bg-[#F39C12] w-[38px] h-[4px]" />
                   <p>Mucyo Blaise</p>
                 </div>
-                <p className="text-[10px]">
+                <p className={`${currentTheme.text} text-[10px]`}>
                   &quote;Working with EdgeReach Tech was a smooth and positive
                   experience. Their clear communication and commitment to
                   deadlines ensured the project stayed on track and delivered
@@ -209,7 +228,9 @@ const Home = () => {
                     <h2 className="font-bold text-[24px] text-[#1B396E] text-center">
                       {project.title}
                     </h2>
-                    <p className="text-[28px] p-2 text-[#1ABC9C]">
+                    <p
+                      className={`${currentTheme.text} text-[28px] p-2 text-[#1ABC9C]`}
+                    >
                       {project.content}
                     </p>
                     <div className="flex items-center justify-center gap-[2px]">
@@ -231,9 +252,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        {/* finance */}
+
         <div
-          className=" bg-cover bg-center w-full  h-fit lg:h-[730px]   "
+          className=" bg-cover bg-center w-full  h-fit lg:h-[730px] "
           style={{
             backgroundImage: `url('https://images.pexels.com/photos/8134239/pexels-photo-8134239.jpeg?auto=compress&cs=tinysrgb&w=600')`,
           }}
@@ -247,7 +268,9 @@ const Home = () => {
             </p>
             <div className="w-[80px] h-[6px] sm:h-[7px] md:h-[9px] bg-custom-blue mt-4" />
           </div>
-          <div className="bg-white flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6">
+          <div
+            className={`${currentTheme.bg} ${currentTheme.text} flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
+          >
             <p className="text-center sm:text-left ">
               Professional Training <br />
               (CyberPro Academy)
@@ -278,8 +301,12 @@ const Home = () => {
               {data.enrollNow}
             </button>
           </div>
-          <div className="bg-white flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 w-full p-6 sm:p-10 mb-10">
-            <p className="text-center sm:text-left">{data.consultingServices}</p>
+          <div
+            className={`${currentTheme.bg} ${currentTheme.text} flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
+          >
+            <p className="text-center sm:text-left">
+              {data.consultingServices}
+            </p>
             <div className="flex flex-col sm:flex-row">
               <div className="flex flex-col">
                 <p className="flex items-center">
@@ -303,7 +330,9 @@ const Home = () => {
               {data.getExpertAdvice}
             </button>
           </div>
-          <div className="bg-white flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-10 w-full p-6 sm:p-10 mb-10">
+          <div
+            className={`${currentTheme.bg} ${currentTheme.text} flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
+          >
             <p className="text-center sm:text-left">
               {data.cctvCameraSecurity}
             </p>
@@ -468,7 +497,10 @@ const Home = () => {
         </div>
         <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
           {staff.map((staff, index) => (
-            <div key={index} className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105">
+            <div
+              key={index}
+              className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
+            >
               <Image
                 src={staff.Image}
                 alt=""
@@ -519,8 +551,8 @@ const Home = () => {
               <div className="w-[64px] h-[8px] bg-[#1B396E] mt-3 mx-auto mb-6" />
               <p className="w-full max-w-[555px] text-center font-[400] text-[14px] sm:text-[16px] mb-8">
                 Explore our portfolio of innovative solutions, detailing the
-                challenges we&apos;ve solved and the successes we&apos;ve delivered for
-                businesses across diverse industries.
+                challenges we&apos;ve solved and the successes we&apos;ve
+                delivered for businesses across diverse industries.
               </p>
               <div className="flex flex-row items-center justify-center space-x-4">
                 <button className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white">
@@ -593,7 +625,7 @@ const Home = () => {
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105"
+              className={`relative card border ${currentTheme.card} w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
             >
               <div className="flex flex-col gap-2 text-center">
                 <Image
@@ -621,7 +653,7 @@ const Home = () => {
         </div>
 
         {/* map */}
-        <div className="m-10">
+        <div className="mx-10 ">
           <iframe
             className="w-full m-auto"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.775313606574!2d-122.03224420000001!3d37.2767548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e4ad38fa6a251%3A0x4462135701bcadcb!2sSaratoga%20Sunnyvale%20Rd%2C%20Saratoga%2C%20CA%2095070%2C%20USA!5e0!3m2!1sen!2srw!4v1726610527050!5m2!1sen!2srw"
@@ -634,7 +666,7 @@ const Home = () => {
           ></iframe>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

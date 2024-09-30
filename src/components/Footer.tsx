@@ -2,7 +2,7 @@
 import { MdOutlineEmail } from "react-icons/md";
 import { SiSpringsecurity } from "react-icons/si";
 import Link from "next/link";
-import { Contacts, Locations, NavigationItemsRoutes } from "./HeaderAndFooter/constant";
+import { Contacts, Locations, NavigationItem, NavigationItemsRoutes } from "./HeaderAndFooter/constant";
 import Logo from "./HeaderAndFooter/Logo";
 
 import './HeaderAndFooter/style.css';
@@ -16,10 +16,13 @@ import { FaFacebookF } from "react-icons/fa";
 
 import { MdArrowUpward } from "react-icons/md";
 import { usePathname } from "next/navigation";
+import { useAppContext } from "@/context/appContext"
 
 const Footer = () => {
+    const { language } = useAppContext();
   const pathname = usePathname();
   if (pathname === '/registration') return null;
+  
   return (
     <div className=" p-5"
       style={{
@@ -34,7 +37,7 @@ const Footer = () => {
         <div className="flex justify-between w-full flex-col md:flex-row">
 
           <div className="flex justify-between w-full both">
-            <div className="mt-3 footer-container both-one">
+            <div className="mt-3 footer-container both-one"> 
               <h1 className="text-[#1ABC9C]">ADDRESS</h1>
               <div className="w-[50px] bg-blue-700 p-[2px] rounded-md mb-4" />
               <div className="flex flex-col gap-4 mt-2 text-white text-xl footer-container">
@@ -60,7 +63,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col gap-2 mt-2 text-white text-xl footer-container">
                 {NavigationItemsRoutes.map((navigationRoute, index) => (
-                  <Link href={navigationRoute.path} key={index}>{navigationRoute.label}</Link>
+                  <Link href={navigationRoute.path} key={index}>{navigationRoute[language  as keyof NavigationItem]}</Link>
                 ))}
               </div>
             </div>

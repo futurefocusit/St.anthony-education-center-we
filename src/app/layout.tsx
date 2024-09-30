@@ -3,8 +3,8 @@ import "./globals.css";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ContextProvider from "@/components/HeaderAndFooter/contextProvider";
 import { Merriweather, Roboto } from "next/font/google";
+import { AppProvider } from "@/context/appContext";
 const roboto = Roboto({
   weight: ["300", "400", "700"],
   subsets: ["latin"],
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ContextProvider>
+      <AppProvider>
         <body
           className={`${roboto.variable} ${merriweather.variable} font-roboto`}
         >
@@ -36,7 +36,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </body>
-      </ContextProvider>
+      </AppProvider>
     </html>
   );
 }
