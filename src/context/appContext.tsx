@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, {
   createContext,
   useContext,
@@ -25,20 +25,31 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [value, setValue] = useState<boolean>(false);
   const [user, setUser] = useState<string>("");
-  const [language, setLanguage] = useState<string>(
-    localStorage.getItem("lang") || "en"
-  );
-  const [theme, setTheme] = useState<string>(
-    localStorage.getItem("theme") || "light"
-  );
+  const [language, setLanguage] = useState<string>("en");
+  const [theme, setTheme] = useState<string>("light");
 
   useEffect(() => {
-    localStorage.setItem("lang", language);
+    // Only access localStorage in the browser
+    if (typeof window !== "undefined") {
+      const savedLang = localStorage.getItem("lang");
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedLang) setLanguage(savedLang);
+      if (savedTheme) setTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("lang", language);
+    }
   }, [language]);
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.body.className = theme; // Apply theme to body class
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme);
+      document.body.className = theme; // Apply theme to body class
+    }
   }, [theme]);
 
   const toggleLanguage = (lang: string) => {
