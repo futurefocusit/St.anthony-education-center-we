@@ -10,17 +10,17 @@ export interface ThemeClasses {
   dark: ThemeClass;
 }
 
-export const themeClasses:ThemeClasses = {
+export const themeClasses = {
   light: {
     bg: "bg-white",
-    text: "text-black",
-    primary: "text-gray-800",
-    card: "bg-gray-100",
+    text: "text-gray-900",
+    card: "bg-white",
+    primary: "text-gray-900",
   },
   dark: {
     bg: "bg-gray-900",
-    text: "text-white",
-    primary: "text-gray-200",
+    text: "text-gray-100",
     card: "bg-gray-800",
+    primary: "text-white",
   },
 };

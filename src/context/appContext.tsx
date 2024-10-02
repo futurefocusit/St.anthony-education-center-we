@@ -7,17 +7,21 @@ import React, {
   ReactNode,
   Dispatch,
   SetStateAction,
+  useMemo,
 } from "react";
+
+type Language = "en" | "fr"; // Add more languages as needed
+type Theme = "light" | "dark";
 
 interface AppContextType {
   value: boolean;
   setValue: Dispatch<SetStateAction<boolean>>;
   user: string;
   setUser: Dispatch<SetStateAction<string>>;
-  language: string;
-  theme: string;
-  toggleLanguage: (lang: string) => void;
-  toggleTheme: (theme: string) => void;
+  language: Language;
+  theme: Theme;
+  toggleLanguage: () => void;
+  toggleTheme: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -25,19 +29,24 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [value, setValue] = useState<boolean>(false);
   const [user, setUser] = useState<string>("");
-  const [language, setLanguage] = useState<string>("en");
-  const [theme, setTheme] = useState<string>("light");
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      return (localStorage.getItem("lang") as Language) || "en";
+    }
+    return "en";
+  });
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== "undefined") {
+      return (localStorage.getItem("theme") as Theme) || "light";
+    }
+    return "light";
+  });
 
   useEffect(() => {
-    // Only access localStorage in the browser
     if (typeof window !== "undefined") {
-      const savedLang = localStorage.getItem("lang");
-      const savedTheme = localStorage.getItem("theme");
-
-      if (savedLang) setLanguage(savedLang);
-      if (savedTheme) setTheme(savedTheme);
+      document.body.className = theme;
     }
-  }, []);
+  }, [theme]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -48,33 +57,34 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("theme", theme);
-      document.body.className = theme; // Apply theme to body class
+      document.body.className = theme;
     }
   }, [theme]);
 
-  const toggleLanguage = (lang: string) => {
-    setLanguage(lang);
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "en" ? "fr" : "en"));
   };
 
-  const toggleTheme = (newTheme: string) => {
-    setTheme(newTheme);
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
+
+  const contextValue = useMemo(
+    () => ({
+      value,
+      setValue,
+      user,
+      setUser,
+      language,
+      theme,
+      toggleLanguage,
+      toggleTheme,
+    }),
+    [value, user, language, theme]
+  );
 
   return (
-    <AppContext.Provider
-      value={{
-        value,
-        setValue,
-        user,
-        setUser,
-        language,
-        theme,
-        toggleLanguage,
-        toggleTheme,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
 };
 

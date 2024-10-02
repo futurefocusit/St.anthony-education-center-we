@@ -9,7 +9,7 @@ const LanguageThemeSwitcher = () => {
     <div className="flex items-center gap-4">
       <select
         value={language}
-        onChange={(e) => toggleLanguage(e.target.value)}
+        onChange={() => toggleLanguage()}
         className={`px-4 py-2 rounded border ${
           theme === "dark" ? "border-gray-300 text-black" : "border-gray-300 "
         }`}
@@ -20,7 +20,7 @@ const LanguageThemeSwitcher = () => {
 
       <select
         value={theme}
-        onChange={(e) => toggleTheme(e.target.value)}
+        onChange={() => toggleTheme()}
         className={`px-4 py-2 rounded border ${
           theme === "dark" ? "border-gray-300 text-black" : "border-gray-300 "
         }`}

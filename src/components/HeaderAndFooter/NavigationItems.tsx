@@ -10,9 +10,7 @@ import { useAppContext } from "@/context/appContext";
 const NavigationItems = () => {
   const [showMenuItems, setShowMenuItems] = useState(false);
   const pathname = usePathname();
-
-
-  const { language} = useAppContext();
+  const { language } = useAppContext();
 
   return (
     <>
@@ -49,7 +47,6 @@ const NavigationItems = () => {
         >
           {language === "en" ? "Report Incident" : "Signaler un incident"}
         </Link>
-       
       </div>
       {showMenuItems && (
         <div
@@ -92,7 +89,6 @@ const NavigationItems = () => {
             >
               {language === "en" ? "Report Incident" : "Signaler un incident"}
             </Link>
-          
           </div>
         </div>
       )}

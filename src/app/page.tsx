@@ -1,9 +1,10 @@
+
+
 "use client";
 import {
   blogs,
   countries,
   posts,
-  project,
   staff,
 } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
@@ -27,25 +28,43 @@ import { IoCall } from "react-icons/io5";
 import { PiPinterestLogo } from "react-icons/pi";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
-import { useAppContext } from "@/context/appContext"
-import {ThemeClass, themeClasses } from "@/lib/themes";
+import { useAppContext } from "@/context/appContext";
+import { ThemeClass, themeClasses } from "@/lib/themes";
+import { Project } from "@/types/types";
+import axios from "axios";
 
 const Home = () => {
-  const {language,theme} = useAppContext()
+  const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
   const [currentTheme, setCurrentTheme] = useState<ThemeClass>(themeClasses['light']);
+  const [portfolio, setPortfolio] = useState<Project[]>([]);
+
+  const fetchPortfolio = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/project");
+      setPortfolio(response.data);
+    } catch (error) {
+      console.error("Error fetching portfolio:", error);
+    }
+  };
+
   useEffect(() => {
     //@ts-expect-error error
     setData(language === "en" ? englishContent : frenchContent);
   }, [language]);
+
   useEffect(() => {
-    //@ts-expect-error error
     setCurrentTheme(themeClasses[theme]);
   }, [theme]);
+
+  useEffect(() => {
+    fetchPortfolio();
+  }, []);
+
   return (
     <div className={`${currentTheme.bg}`}>
       <div
-        className={`h-fit pb-10 relative -top-36 pt-36 lg:flex  ${currentTheme.text} ${currentTheme.bg}`}
+        className={`h-fit pb-10 relative -top-36 pt-36 lg:flex  ${currentTheme.text}`}
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
           backgroundSize: "cover",
@@ -102,7 +121,8 @@ const Home = () => {
             >
               <div className="flex flex-col gap-2 text-center">
                 <Image
-                  src={post.image}
+                  src= "https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg"
+                  
                   alt="cyber"
                   width={90}
                   height={90}
@@ -213,15 +233,15 @@ const Home = () => {
             <div className="flex items-center justify-end">
               <FaChevronLeft className="w-5 h-5 mr-3 hidden md:flex bg-white" />
               <div className="flex card-holder  justify-center items-center gap-2 w-full md:w-[600px] lg:w-[1000px] overflow-x-auto">
-                {project.map((project, index) => (
+                {portfolio.map((project, index) => (
                   <div
                     key={index}
-                    className="bg-[#D9D9D9]  min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105 "
+                    className="bg-[#D9D9D9]  max-w-10 min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105 "
                   >
                     <Image
-                      src={project.Image}
+                      src={project.image}
                       alt=""
-                      width={90}
+                      width={40}
                       height={90}
                       className="w-full h-32 object-cover clip-custom-shape"
                     />
@@ -242,7 +262,6 @@ const Home = () => {
                     </div>
                   </div>
                 ))}
-                <div className="lg:bg-[#D9D9D9] lg:w-[300PX] lg:h-[250px]"></div>
               </div>
             </div>
             <div className="flex w-full items-center justify-center mt-5">

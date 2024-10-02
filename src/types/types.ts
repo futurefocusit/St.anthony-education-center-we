@@ -30,3 +30,8 @@ export interface Testimony {
   authorCompany: { type: string; required: true };
   authorRole: { type: string; required: true };
 }
+export interface Post {
+  image: string;
+  title: string;
+  content: string;
+}
