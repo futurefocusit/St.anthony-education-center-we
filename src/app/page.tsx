@@ -1,11 +1,10 @@
 "use client";
-const BASE_URL = 'http://localhost:5000'
+export const BASE_URL = 'http://localhost:5000'
 import {
   countries,
   posts,
 } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
-import { TbMessageCircleFilled } from "react-icons/tb";
 import {
   FaGithub,
   FaInstagram,
@@ -13,7 +12,6 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { FaGreaterThan } from "react-icons/fa6";
-import { IoIosStarOutline } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
 import { ImQuotesRight } from "react-icons/im";
 import { LiaLinkedinIn } from "react-icons/lia";
@@ -25,7 +23,6 @@ import { PiPinterestLogo } from "react-icons/pi";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
-import {themeClasses } from "@/lib/themes";
 import { Blog, Project, Team, Testimony } from "@/types/types";
 import axios from "axios";
 import { SkeletonBlog, SkeletonPortfolio, SkeletonTeam } from "@/components/skeletons/cardSkeleton";
@@ -45,8 +42,6 @@ const Home = () => {
   const [isLoadingBlog,setIsLoadingBlog] =  useState(false)
   const [isLoadingTestimony,setIsLoadingtestimony] =  useState(false)
   const [isLoadingRating,setIsLoadingRating] =  useState(false)
-
-
 
 const  getPercentage = (arr: {value:number}[], target: number): number =>{
   const total = arr.length;
@@ -88,9 +83,7 @@ const  getPercentage = (arr: {value:number}[], target: number): number =>{
     setData(language === "en" ? englishContent : frenchContent);
   }, [language]);
 
-  // useEffect(() => {
-  //   setCurrentTheme(themeClasses[theme]);
-  // }, [theme]);
+ 
 
 useEffect(() => {
   fetchData("project", setPortfolio, setIsLoadingPortifolio);
@@ -242,7 +235,7 @@ useEffect(() => {
               View Our Case Studies
             </p>
             <div
-              className={`${themeClasses[theme].text} w-[150px] h-2 mx-auto rounded-lg`}
+              className={`w-[150px] h-2 mx-auto rounded-lg`}
             />
           </div>
 
@@ -253,7 +246,7 @@ useEffect(() => {
               {portfolio.slice(-3).map((project, index) => (
                 <div
                   key={index}
-                  className={`${themeClasses[theme].card} w-full md:w-72 rounded-lg shadow-lg p-4 transition-transform hover:scale-105`}
+                  className={`w-full md:w-72 rounded-lg shadow-lg p-4 transition-transform hover:scale-105`}
                 >
                   <Image
                     src={project.image}
@@ -557,7 +550,7 @@ useEffect(() => {
           <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
             {data.ourStaffTitle}
           </h1>
-          <p className="font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5">
+          <p className={`${theme==='dark'?"text-gray-300":'text-black'} font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5`}>
             {data.ourStaffSubtitle}
           </p>
         </div>
@@ -707,7 +700,7 @@ useEffect(() => {
             {blog.slice(-3).map((blogItem, index) => (
               <div
                 key={index}
-                className={`relative card border ${themeClasses[theme].card} w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
+                className={`relative card border w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
               >
                 <div className="flex flex-col gap-2 text-center">
                   <Image
