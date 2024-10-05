@@ -20,8 +20,8 @@ interface AppContextType {
   setUser: Dispatch<SetStateAction<string>>;
   language: Language;
   theme: Theme;
-  toggleLanguage: () => void;
-  toggleTheme: () => void;
+  toggleLanguage: (lang: Language) => void; // Accept language as a parameter
+  toggleTheme: (theme: Theme) => void; // Accept theme as a parameter
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -61,12 +61,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [theme]);
 
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "fr" : "en"));
+  const toggleLanguage = (lang: Language) => {
+    setLanguage(lang);
   };
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  const toggleTheme = (theme: Theme) => {
+    setTheme(theme);
   };
 
   const contextValue = useMemo(

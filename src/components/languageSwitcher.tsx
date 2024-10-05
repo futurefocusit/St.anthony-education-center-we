@@ -1,33 +1,58 @@
-'use client'
+"use client";
 import { useAppContext } from "@/context/appContext";
-import React from "react";;
+import React from "react";
+import { FaMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa6";
 
 const LanguageThemeSwitcher = () => {
   const { language, theme, toggleLanguage, toggleTheme } = useAppContext();
 
   return (
     <div className="flex items-center gap-4">
-      <select
-        value={language}
-        onChange={() => toggleLanguage()}
-        className={`px-4 py-2 rounded border ${
-          theme === "dark" ? "border-gray-300 text-black" : "border-gray-300 "
-        }`}
-      >
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-      </select>
+      {/* Language Switcher */}
+      <div className="flex gap-2">
+        <button
+          onClick={() => toggleLanguage("en")}
+          className={`flex items-center p-2 rounded border ${
+            language === "en" ? "bg-gray-200" : "border-gray-300"
+          }`}
+        >
+          <span role="img" aria-label="English" className="mr-2">
+            🇬🇧
+          </span>
+        </button>
+        <button
+          onClick={() => toggleLanguage("fr")}
+          className={`flex items-center p-2 rounded border ${
+            language === "fr" ? "bg-gray-200" : "border-gray-300"
+          }`}
+        >
+          <span role="img" aria-label="Français" className="mr-2">
+            🇫🇷
+          </span>
 
-      <select
-        value={theme}
-        onChange={() => toggleTheme()}
-        className={`px-4 py-2 rounded border ${
-          theme === "dark" ? "border-gray-300 text-black" : "border-gray-300 "
-        }`}
-      >
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+        </button>
+      </div>
+
+      {/* Theme Switcher */}
+      <div className="flex gap-2">
+        <button
+          onClick={() => toggleTheme("light")}
+          className={`flex items-center p-2 rounded border ${
+            theme === "light" ? "bg-gray-200" : "border-gray-300"
+          }`}
+        >
+          <FaSun size={20} className="text-black" />
+        </button>
+        <button
+          onClick={() => toggleTheme("dark")}
+          className={`flex items-center p-2 rounded border ${
+            theme === "dark" ? "bg-gray-200" : "border-gray-300"
+          }`}
+        >
+          <FaMoon size={20} className="text-black" />
+        </button>
+      </div>
     </div>
   );
 };
