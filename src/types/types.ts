@@ -25,10 +25,12 @@ export interface Team {
 
 export interface Testimony {
   _id: string;
-  content: { type: string; required: true };
-  authorName: { type: string; required: true };
-  authorCompany: { type: string; required: true };
-  authorRole: { type: string; required: true };
+  content: string
+  authorName:string;
+  authorCompany: string
+  authorRole: string
+  image: string
+
 }
 export interface Post {
   image: string;

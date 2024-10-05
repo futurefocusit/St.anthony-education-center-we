@@ -1,25 +1,21 @@
-
-
 "use client";
+const BASE_URL = 'http://localhost:5000'
 import {
-  blogs,
   countries,
   posts,
-  staff,
 } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
 import { TbMessageCircleFilled } from "react-icons/tb";
 import {
-  FaChevronLeft,
   FaGithub,
   FaInstagram,
+  FaLessThan,
   FaTwitter,
 } from "react-icons/fa";
 import { FaGreaterThan } from "react-icons/fa6";
 import { IoIosStarOutline } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
 import { ImQuotesRight } from "react-icons/im";
-import { FaFacebook, FaLessThan } from "react-icons/fa6";
 import { LiaLinkedinIn } from "react-icons/lia";
 import { IoStarSharp } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
@@ -29,42 +25,87 @@ import { PiPinterestLogo } from "react-icons/pi";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
-import { ThemeClass, themeClasses } from "@/lib/themes";
-import { Project } from "@/types/types";
+import {themeClasses } from "@/lib/themes";
+import { Blog, Project, Team, Testimony } from "@/types/types";
 import axios from "axios";
+import { SkeletonBlog, SkeletonPortfolio, SkeletonTeam } from "@/components/skeletons/cardSkeleton";
+
+
 
 const Home = () => {
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
-  const [currentTheme, setCurrentTheme] = useState<ThemeClass>(themeClasses['light']);
   const [portfolio, setPortfolio] = useState<Project[]>([]);
+  const [testimony, setTestimony] = useState<Testimony[]>([]);
+  const [rating, setRating] = useState<{value:number}[]>([]);
+  const [blog, setBlog] = useState<Blog[]>([]);
+  const [team, setTeam] = useState<Team[]>([]);
+  const [isLoadingPortfolio,setIsLoadingPortifolio] =  useState(false)
+  const [isLoadingTeam,setIsLoadingTeam] =  useState(false)
+  const [isLoadingBlog,setIsLoadingBlog] =  useState(false)
+  const [isLoadingTestimony,setIsLoadingtestimony] =  useState(false)
+  const [isLoadingRating,setIsLoadingRating] =  useState(false)
 
-  const fetchPortfolio = async () => {
+
+
+const  getPercentage = (arr: {value:number}[], target: number): number =>{
+  const total = arr.length;
+  const count = arr.filter((rate) => rate.value === target).length;
+
+  if (total === 0) return 0; 
+
+  return (count / total) * 100;
+}
+   const fetchData = async (
+     endpoint: string,
+     setStateFunc: React.Dispatch<React.SetStateAction<any>>,
+     setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
+   ) => {
+     try {
+       setLoadingFunc(true);
+       const response = await axios.get(`${BASE_URL}/${endpoint}`);
+       setStateFunc(response.data);
+     } catch (error) {
+       console.error(`Error fetching ${endpoint}:`, error);
+     } finally {
+       setLoadingFunc(false);
+     }
+   };
+  const handleRate = async(value:number)=>{
     try {
-      const response = await axios.get("http://localhost:5000/project");
-      setPortfolio(response.data);
+     await axios.post(`${BASE_URL}/testimony/rate`,{
+        value
+      })
+    fetchData("testimony/rate", setRating, setIsLoadingRating);
+
     } catch (error) {
-      console.error("Error fetching portfolio:", error);
+      console.log(error)
     }
-  };
+  }
 
   useEffect(() => {
     //@ts-expect-error error
     setData(language === "en" ? englishContent : frenchContent);
   }, [language]);
 
-  useEffect(() => {
-    setCurrentTheme(themeClasses[theme]);
-  }, [theme]);
+  // useEffect(() => {
+  //   setCurrentTheme(themeClasses[theme]);
+  // }, [theme]);
 
-  useEffect(() => {
-    fetchPortfolio();
-  }, []);
+useEffect(() => {
+  fetchData("project", setPortfolio, setIsLoadingPortifolio);
+  fetchData("testimony", setTestimony, setIsLoadingtestimony);
+  fetchData("testimony/rate", setRating, setIsLoadingRating);
+  fetchData("team", setTeam, setIsLoadingTeam);
+  fetchData("blog", setBlog, setIsLoadingBlog);
+}, []);
 
   return (
-    <div className={`${currentTheme.bg}`}>
+    <div className={`${theme === "dark" ? "bg-slate-700" : ""}`}>
       <div
-        className={`h-fit pb-10 relative -top-36 pt-36 lg:flex  ${currentTheme.text}`}
+        className={`h-fit pb-10 relative -top-36 pt-36 lg:flex  ${
+          theme === "dark" ? "text-gray-300" : "text-white"
+        }`}
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
           backgroundSize: "cover",
@@ -77,13 +118,13 @@ const Home = () => {
             {data.heroTitle}
           </p>
           <p
-            className={`${currentTheme.primary} text-[30px] sm:text-[40px] md:text-[50px] lg:text-[30px] xl:text-[96px] lg:leading-[70px] text-center px-2`}
+            className={`text-[30px] sm:text-[40px] md:text-[50px] lg:text-[30px] xl:text-[64px] lg:leading-30px] text-center px-2`}
           >
             {data.heroSubtitle}
           </p>
           <div className="bg-[#1ABC9C] w-[200px] h-2 mx-auto rounded-lg" />
           <button
-            className={`button hover:bg-teal-500 hover:rounded-lg text-[16px] ${currentTheme.text} w-fit mx-auto px-4 py-2`}
+            className={`button hover:bg-teal-500 hover:rounded-lg text-[16px]  w-fit mx-auto px-4 py-2`}
           >
             {data.readMore}
           </button>
@@ -102,14 +143,14 @@ const Home = () => {
             >
               {data.featureTitle}
             </h1>
-            <p className="font-[800] text-[32px] sm:text-[36px] md:text-[48px]">
+            <p
+              className={`
+               ${theme === "dark" ? "text-gray-300" : "text-black"}
+              font-[800] text-[32px] sm:text-[36px] md:text-[48px]`}
+            >
               {data.featureSubtitle}
             </p>
             <div className="w-[150px] sm:w-[200px] md:w-[242px] h-[6px] sm:h-[7px] md:h-[9px] bg-custom-blue mt-4" />
-          </div>
-
-          <div className="flex justify-center md:justify-end items-end mt-6 md:mt-0">
-            <TbMessageCircleFilled className="text-sky-400 md:text-[40px] w-10 h-10" />
           </div>
         </div>
         {/* cards */}
@@ -117,12 +158,13 @@ const Home = () => {
           {posts.map((post, index) => (
             <div
               key={index}
-              className={`relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105 ${currentTheme.card}`}
+              className={`relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105 ${
+                theme === "dark" ? "bg-gray-800" : "bg"
+              }`}
             >
               <div className="flex flex-col gap-2 text-center">
                 <Image
-                  src= "https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg"
-                  
+                  src="https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg"
                   alt="cyber"
                   width={90}
                   height={90}
@@ -130,7 +172,9 @@ const Home = () => {
                 />
                 <h2 className="font-bold text-2xl">{post.title}</h2>
                 <p
-                  className={` ${currentTheme.text} text-sm text-gray-600 p-2`}
+                  className={` ${
+                    theme === "dark" ? "text-gray-300 " : "text-white"
+                  } text-sm p-2`}
                 >
                   {post.content}
                 </p>
@@ -159,7 +203,9 @@ const Home = () => {
             </p>
             <div className="w-[30px] md:w-[50px] h-[5px] md:h-[7px] bg-[#1B396E] my-2"></div>
             <p
-              className={`${currentTheme.text} w-full md:w-[691px] h-auto font-[300] text-sm`}
+              className={`${
+                theme === "dark" ? "text-gray-100" : "text-gray-800"
+              } w-full md:w-[691px] h-auto font-[300] text-sm`}
             >
               {data.aboutUsDescription}
             </p>
@@ -181,96 +227,55 @@ const Home = () => {
         </div>
 
         {/* PORTFOLIO */}
-        <div>
-          <div className="flex flex-col justify-center items-center text-center md:text-left m-auto mb-10">
-            <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
+        <section className="mb-20">
+          <div className="text-center mb-10">
+            <h2
+              className={` text-2xl text-teal-500 lg:text-4xl font-bold mb-2`}
+            >
               Portfolio
-            </h1>
-            <p className="font-[800] text-[32px] sm:text-[36px] md:text-[48px]">
-              View Our case study
+            </h2>
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-black"
+              } text-3xl lg:text-5xl font-bold mb-4`}
+            >
+              View Our Case Studies
             </p>
-            <div className="w-[150px] sm:w-[200px] md:w-[242px] h-[6px] sm:h-[7px] md:h-[9px] bg-custom-blue mt-4" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2  pt-5 px-2 pb-24">
-            <div className="flex flex-col gap-8 p-5">
-              <h1 className="text-[40px] text-[#1B396E] leading-[40px]">
-                Our Featured Projects &
-                <br />
-                Case Studies.
-              </h1>
-              <p className={`${currentTheme.text} text-[16px] font-[500]`}>
-                Explore our portfolio of innovative solutions, detailing the
-                challenges we&apos;ve solved and the successes we&apos;ve
-                delivered for businesses across diverse industries.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-4 justify-center">
-              <div className="w-[150px] lg:w-[200px] h-[150px] lg:h-[200px] rounded-full overflow-hidden shadow-2xl shadow-white/10">
-                <Image
-                  src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg"
-                  alt="photo"
-                  width={90}
-                  height={90}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="w-[200px] h-fit bg-white p-4 rounded-md">
-                <div className="flex items-center gap-3">
-                  <div className="bg-[#F39C12] w-[38px] h-[4px]" />
-                  <p>Mucyo Blaise</p>
-                </div>
-                <p className={`${currentTheme.text} text-[10px]`}>
-                  &quote;Working with EdgeReach Tech was a smooth and positive
-                  experience. Their clear communication and commitment to
-                  deadlines ensured the project stayed on track and delivered
-                  within budget.&quote;
-                </p>
-              </div>
-            </div>
+            <div
+              className={`${themeClasses[theme].text} w-[150px] h-2 mx-auto rounded-lg`}
+            />
           </div>
 
-          <div className="relative -top-20">
-            <div className="flex items-center justify-end">
-              <FaChevronLeft className="w-5 h-5 mr-3 hidden md:flex bg-white" />
-              <div className="flex card-holder  justify-center items-center gap-2 w-full md:w-[600px] lg:w-[1000px] overflow-x-auto">
-                {portfolio.map((project, index) => (
-                  <div
-                    key={index}
-                    className="bg-[#D9D9D9]  max-w-10 min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105 "
+          {isLoadingPortfolio ? (
+            <SkeletonPortfolio />
+          ) : (
+            <div className="flex flex-wrap justify-center items-center gap-6">
+              {portfolio.slice(-3).map((project, index) => (
+                <div
+                  key={index}
+                  className={`${themeClasses[theme].card} w-full md:w-72 rounded-lg shadow-lg p-4 transition-transform hover:scale-105`}
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="mb-4">{project.content}</p>
+                  <button
+                    className={`${
+                      theme === "dark" ? "bg-blue-900" : "bg-blue-700"
+                    } mx-auto text-white px-4 py-2 rounded-full text-sm`}
                   >
-                    <Image
-                      src={project.image}
-                      alt=""
-                      width={40}
-                      height={90}
-                      className="w-full h-32 object-cover clip-custom-shape"
-                    />
-                    <h2 className="font-bold text-[24px] text-[#1B396E] text-center">
-                      {project.title}
-                    </h2>
-                    <p
-                      className={`${currentTheme.text} text-[28px] p-2 text-[#1ABC9C]`}
-                    >
-                      {project.content}
-                    </p>
-                    <div className="flex items-center justify-center gap-[2px]">
-                      <IoIosStarOutline className="w-3 h-3 text-sky-500" />
-                      <IoIosStarOutline className="w-3 h-3 text-sky-500" />
-                      <IoIosStarOutline className="w-3 h-3 text-sky-500" />
-                      <IoIosStarOutline className="w-3 h-3 text-sky-500" />
-                      <IoIosStarOutline className="w-3 h-3 text-sky-500" />
-                    </div>
-                  </div>
-                ))}
-              </div>
+                    {data.readMore}
+                  </button>
+                </div>
+              ))}
             </div>
-            <div className="flex w-full items-center justify-center mt-5">
-              <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white">
-                {data.viewMore}
-              </button>
-            </div>
-          </div>
-        </div>
+          )}
+        </section>
 
         <div
           className=" bg-cover bg-center w-full  h-fit lg:h-[730px] "
@@ -282,13 +287,21 @@ const Home = () => {
             <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
               {data.financeTitle}
             </h1>
-            <p className="font-[800] text-[32px] sm:text-[36px] md:text-[28px] text-white">
+            <p
+              className={`font-[800] ${
+                theme === "dark" ? "text-gray-300" : "text-black"
+              } text-[32px] sm:text-[36px] md:text-[28px] text-white`}
+            >
               {data.financeSubtitle}
             </p>
             <div className="w-[80px] h-[6px] sm:h-[7px] md:h-[9px] bg-custom-blue mt-4" />
           </div>
           <div
-            className={`${currentTheme.bg} ${currentTheme.text} flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
+            className={`${
+              theme === "dark"
+                ? "bg-gray-900 text-gray-100"
+                : "text-gray-900 bg-white"
+            }  flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
           >
             <p className="text-center sm:text-left ">
               Professional Training <br />
@@ -321,7 +334,11 @@ const Home = () => {
             </button>
           </div>
           <div
-            className={`${currentTheme.bg} ${currentTheme.text} flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
+            className={`${
+              theme === "dark"
+                ? "bg-gray-900 text-gray-100"
+                : "text-gray-900 bg-white"
+            }  flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
           >
             <p className="text-center sm:text-left">
               {data.consultingServices}
@@ -350,7 +367,11 @@ const Home = () => {
             </button>
           </div>
           <div
-            className={`${currentTheme.bg} ${currentTheme.text} flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
+            className={`${
+              theme === "dark"
+                ? "bg-gray-900 text-gray-100"
+                : "text-gray-900 bg-white"
+            }  flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
           >
             <p className="text-center sm:text-left">
               {data.cctvCameraSecurity}
@@ -394,44 +415,46 @@ const Home = () => {
         <h1 className="my-10 flex justify-center text-center font-[800] text-[36px] text-[#1ABC9C]">
           {data.testimonialTitle}
         </h1>
-        <div className="relative flex flex-col lg:flex-row">
-          <Image
-            src="https://images.pexels.com/photos/5324988/pexels-photo-5324988.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt=""
-            width={90}
-            height={90}
-            className="lg:relative lg:left-[600px] lg:w-[620px] md:max-w-xl max-w-full mx-6 lg:mx-0 h-[395px] object-cover"
-          />
+        {testimony && testimony.length > 0 ? (
+          <div className="relative flex flex-col lg:flex-row">
+            <Image
+              src={testimony[0].image}
+              alt={`testimony for ${testimony[0].authorRole}`}
+              width={90}
+              height={90}
+              className="lg:relative lg:left-[600px] lg:w-[620px] md:max-w-xl max-w-full mx-6 lg:mx-0 h-[395px] object-cover"
+            />
 
-          <div className="lg:absolute lg:-left-[10px] lg:top-[0px] flex flex-col bg-[#D9D9D9] max-w-full md:max-w-xl p-3 mx-6 mb-6">
-            <ImQuotesRight className="w-[50px] h-[50px] md:w-[81px] md:h-[81px] text-sky-400" />
+            <div className="lg:absolute lg:-left-[10px] lg:top-[0px] flex flex-col bg-[#D9D9D9] max-w-full md:max-w-xl p-3 mx-6 mb-6">
+              <ImQuotesRight className="w-[50px] h-[50px] md:w-[81px] md:h-[81px] text-sky-400" />
 
-            <p className="font-[400] text-base md:text-lg mt-5 md:mt-10">
-              Explore our portfolio of innovative solutions, detailing the
-              challenges we&apos;ve solved and the successes we&apos;ve
-              delivered for businesses across diverse industries.
-            </p>
+              <p className="font-[400] text-base md:text-lg mt-5 md:mt-10">
+                {testimony[0].authorRole}
+              </p>
 
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mt-10 md:mt-20">
-              <div>
-                <h1 className="font-[800] text-[24px] md:text-[36px] text-[#1B396E]">
-                  FIACRE SMITH
-                </h1>
-                <h2 className="font-[300] text-[16px] md:text-[20px] text-[#1B396E]">
-                  CEO - EDGEREACH TECH
-                </h2>
-              </div>
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mt-10 md:mt-20">
+                <div>
+                  <h1 className="font-[800] text-[24px] md:text-[36px] text-[#1B396E]">
+                    {testimony[0].authorName}
+                  </h1>
+                  <h2 className="font-[300] text-[16px] md:text-[20px] text-[#1B396E]">
+                    {`${testimony[0].authorRole} - ${testimony[0].authorCompany}`}
+                  </h2>
+                </div>
 
-              <div className="flex gap-4 md:gap-10 mt-5 md:mt-8">
-                <FaLessThan
-                  size={20}
-                  className="bg-white rounded-3xl font-extrabold"
-                />
-                <FaGreaterThan size={20} className="bg-white rounded-3xl" />
+                <div className="flex gap-4 md:gap-10 mt-5 md:mt-8">
+                  <FaLessThan
+                    size={20}
+                    className="bg-white rounded-3xl font-extrabold"
+                  />
+                  <FaGreaterThan size={20} className="bg-white rounded-3xl" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          "no testimony available"
+        )}
 
         {/* custom rating and review */}
 
@@ -445,7 +468,7 @@ const Home = () => {
               {data.customerReviews}
             </h1>
 
-            <div className="w-full max-w-[300px] pb-[5px] py-[3px] mb-6 gap-[10px] flex justify-center bg-[#F3F4FF] rounded-full">
+            <div className="w-full  pb-[5px] py-[3px] mb-6 gap-[10px] flex justify-center bg-[#F3F4FF] rounded-full">
               <div className="flex items-center gap-2">
                 <IoStarSharp className="w-[20px] h-[20px] text-yellow-300" />
                 <IoStarSharp className="w-[20px] h-[20px] text-yellow-300" />
@@ -456,16 +479,31 @@ const Home = () => {
               </div>
             </div>
 
-            <p className="text-sm mb-6">40 CUSTOMER Ratings</p>
+            <p className="text-sm mb-6">{`${rating.length} CUSTOMER Ratings`}</p>
 
             <div className="w-full max-w-[454px] bg-white p-4 space-y-2">
               {/** Rating Bar Rows */}
               {[
-                { label: "5 stars", percentage: "84%" },
-                { label: "4 stars", percentage: "70%" },
-                { label: "3 stars", percentage: "50%" },
-                { label: "2 stars", percentage: "30%" },
-                { label: "1 star", percentage: "10%" },
+                {
+                  label: "5 stars",
+                  percentage: getPercentage(rating, 5).toFixed() + "%",
+                },
+                {
+                  label: "4 stars",
+                  percentage: getPercentage(rating, 4).toFixed() + "%",
+                },
+                {
+                  label: "3 stars",
+                  percentage: getPercentage(rating, 3).toFixed() + "%",
+                },
+                {
+                  label: "2 stars",
+                  percentage: getPercentage(rating, 2).toFixed() + "%",
+                },
+                {
+                  label: "1 star",
+                  percentage: getPercentage(rating, 1).toFixed() + "%",
+                },
               ].map((rating, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <p className="w-[60px] text-nowrap">{rating.label}</p>
@@ -490,17 +528,26 @@ const Home = () => {
             </p>
 
             <div className="w-full max-w-[487px] py-[10px] mb-6 gap-[21px] flex justify-center bg-[#F3F4FF]">
-              <IoStarSharp className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300" />
-              <IoStarSharp className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300" />
-              <IoStarSharp className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300" />
-              <IoStarSharp className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-gray-300" />
-              <IoStarSharp className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-gray-300" />
-            </div>
-
-            <div className="flex w-full justify-center mt-5">
-              <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-4 sm:px-5 w-fit text-[16px] sm:text-[17px] text-white">
-                {data.choose}
-              </button>
+              <IoStarSharp
+                onClick={() => handleRate(1)}
+                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300"
+              />
+              <IoStarSharp
+                onClick={() => handleRate(2)}
+                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300"
+              />
+              <IoStarSharp
+                onClick={() => handleRate(3)}
+                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300"
+              />
+              <IoStarSharp
+                onClick={() => handleRate(4)}
+                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-gray-300"
+              />
+              <IoStarSharp
+                onClick={() => handleRate(5)}
+                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-gray-300"
+              />
             </div>
           </div>
         </div>
@@ -514,34 +561,47 @@ const Home = () => {
             {data.ourStaffSubtitle}
           </p>
         </div>
+        <>
+        {isLoadingTeam?SkeletonTeam:
         <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
-          {staff.map((staff, index) => (
-            <div
-              key={index}
-              className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
-            >
-              <Image
-                src={staff.Image}
-                alt=""
-                width={90}
-                height={90}
-                className="w-full h-32 object-cover"
-              />
-              <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
-                {staff.title}
-              </h2>
-              <p className="text-[28px] p-2 text-[#49454F] text-center">
-                {staff.content}
-              </p>
-              <div className="flex items-center justify-center gap-[2px]">
-                <LiaLinkedinIn className="w-3 h-3" />
-                <FaInstagram className="w-3 h-3 " />
-                <FaTwitter className="w-3 h-3" />
+          {team && team.length > 0
+            ? team.map((member, index) => (
+                <div
+                  key={index}
+                  className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
+                >
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    width={90}
+                    height={90}
+                    className="w-full h-32 object-cover"
+                  />
+                  <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
+                    {member.role}
+                  </h2>
+                  <p className="text-[28px] p-2 text-[#49454F] text-center">
+                    {member.name}
+                  </p>
+                  <div className="flex items-center justify-center gap-[2px]">
+                    <a href={member.linkedInProfile || "###"}>
+                      <LiaLinkedinIn className="w-3 h-3" />
+                    </a>
+                    <a href={member.instagramProfile || "###"}>
+                      <FaInstagram className="w-3 h-3 " />
+                    </a>
+                    <a href={member.twiterProfile || "###"}>
+                      <FaTwitter className="w-3 h-3" />
+                    </a>
+                    {/* <link href={member.f}>
                 <FaFacebook className="w-3 h-3 " />
-              </div>
-            </div>
-          ))}
-        </div>
+                </link> */}
+                  </div>
+                </div>
+              ))
+            : "no team info available "}
+        </div>}
+        </>
         {/* contact page */}
 
         <div
@@ -639,32 +699,39 @@ const Home = () => {
             {data.latestBlog}
           </p>
         </div>
-
-        <div className="flex items-start justify-center w-full gap-10 mt-10 card-holder">
-          {blogs.map((blog, index) => (
-            <div
-              key={index}
-              className={`relative card border ${currentTheme.card} w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
-            >
-              <div className="flex flex-col gap-2 text-center">
-                <Image
-                  src={blog.image}
-                  alt="cyber"
-                  width={90}
-                  height={90}
-                  className="w-full h-48 object-cover"
-                />
-                <h2 className="font-bold text-2xl">{blog.title}</h2>
-                <p className="text-sm text-gray-600 p-2">{blog.content}</p>
+        <>
+        {isLoadingBlog ? (
+          SkeletonBlog
+        ) : (
+          <div className="flex items-start justify-center w-full gap-10 mt-10 card-holder">
+            {blog.slice(-3).map((blogItem, index) => (
+              <div
+                key={index}
+                className={`relative card border ${themeClasses[theme].card} w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
+              >
+                <div className="flex flex-col gap-2 text-center">
+                  <Image
+                    src={blogItem.image}
+                    alt="cyber"
+                    width={90}
+                    height={90}
+                    className="w-full h-48 object-cover"
+                  />
+                  <h2 className="font-bold text-2xl">{blogItem.title}</h2>
+                  <p className="text-sm text-gray-600 p-2">
+                    {blogItem.content}
+                  </p>
+                </div>
+                <div className="absolute bottom-2 flex w-full items-center justify-center">
+                  <button className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
+                    {data.readMore}
+                  </button>
+                </div>
               </div>
-              <div className="absolute bottom-2 flex w-full items-center justify-center">
-                <button className="bg-teal-500  hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
-                  {data.readMore}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
+        </>
         <div className="flex w-full items-center justify-center mt-5">
           <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white">
             {data.viewMore}
