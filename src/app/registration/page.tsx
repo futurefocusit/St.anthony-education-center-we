@@ -2,8 +2,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { BASE_URL } from '../page';
 import { useAppContext } from '@/context/appContext';
+import { BASE_URL } from '@/context/api';
 
 const RegistrationPage = () => {
   const {language}=useAppContext()

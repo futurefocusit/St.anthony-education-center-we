@@ -6,8 +6,8 @@ import profile from "../../assets/profile (1).png";
 import status from "../../assets/status.png";
 import { useAppContext } from "@/context/appContext";
 import axios from "axios";
-import { BASE_URL } from "../page";
 import { Project } from "@/lib/types";
+import { BASE_URL } from "@/context/api";
 
 
    

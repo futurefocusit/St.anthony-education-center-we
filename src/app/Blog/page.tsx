@@ -1,11 +1,11 @@
 "use client";
+import { BASE_URL } from "@/context/api";
 import { useAppContext } from "@/context/appContext";
 import { Blog } from "@/types/types";
 import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import { BASE_URL } from "../page";
 
 const BlogPage = () => {
   const { language, theme } = useAppContext();

@@ -1,5 +1,5 @@
 "use client";
-export const BASE_URL = "https://cyberpro-web-bn.onrender.com";
+
 import {
   countries,
   posts,
@@ -26,6 +26,7 @@ import { useAppContext } from "@/context/appContext";
 import { Blog, Project, Team, Testimony } from "@/types/types";
 import axios from "axios";
 import { SkeletonBlog, SkeletonPortfolio, SkeletonTeam } from "@/components/skeletons/cardSkeleton";
+import { BASE_URL } from "@/context/api";
 
 
 

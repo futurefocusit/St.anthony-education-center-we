@@ -7,11 +7,11 @@ import Values from "../../Images/Values.jpg";
 import { useAppContext } from "@/context/appContext";
 import { useEffect, useState } from "react";
 import { AboutUsLang } from "@/lib/languageAbout";
-import axios from "axios";
-import { BASE_URL } from "../page";
+import axios from "axios"
 import { SkeletonTeam } from "@/components/skeletons/cardSkeleton";
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { LiaLinkedinIn } from "react-icons/lia";
+import { BASE_URL } from "@/context/api";
 const Aboutus = () => {
     const { language, theme } = useAppContext();
   const [team, setTeam] = useState<Team[]>([]);
