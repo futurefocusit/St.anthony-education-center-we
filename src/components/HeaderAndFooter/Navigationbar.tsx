@@ -9,10 +9,6 @@ import { useAppContext } from '@/context/appContext';
 
 const NavigationBar = () => {
 const {theme} = useAppContext()
-  const pathname = usePathname();
-  if (pathname === "/reportIncident" || pathname === '/registration') return null;
- 
-
 
   // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
   //   if (e.key === "Enter" && searchInput.trim()) {
@@ -21,7 +17,7 @@ const {theme} = useAppContext()
   // };
 
   return (
-    <div className='w-full p-[2px]  lg:p-2 relative  z-50'>
+    <div className='w-full p-[2px]  absolute lg:p-2   z-50'>
       <div className={`anotherContainer flex justify-between ${theme==='dark'?'bg-black text-white':'bg-white text-black'} m-5  rounded-[30px] py-4 lg:py-7 px-[50px] lg:px-[100px] box-border shadow-xl`}>
         <Logo />
         {/* {value ? (

@@ -33,8 +33,8 @@ const NavigationItems = () => {
               key={navigation.path}
               className={
                 isActive
-                  ? "underline underline-offset-8 text-orange-700"
-                  : "hover:text-orange-700"
+                  ? "underline underline-offset-8 text-blue-600"
+                  : "hover:text-blue-600"
               }
             >
               <p>{navigation[language as keyof NavigationItem]}</p>

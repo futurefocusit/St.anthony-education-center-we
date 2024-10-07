@@ -10,7 +10,7 @@ import React, {
   useMemo,
 } from "react";
 
-type Language = "en" | "fr"; // Add more languages as needed
+type Language = "en" | "fr";
 type Theme = "light" | "dark";
 
 interface AppContextType {
@@ -20,8 +20,8 @@ interface AppContextType {
   setUser: Dispatch<SetStateAction<string>>;
   language: Language;
   theme: Theme;
-  toggleLanguage: (lang: Language) => void; // Accept language as a parameter
-  toggleTheme: (theme: Theme) => void; // Accept theme as a parameter
+  toggleLanguage: (lang: Language) => void;
+  toggleTheme: (theme: Theme) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);

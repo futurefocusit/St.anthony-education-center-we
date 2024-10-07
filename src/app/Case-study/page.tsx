@@ -1,146 +1,127 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import image1 from "../../assets/cyyy.jpg";
 import shape from "../../assets/shape12.png";
-import profile from '../../assets/profile (1).png'
-import status from '../../assets/status.png'
+import profile from "../../assets/profile (1).png";
+import status from "../../assets/status.png";
+import { useAppContext } from "@/context/appContext";
+import { CiSearch } from "react-icons/ci";
+import axios from "axios";
+import { BASE_URL } from "../page";
+import { Project } from "@/lib/types";
 
-interface cardProps{
-  imageSrc: StaticImageData;
-  uploadDate:string;
-  projectName:string;
-  statusText:string;
-  profileName:string;
-  summary:string;
-  testimonial:string;
-  releaseDate: string;
-}
 
-const Card: React.FC<cardProps> =({imageSrc,uploadDate,projectName,statusText,profileName,summary,testimonial,releaseDate})=>{
+   
+  
+
+const CardList: React.FC = () => {
+  const { theme, language } = useAppContext();
+  const [isLoadingPortfolio, setIsLoadingPortifolio] = useState(false);
+  const [portfolio, setPortfolio] = useState<Project[]>([]);
+
+ const fetchData = async (
+   endpoint: string,
+   setStateFunc: React.Dispatch<React.SetStateAction<any>>,
+   setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
+ ) => {
+   try {
+     setLoadingFunc(true);
+     const response = await axios.get(`${BASE_URL}/${endpoint}`);
+     setStateFunc(response.data);
+   } catch (error) {
+     console.error(`Error fetching ${endpoint}:`, error);
+   } finally {
+     setLoadingFunc(false);
+   }
+ };
+
+useEffect(() => {
+  fetchData("project", setPortfolio, setIsLoadingPortifolio);
+}, []);
+
   return (
-    <div className="bg-white flex flex-col items-center md:items-start lg:items-start md:flex-row px-20 mb-12 pt-2">
-      <div className="flex flex-col">
-      <div className="bg-slate-300 min-w-[380px] h-[320px] md:mt-[35px] md:h-[320px] md:max-w-[400px] lg:max-w-[450px] overflow-hidden rounded-lg shadow-xl relative flex-shrink-0 cursor-pointer transition-all duration-300 hover:scale-105">
-        <Image
-          src={imageSrc}
-          alt="cyberimage"
-          width={450}
-          className=" md:h-full md:w-full w-full h-full object-cover clip-custom-shape"
-        />
-        
-      </div>
+    <div
+      className={`${
+        theme === "dark"
+          ? "bg-gray-800  text-white"
+          : "bg-white text-gray-300 4"
+      } pt-60 `}
+    >
+      <div
+        className={`${
+          theme === "dark" ? "bg-gray-800" : "bg-white"
+        } min-h-screen flex flex-col justify-start pt-10`}
+      >
+        {portfolio.map((project) => (
+          <div className="flex flex-col gap-6 w-full max-w-4xl  flex-grow ">
+            <div className="flex flex-col items-center md:items-start lg:items-start md:flex-row px-5 md:px-10 mb-8 gap-10">
+              <div className="flex flex-col">
+                <div className="bg-slate-300 min-w-[380px] h-[320px] md:max-w-[400px] lg:max-w-[450px] overflow-hidden rounded-lg shadow-xl relative flex-shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105">
+                  <Image
+                    src={project.Image}
+                    alt={project.title}
+                    width={450}
+                    className="md:h-full md:w-full w-full h-full object-cover clip-custom-shape"
+                  />
+                </div>
 
-      <div className="flex gap-2 mt-[20px] md:left-4 md:flex md:mt-[20px]">
-          <Image src={shape} alt="shape image" width={5}/>
-          <p className="text-[10px] font-light text-gray-600 italic mt-2 md:text-[14px] cursor-pointer">
-            Uploaded on:{" "} <span className="font-bold text-[#1abc9c] transition-all duration-300 ease-in-out hover:text-black">{uploadDate}</span>
-          </p>
-        </div>
-        </div>
-      <div className="pt-4 flex flex-col items-center md:items-start md:pl-6 min-w-[300px]">
-      <h1 className="font-merriweather mt-3 font-bold text-[20px] md:text-[40px] text-[#1B396E]">{projectName}</h1>
-        <div className="relative flex flex-row cursor-pointer mt-2 md:mt-5 transition-all duration-300 ease-in-out group">
-        <Image src={status} alt="loading status" width={30} className="mt-2"/>
-        <p className="text-black font-semibold mt-2 md:mt-3 pl-2 hover:text-[#1abc9c]">{statusText}</p>
+                <div className="flex gap-2 mt-2 md:mt-4">
+                  <Image src={shape} alt="shape image" width={5} />
+                  <p className="text-[10px] font-light text-gray-600 italic">
+                    Uploaded on:{" "}
+                    <span className="font-bold text-[#1abc9c] transition-all duration-300 ease-in-out hover:text-black">
+                      {project.createdAt}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="pt-4 flex flex-col items-center md:items-start md:pl-6 min-w-[300px]">
+                <h1 className="font-merriweather mt-3 font-bold text-[20px] md:text-[24px] lg:text-[30px] text-[#1B396E]">
+                  {project.title}
+                </h1>
+                <div className="relative flex flex-row cursor-pointer mt-2 md:mt-4 transition-all duration-300 ease-in-out group">
+                  <Image
+                    src={status}
+                    alt="loading status"
+                    width={30}
+                    className="mt-1"
+                  />
+                  <p className="text-black font-semibold pl-2 hover:text-[#1abc9c]">
+                    {project.status}
+                  </p>
+                  <div className="absolute md:min-w-64 top-full left-0 mt-1 ml-2 px-4 py-2 bg-gray-200 text-gray-600 text-[12px] font-roboto rounded shadow-lg opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 pointer-events-none z-20">
+                    <p>{project.timeRange}</p>
+                  </div>
+                </div>
 
-        <div className="absolute md:min-w-64 top-full left-0 mt-1 ml-2 px-4 py-2 bg-gray-200 text-gray-600 text-[12px] font-roboto rounded shadow-lg opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 pointer-events-none z-20">
-          <p>{releaseDate}</p>
+                <div className="relative flex flex-row cursor-pointer mt-2 md:mt-4 transition-all duration-300 ease-in-out group">
+                  <Image
+                    src={profile}
+                    alt="profile logo"
+                    width={30}
+                    className="mt-1"
+                  />
+                  <p className="mt-1 ml-2 hover:text-[#1abc9c]">
+                    {project.customer}
+                  </p>
+                </div>
+
+                <div className="mt-4 flex flex-col items-center md:items-start">
+                  <h1 className="font-roboto text-xl font-bold pb-2">
+                    Project Summary
+                  </h1>
+                  <p>{project.content}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Add more Card components as needed */}
           </div>
-        </div>
-
-        <div className="relative flex flex-row cursor-pointer mt-2 md:mt-5 transition-all duration-300 ease-in-out group">
-          <Image src={profile} alt="profile logo" width={30} className="mt-2" />
-          <p className="mt-3 ml-2 hover:text-[#1abc9c]">{profileName}</p>
-
-          <div className="absolute md:min-w-96 top-full left-0 mt-1 ml-2 px-4 py-2 bg-gray-200 text-gray-600 text-[12px] font-roboto rounded shadow-lg opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 pointer-events-none">
-          <p>{testimonial}</p>
-          </div>
-        </div>
-        
-        <div className="mt-10 flex flex-col items-center md:items-start">
-          <h1 className="font-roboto text-2xl font-bold pb-6 md:pb-6">Project Summary</h1>
-          <p>{summary}</p>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
-const cardList: React.FC = () => {
-  return (
-    <div className="flex flex-col gap-2">
-      <Card
-        imageSrc={image1}
-        uploadDate={"12, January, 2024"}
-        projectName={"Project One"}
-        statusText={"Completed"}
-        profileName={"John Doe"} 
-        summary={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
-        testimonial={
-          "Working with EdgeReach Tech was a smooth and positive experience. Their clear communication and commitment to deadlines ensured the project stayed on track and delivered within budget."
-        }
-        releaseDate={"Started: 01/01/2024 - End: 10/01/2024"}
-      />
-
-      <Card imageSrc={image1} 
-      uploadDate={"17, September, 2024"} 
-      projectName={"Project Two"} 
-      statusText={"Ongoing"} 
-      profileName={"Mucyo Blaise"} 
-      summary={
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  ut labore et dolore magna aliqua. sed do eiusmod tempor incididunt  ut labore et dolore magna aliqua. sed do eiusmod tempor incididunt  ut labore et dolore magna aliqua.  Ut enim ad minim   consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      } 
-      testimonial={
-        "Working with EdgeReach Tech was a smooth and positive experience. Their clear communication and commitment to deadlines ensured the project stayed on track and delivered within budget."
-      }      
-      releaseDate={"Started: 01/01/2024 - End: 10/01/2024"}
-      />
-      <Card
-        imageSrc={image1}
-        uploadDate={"12, March, 2024"}
-        projectName={"Project Three"}
-        statusText={"Completed"}
-        profileName={"Rwigara Rodrique"} 
-        summary={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
-        testimonial={
-          "Working with EdgeReach Tech was a smooth and positive experience. Their clear communication and commitment to deadlines ensured the project stayed on track and delivered within budget."
-        }
-        releaseDate={"Started: 01/01/2024 - End: 10/01/2024"}
-      />
-      <Card
-        imageSrc={image1}
-        uploadDate={"12, March, 2024"}
-        projectName={"Project Four"}
-        statusText={"Completed"}
-        profileName={"Rwigara Rodrique"} 
-        summary={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
-        testimonial={
-          "Working with EdgeReach Tech was a smooth and positive experience. Their clear communication and commitment to deadlines ensured the project stayed on track and delivered within budget."
-        }
-        releaseDate={"Started: 01/01/2024 - End: 10/01/2024"}
-      />
-      <Card
-        imageSrc={image1}
-        uploadDate={"12, March, 2024"}
-        projectName={"Project Five"}
-        statusText={"Completed"}
-        profileName={"Rwigara Rodrique"} 
-        summary={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequatLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
-        testimonial={
-          "Working with EdgeReach Tech was a smooth and positive experience. Their clear communication and commitment to deadlines ensured the project stayed on track and delivered within budget."
-        }
-        releaseDate={"Started: 01/01/2024 - End: 10/01/2024"}
-      />
-    </div>
-  );
-};
-
-export default cardList;
+export default CardList;
