@@ -1,8 +1,8 @@
 "use client";
+import { BASE_URL } from "@/context/api";
 import { useAppContext } from "@/context/appContext";
 import axios from "axios";
 import React, { useState } from "react";
-import { BASE_URL } from "../page";
 import { toast } from "react-toastify";
 
 const ReportIncident = () => {
