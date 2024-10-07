@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const ReportIncident = () => {
-    const [captchaVerified, setCaptchaVerified] = useState(false);
+    // const [captchaVerified, setCaptchaVerified] = useState(false);
     const [input, setInput] = useState({
         name: '',
         email: '',
@@ -15,15 +15,10 @@ const ReportIncident = () => {
     const onSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         console.log(input)
-        if (captchaVerified) {
-            alert("Form submitted successfully!");
-        } else {
-            alert("Please verify the reCAPTCHA.");
-        }
-    };
+    //     
 
-    const handleCaptchaVerify = (value: string | null) => {
-        setCaptchaVerified(!!value);
+    // const handleCaptchaVerify = (value: string | null) => {
+    //     setCaptchaVerified(!!value);
     };
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,12 +90,12 @@ const ReportIncident = () => {
                     </div>
 
 
-                    <div className='w-full flex items-center justify-center py-5'>
+                    {/* <div className='w-full flex items-center justify-center py-5'>
                         <ReCAPTCHA
                             sitekey="YOUR_RECAPTCHA_SITE_KEY"
                             onChange={handleCaptchaVerify}
                         />
-                    </div>
+                    </div> */}
 
                     <button
                         type="submit"

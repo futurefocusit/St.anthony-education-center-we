@@ -61,13 +61,8 @@ const Home = () => {
                 style={{ height: "71px", fontFamily: "Roboto Serif", fontWeight: "400", fontSize: "16px", lineHeight: "24px", color: "#000000" }}>
                 {blog.description}
               </p>
-              <h6 style={{ height: "24px", fontFamily: "Merriweather Sans", fontWeight: "800", fontSize: "16px", lineHeight: "24px", color: "#1ABC9C" }}>
-                Guide lines:
-              </h6>
               <div style={{ fontFamily: "Roboto Serif", fontWeight: "400", color: "#000000" }}>
-                {blog.guides.map((guide, guideIndex) => (
-                  <p key={guideIndex} className="flex items-center gap-2 text-[14px] lg:text-[16px]"><span className="font-bold lg:text-3xl">•</span> {guide}</p>
-                ))}
+                {blog.guides}
               </div>
             </div>
             <div className="flex items-center justify-center py-5">

@@ -47,10 +47,18 @@ const Services = () => {
       {/* training service section content*/}
       <section className="px-20 max-lg:px-5">
         <div className=" py-7 ">
-          <h1 className="text-[#1B396E] max-md:ml-5 max-lg:ml-5 ml-[11em] font-merriweather  text-2xl pb-3">
+          <h1
+            className={` ${
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+            }  max-md:ml-5 max-lg:ml-5 ml-[11em] font-merriweather  text-2xl pb-3`}
+          >
             {ServicesLang[language].service1}
           </h1>
-          <p className="text-[#1B396E] ml-[19em] font-merriweather pb-3 text-sm max-md:ml-5 max-lg:ml-5">
+          <p
+            className={`  ${
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+            }   ml-[19em] font-merriweather pb-3 text-sm max-md:ml-5 max-lg:ml-5`}
+          >
             {ServicesLang[language].service1_desc}
           </p>
         </div>
@@ -64,10 +72,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1B396E] font-merriweather max-md:p-3 text-[18px] ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  font-merriweather max-md:p-3 text-[18px] `}
+            >
               {ServicesLang[language].subservice1service1}
             </h1>
-            <p className="pt-2 font-roboto max-lg:font-sans max-md:p-3">
+            <p
+              className={`  ${
+                theme === "dark" ? "text-gray-300" : ""
+              } pt-2 font-roboto max-lg:font-sans max-md:p-3`}
+            >
               {ServicesLang[language].subservice1service1_desc}
             </p>
             <div>
@@ -87,10 +103,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1B396E] max-lg:font-sans  max-md:p-3 font-merriweather text-[18px] ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  max-lg:font-sans  max-md:p-3 font-merriweather text-[18px] `}
+            >
               {ServicesLang[language].subservice2service1}
             </h1>
-            <p className="pt-2 font-roboto max-lg:font-sans  max-md:p-3">
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : ""
+              }  pt-2 font-roboto max-lg:font-sans  max-md:p-3`}
+            >
               {ServicesLang[language].subservice2service1_desc}
             </p>
             <div>
@@ -110,10 +134,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1B396E] max-md:p-3 font-merriweather text-[18px] max-lg:font-sans  ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  max-md:p-3 font-merriweather text-[18px] max-lg:font-sans  `}
+            >
               {ServicesLang[language].subservice3service1}
             </h1>
-            <p className="pt-2 font-roboto max-lg:font-sans  max-md:p-3">
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : ""
+              }  pt-2 font-roboto max-lg:font-sans  max-md:p-3`}
+            >
               {ServicesLang[language].subservice3service1_desc}
             </p>
             <div>
@@ -133,10 +165,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1B396E] max-md:p-3 font-merriweather text-[18px] max-lg:font-sans  ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  max-md:p-3 font-merriweather text-[18px] max-lg:font-sans  `}
+            >
               {ServicesLang[language].subservice4service1}
             </h1>
-            <p className="pt-2 font-roboto max-lg:font-sans  max-md:p-3">
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : ""
+              } pt-2 font-roboto max-lg:font-sans  max-md:p-3`}
+            >
               {ServicesLang[language].subservice4service1_desc}
             </p>
             <div>
@@ -152,10 +192,18 @@ const Services = () => {
 
       <section className="flex flex-col px-20 max-lg:px-5 justify-start items-start pb-5 gap-4">
         <div className=" py-7 ">
-          <h1 className="text-[#1B396E] font-merriweather text-10px text-2xl pb-3">
+          <h1
+            className={` ${
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+            }  font-merriweather text-10px text-2xl pb-3`}
+          >
             {ServicesLang[language].service2}
           </h1>
-          <p className="text-[#1B396E] font-merriweather pb-3 text-sm ">
+          <p
+            className={` ${
+              theme === "dark" ? "text-gray-300" : ""
+            }  font-merriweather pb-3 text-sm `}
+          >
             {ServicesLang[language].service2_desc}
           </p>
         </div>
@@ -169,10 +217,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] max-md:p-3  ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  font-merriweather pt-3 text-[18px] max-md:p-3  `}
+            >
               {ServicesLang[language].subservice1service2}
             </h1>
-            <p className="pt-3 font-roboto max-lg:font-sans  max-md:p-3  ">
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : ""
+              }  pt-3 font-roboto max-lg:font-sans  max-md:p-3  `}
+            >
               {ServicesLang[language].subservice1service2_desc}
             </p>
             <div>
@@ -192,10 +248,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  font-merriweather pt-3 text-[18px] `}
+            >
               {ServicesLang[language].subservice2service2}
             </h1>
-            <p className="pt-3 font-roboto max-lg:font-sans  ">
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  pt-3 font-roboto max-lg:font-sans  `}
+            >
               {ServicesLang[language].subservice2service2_desc}
             </p>
             <div>
@@ -215,10 +279,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  font-merriweather pt-3 text-[18px] `}
+            >
               {ServicesLang[language].subservice3service2}
             </h1>
-            <p className="pt-3 font-roboto max-lg:font-sans  ">
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : ""
+              }  pt-3 font-roboto max-lg:font-sans  `}
+            >
               {ServicesLang[language].subservice3service2_desc}
             </p>
             <div>
@@ -238,10 +310,18 @@ const Services = () => {
             height={250}
           />
           <div>
-            <h1 className="text-[#1ABC9C] font-merriweather pt-3 text-[18px] max-md:p-3  ">
+            <h1
+              className={` ${
+                theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+              }  font-merriweather pt-3 text-[18px] max-md:p-3  `}
+            >
               {ServicesLang[language].subservice4service2}
             </h1>
-            <p className="pt-3 font-roboto max-lg:font-sans  max-md:p-3  ">
+            <p
+              className={` ${
+                theme === "dark" ? "text-gray-300" : ""
+              }  pt-3 font-roboto max-lg:font-sans  max-md:p-3  `}
+            >
               {ServicesLang[language].subservice4service2_desc}
             </p>
             <div>
@@ -256,10 +336,18 @@ const Services = () => {
       {/* installation CCTV cameras  service section content*/}
       <div className="w-[100%] h-full  max-md:bg-[#BEB9B9] max-lg:bg[#BEB9B9] px-20 pb-2  max-md:px-5 mt-0 mx-auto ">
         <div>
-          <h1 className="text-[#1B396E] max-lg:ml-0 font-merriweather text-10px text-2xl ml-[11em] max-md:ml-0  py-3">
+          <h1
+            className={` ${
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+            }  max-lg:ml-0 font-merriweather text-10px text-2xl ml-[11em] max-md:ml-0  py-3`}
+          >
             {ServicesLang[language].service3}
           </h1>
-          <p className="text-[#1B396E] max-lg:ml-0  font-merriweather pb-3 text-sm ml-[19em] max-md:ml-0  ">
+          <p
+            className={` ${
+              theme === "dark" ? "text-gray-300" : ""
+            }  max-lg:ml-0  font-merriweather pb-3 text-sm ml-[19em] max-md:ml-0  `}
+          >
             {ServicesLang[language].service3_desc}
           </p>
         </div>
@@ -273,10 +361,18 @@ const Services = () => {
               height={300}
             />
             <div data-aos="fade-up">
-              <h1 className="text-[#1B396E] max-md:p-3  font-merriweather text-[18px] max-lg:font-sans ">
+              <h1
+                className={` ${
+                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
+              >
                 {ServicesLang[language].subservice1service3}
               </h1>
-              <p className="pt-2 font-roboto max-lg:font-sans  max-md:p-3 ">
+              <p
+                className={` ${
+                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
+              >
                 {ServicesLang[language].subservice1service3_desc}
               </p>
               <div>
@@ -295,10 +391,18 @@ const Services = () => {
               height={300}
             />
             <div data-aos="fade-up">
-              <h1 className="text-[#1B396E] max-md:p-3  font-merriweather text-[18px] max-lg:font-sans ">
+              <h1
+                className={` ${
+                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                } max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
+              >
                 {ServicesLang[language].subservice4service3}
               </h1>
-              <p className="pt-2 font-roboto max-lg:font-sans  max-md:p-3 ">
+              <p
+                className={` ${
+                  theme === "dark" ? "text-gray-300" : ""
+                }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
+              >
                 {ServicesLang[language].subservice4service3_desc}
               </p>
               <div>
@@ -317,10 +421,18 @@ const Services = () => {
               height={300}
             />
             <div data-aos="fade-up">
-              <h1 className="text-[#1B396E] max-md:p-3  font-merriweather text-[18px] max-lg:font-sans ">
+              <h1
+                className={` ${
+                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
+              >
                 {ServicesLang[language].subservice2service3}
               </h1>
-              <p className="pt-2 font-roboto max-lg:font-sans  max-md:p-3 ">
+              <p
+                className={` ${
+                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                } pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
+              >
                 {ServicesLang[language].subservice2service3_desc}
               </p>
               <div>
@@ -339,10 +451,18 @@ const Services = () => {
               height={300}
             />
             <div data-aos="fade-up">
-              <h1 className="text-[#1B396E] max-md:p-3  font-merriweather text-[18px] max-lg:font-sans ">
+              <h1
+                className={` ${
+                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                }  max-md:p-3  font-merriweather text-[18px] max-lg:font-sans `}
+              >
                 {ServicesLang[language].subservice3service3}
               </h1>
-              <p className="pt-2 font-roboto max-lg:font-sans  max-md:p-3 ">
+              <p
+                className={`  ${
+                  theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
+                }  pt-2 font-roboto max-lg:font-sans  max-md:p-3 `}
+              >
                 {ServicesLang[language].subservice3service3_desc}
               </p>
               <div>
