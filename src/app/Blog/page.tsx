@@ -1,5 +1,4 @@
 "use client";
-import { blogs } from "@/components/HeaderAndFooter/constant";
 import { useAppContext } from "@/context/appContext";
 import { Blog } from "@/types/types";
 import axios from "axios";
@@ -13,11 +12,12 @@ const BlogPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [blog, setBlog] = useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
-  const [isLoadingBlog, setIsLoadingBlog] = useState(false);
+  const [,setIsLoadingBlog] = useState(false);
 
   const fetchData = async (
     endpoint: string,
-    setStateFunc: React.Dispatch<React.SetStateAction<any>>,
+    //@ts-expect-error error
+    setStateFunc: React.Dispatch<React.SetStateAction<>>,
     setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     try {

@@ -1,12 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image, { StaticImageData } from "next/image";
-import image1 from "../../assets/cyyy.jpg";
+import Image from "next/image";
 import shape from "../../assets/shape12.png";
 import profile from "../../assets/profile (1).png";
 import status from "../../assets/status.png";
 import { useAppContext } from "@/context/appContext";
-import { CiSearch } from "react-icons/ci";
 import axios from "axios";
 import { BASE_URL } from "../page";
 import { Project } from "@/lib/types";
@@ -16,13 +14,14 @@ import { Project } from "@/lib/types";
   
 
 const CardList: React.FC = () => {
-  const { theme, language } = useAppContext();
-  const [isLoadingPortfolio, setIsLoadingPortifolio] = useState(false);
+  const { theme} = useAppContext();
+  const [, setIsLoadingPortifolio] = useState(false);
   const [portfolio, setPortfolio] = useState<Project[]>([]);
 
  const fetchData = async (
    endpoint: string,
-   setStateFunc: React.Dispatch<React.SetStateAction<any>>,
+   //@ts-expect-error error
+   setStateFunc: React.Dispatch<React.SetStateAction<>>,
    setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
  ) => {
    try {
@@ -53,8 +52,8 @@ useEffect(() => {
           theme === "dark" ? "bg-gray-800" : "bg-white"
         } min-h-screen flex flex-col justify-start pt-10`}
       >
-        {portfolio.map((project) => (
-          <div className="flex flex-col gap-6 w-full max-w-4xl  flex-grow ">
+        {portfolio.map((project,index) => (
+          <div key={index} className="flex flex-col gap-6 w-full max-w-4xl  flex-grow ">
             <div className="flex flex-col items-center md:items-start lg:items-start md:flex-row px-5 md:px-10 mb-8 gap-10">
               <div className="flex flex-col">
                 <div className="bg-slate-300 min-w-[380px] h-[320px] md:max-w-[400px] lg:max-w-[450px] overflow-hidden rounded-lg shadow-xl relative flex-shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105">

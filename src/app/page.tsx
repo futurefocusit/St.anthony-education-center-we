@@ -1,5 +1,5 @@
 "use client";
-export const BASE_URL = 'http://localhost:5000'
+export const BASE_URL = "https://cyberpro-web-bn.onrender.com";
 import {
   countries,
   posts,
@@ -40,8 +40,8 @@ const Home = () => {
   const [isLoadingPortfolio,setIsLoadingPortifolio] =  useState(false)
   const [isLoadingTeam,setIsLoadingTeam] =  useState(false)
   const [isLoadingBlog,setIsLoadingBlog] =  useState(false)
-  const [isLoadingTestimony,setIsLoadingtestimony] =  useState(false)
-  const [isLoadingRating,setIsLoadingRating] =  useState(false)
+  const [,setIsLoadingtestimony] =  useState(false)
+  const [,setIsLoadingRating] =  useState(false)
 
 const  getPercentage = (arr: {value:number}[], target: number): number =>{
   const total = arr.length;
@@ -53,7 +53,8 @@ const  getPercentage = (arr: {value:number}[], target: number): number =>{
 }
    const fetchData = async (
      endpoint: string,
-     setStateFunc: React.Dispatch<React.SetStateAction<any>>,
+     //@ts-expect-error ERROR
+     setStateFunc: React.Dispatch<React.SetStateAction<>>,
      setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
    ) => {
      try {

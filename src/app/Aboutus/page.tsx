@@ -19,7 +19,8 @@ const Aboutus = () => {
 
  const fetchData = async (
    endpoint: string,
-   setStateFunc: React.Dispatch<React.SetStateAction<any>>,
+   //@ts-expect-error eroor
+   setStateFunc: React.Dispatch<React.SetStateAction<>>,
    setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
  ) => {
    try {

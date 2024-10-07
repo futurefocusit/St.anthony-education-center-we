@@ -3,7 +3,6 @@ import React from 'react'
 import Logo from './Logo'
 import NavigationItems from './NavigationItems'
 import SearchBar from './SearchBar'
-import { usePathname } from 'next/navigation';
 import LanguageSwitcher from '../languageSwitcher';
 import { useAppContext } from '@/context/appContext';
 

@@ -6,7 +6,7 @@ import { BASE_URL } from '../page';
 import { useAppContext } from '@/context/appContext';
 
 const RegistrationPage = () => {
-  const {language,theme}=useAppContext()
+  const {language}=useAppContext()
   const [input, setInput] = useState({
     name: '',
     email: '',
