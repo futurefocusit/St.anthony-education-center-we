@@ -33,9 +33,8 @@ const Footer = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Logo />
       <div className="">
-        <div className="flex justify-between w-full flex-col md:flex-row">
+        <div className="flex justify-between w-full flex-col  md:flex-row ">
           <div className="flex justify-between w-full both">
             <div className="mt-3 footer-container both-one">
               <h1 className="text-[#1ABC9C]">
@@ -82,12 +81,12 @@ const Footer = () => {
               {language === "en" ? "CONTACTS" : "CONTACTS"}
             </h1>
             <div className="w-[50px] bg-blue-700 p-[2px] rounded-md mb-4" />
-            <div className="flex flex-col gap-4 mt-2 text-white">
+            <div className="flex flex-col  gap-4 mt-2 text-white">
               {Contacts.map((contact, index) => {
                 const Icon = contact.icon;
                 return (
                   <div key={index}>
-                    <div className="contacts flex items-center gap-2">
+                    <div className="contacts flex items-center  gap-2">
                       <p className="min-w-[100px]">{contact.country}</p>
                       <div className="flex items-center gap-2">
                         <p>
@@ -166,7 +165,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
+{/* 
       <div className="h-[100px] w-full flex items-end justify-end">
         <a
           href="#"
@@ -174,7 +173,7 @@ const Footer = () => {
         >
           <MdArrowUpward className=" w-[30px] h-[30px]" />
         </a>
-      </div>
+      </div> */}
 
       <div className="px-10 mt-5">
         <div className="bg-blue-900 h-[2px] w-full" />

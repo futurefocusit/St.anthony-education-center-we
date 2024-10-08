@@ -16,24 +16,10 @@ const {theme} = useAppContext()
   // };
 
   return (
-    <div className='w-full p-[2px]  absolute lg:p-2   z-50'>
-      <div className={`anotherContainer flex justify-between ${theme==='dark'?'bg-black text-white':'bg-white text-black'} m-5  rounded-[30px] py-4 lg:py-7 px-[50px] lg:px-[100px] box-border shadow-xl`}>
+    <div className='w-full  absolute z-50'>
+      <div className={` flex justify-between ${theme==='dark'?'bg-black text-white':'bg-white text-black'} m-7  rounded-[30px]  lg:px-[100px] box-border shadow-xl`}>
         <Logo />
-        {/* {value ? (
-          <div className='searchButton flex items-center gap-5 -mt-[2px]'>
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="w-full md:w-[400px] lg:w-[600px] text-[15px] px-3 border-[1px] border-blue-500 rounded-[20px] py-[3px] outline-none"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-            <button 
-            onClick={() => setValue(false)}><MdClose className="w-7 h-7" /></button>
-          </div>
-        ) : ( */}
-          <div className='flex items-center gap-5'>
+          <div className='flex items-center gap-5 m-5'>
             <NavigationItems />
             <SearchBar />
             <LanguageSwitcher/>

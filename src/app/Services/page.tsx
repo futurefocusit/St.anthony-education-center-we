@@ -14,7 +14,7 @@ const Services = () => {
     <div
       className={`${
         theme === "dark" ? "bg-slate-700" : ""
-      } relative mt-[-2em] max-md:bg-[#b9bebd] max-lg:bg[#BEB9B9]  `}
+      }   max-md:bg-[#b9bebd] max-lg:bg[#BEB9B9]  `}
     >
       <section
         className="  max-md:w-screen  h-auto relative -top-36  pt-64 pb-32 leading-10 -mb-32 lg:pl-[50px]  pl-[5px] "

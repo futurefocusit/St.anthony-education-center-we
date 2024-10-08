@@ -98,7 +98,7 @@ useEffect(() => {
   return (
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}`}>
       <div
-        className={`h-fit pb-10 relative -top-36 pt-36 lg:flex  ${
+        className={`h-fit pb-10 relative -top-36 pt-72 lg:flex  ${
           theme === "dark" ? "text-gray-300" : "text-white"
         }`}
         style={{

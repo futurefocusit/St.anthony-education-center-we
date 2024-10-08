@@ -54,9 +54,9 @@ const NavigationItems = () => {
             "flex lg:hidden absolute bg-black/15 left-0 h-full w-full top-0 transition-all duration-75 ease-linear popup"
           }
         >
-          <div
+          <div 
             className={
-              "w-fit px-[50px] py-20 h-screen overflow-y-auto flex flex-col gap-8"
+              "w-fit bg-white px-[50px] py-20 h-screen overflow-y-auto flex flex-col gap-8"
             }
           >
             <button
@@ -75,8 +75,8 @@ const NavigationItems = () => {
                   key={navigation.path}
                   className={
                     isActive
-                      ? "underline underline-offset-8 text-orange-700"
-                      : "hover:text-orange-700"
+                      ? "underline underline-offset-8 text-blue-700"
+                      : "hover:text-blue-700"
                   }
                 >
                   <p>{navigation[language as keyof NavigationItem]}</p>

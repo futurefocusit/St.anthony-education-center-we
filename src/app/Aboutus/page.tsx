@@ -38,10 +38,10 @@ useEffect(() => {
 }, []);
   return (
     <div
-      className={`relative mt-[-2em] ${theme === "dark" ? "bg-slate-700" : ""}`}
+      className={` ${theme === "dark" ? "bg-slate-700" : ""}`}
     >
       <section
-        className=" h-auto relative -top-36  pt-32 pb-32 -mb-32 lg:pl-[50px]  pl-[5px] "
+        className=" h-auto relative -top-36  pt-72 pb-32 -mb-32 lg:pl-[50px]  pl-[5px] "
         style={{
           backgroundImage:
             "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",

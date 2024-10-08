@@ -30,7 +30,6 @@ const LanguageThemeSwitcher = () => {
           <span role="img" aria-label="Français" className="mr-2">
             🇫🇷
           </span>
-
         </button>
       </div>
 
@@ -39,18 +38,26 @@ const LanguageThemeSwitcher = () => {
         <button
           onClick={() => toggleTheme("light")}
           className={`flex items-center p-2 rounded border ${
-            theme === "light" ? "bg-gray-200" : "border-gray-300"
+            theme === "dark" ? "bg-black" : "border-gray-300"
           }`}
         >
-          <FaSun size={20} className="text-black" />
+          <FaSun
+            size={20}
+            className={`${theme === "dark" ? "text-gray-300" : "text-black"} `}
+          />
         </button>
         <button
           onClick={() => toggleTheme("dark")}
           className={`flex items-center p-2 rounded border ${
-            theme === "dark" ? "bg-gray-200" : "border-gray-300"
+            theme === "dark" ? "bg-gray-200" : "border-gray-300 bg-black"
           }`}
         >
-          <FaMoon size={20} className="text-black" />
+          <FaMoon
+            size={20}
+            className={`${
+              theme === "dark" ? "text-black" : "text-gray-300"
+            } `}
+          />
         </button>
       </div>
     </div>
