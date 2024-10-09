@@ -31,7 +31,7 @@ const Footer = () => {
   const handleSubscribe = async () => {
     try {
       // setLoading(true)
-      const response = await axios.post(`${BASE_URL}/usersubscribe`, {
+      const response = await axios.post(`${BASE_URL}/user/subscribe`, {
         email,
       });
       toast.success(response.data.message);
