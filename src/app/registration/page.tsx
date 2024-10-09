@@ -6,17 +6,17 @@ import { useAppContext } from '@/context/appContext';
 import { BASE_URL } from '@/context/api';
 
 const RegistrationPage = () => {
-  const {language}=useAppContext()
+  const { language } = useAppContext()
   const [input, setInput] = useState({
     name: '',
     email: '',
     phone: '',
   });
 
-  const onSubmit = async(event: React.FormEvent) => {
+  const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-          await axios.post(`${BASE_URL}/student/`, {
+      await axios.post(`${BASE_URL}/student/`, {
         input,
       });
 
@@ -32,7 +32,7 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="font-sans  pt-64">
+    <div className="font-sans  pt-64 px-2 pb-5">
       <h1 className="text-center text-blue-800 text-2xl my-5">
         Fill the form to register
       </h1>

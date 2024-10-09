@@ -47,26 +47,23 @@ const ReportIncident = () => {
   return (
     <>
       <div
-        className={`${
-          theme === "dark"
-            ? "bg-slate-800 text-gray-300"
-            : "bg-white text-black"
-        } bg-cover bg-center bg-no-repeat h-[10rem] md:h-[450px]`}
+        className={`${theme === "dark"
+          ? "bg-slate-800 text-gray-300"
+          : "bg-white text-black"
+          } bg-cover bg-center bg-no-repeat h-[10rem] md:h-[450px]`}
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/5561921/pexels-photo-5561921.jpeg')`,
         }}
       />
       <div
-        className={`${
-          theme === "dark"
-            ? "bg-slate-800 text-gray-300"
-            : "bg-white text-black"
-        } font-sans md:p-5 p-2`}
+        className={`${theme === "dark"
+          ? "bg-slate-800 text-gray-300"
+          : "bg-white text-black"
+          } font-sans md:p-5 p-2`}
       >
         <h1
-          className={`${
-            theme === "dark" ? "text-gray-300" : "bg-white text-blue-800"
-          } text-center text-2xl my-5`}
+          className={`${theme === "dark" ? "text-gray-300" : "bg-white text-blue-800"
+            } text-center text-2xl my-5`}
         >
           {language === "en"
             ? "Fill the form to report an incident"

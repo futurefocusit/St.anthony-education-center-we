@@ -54,7 +54,7 @@ const NavigationItems = () => {
             "flex lg:hidden absolute bg-black/15 left-0 h-full w-full top-0 transition-all duration-75 ease-linear popup"
           }
         >
-          <div 
+          <div
             className={
               "w-fit bg-white px-[50px] py-20 h-screen overflow-y-auto flex flex-col gap-8"
             }
@@ -63,7 +63,7 @@ const NavigationItems = () => {
               className="text-3xl ml-[10rem]"
               onClick={() => setShowMenuItems((prev) => !prev)}
             >
-              <MdClose />
+              <MdClose className="text-black" />
             </button>
             {NavigationItemsRoutes.map((navigation) => {
               const isActive =
@@ -76,7 +76,7 @@ const NavigationItems = () => {
                   className={
                     isActive
                       ? "underline underline-offset-8 text-blue-700"
-                      : "hover:text-blue-700"
+                      : "hover:text-blue-700 text-black"
                   }
                 >
                   <p>{navigation[language as keyof NavigationItem]}</p>
