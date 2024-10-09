@@ -43,7 +43,7 @@ const Home = () => {
   const [isLoadingBlog,setIsLoadingBlog] =  useState(false)
   const [,setIsLoadingtestimony] =  useState(false)
   const [,setIsLoadingRating] =  useState(false)
-
+  const [hoveredStar, setHoveredStar] = useState(0);
 const  getPercentage = (arr: {value:number}[], target: number): number =>{
   const total = arr.length;
   const count = arr.filter((rate) => rate.value === target).length;
@@ -236,9 +236,7 @@ useEffect(() => {
             >
               View Our Case Studies
             </p>
-            <div
-              className={`w-[150px] h-2 mx-auto rounded-lg`}
-            />
+            <div className={`w-[150px] h-2 mx-auto rounded-lg`} />
           </div>
 
           {isLoadingPortfolio ? (
@@ -523,26 +521,19 @@ useEffect(() => {
             </p>
 
             <div className="w-full max-w-[487px] py-[10px] mb-6 gap-[21px] flex justify-center bg-[#F3F4FF]">
-              <IoStarSharp
-                onClick={() => handleRate(1)}
-                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300"
-              />
-              <IoStarSharp
-                onClick={() => handleRate(2)}
-                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300"
-              />
-              <IoStarSharp
-                onClick={() => handleRate(3)}
-                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-yellow-300"
-              />
-              <IoStarSharp
-                onClick={() => handleRate(4)}
-                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-gray-300"
-              />
-              <IoStarSharp
-                onClick={() => handleRate(5)}
-                className="w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] text-gray-300"
-              />
+              {Array.from({ length: 5 }, (_, index) => (
+                <IoStarSharp
+                  key={index}
+                  onClick={() => handleRate(index + 1)}
+                  onMouseEnter={() => setHoveredStar(index + 1)}
+                  onMouseLeave={() => setHoveredStar(0)}
+                  className={`w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] ${
+                    index < (hoveredStar || 0)
+                      ? "text-yellow-300"
+                      : "text-gray-300"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -552,50 +543,57 @@ useEffect(() => {
           <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
             {data.ourStaffTitle}
           </h1>
-          <p className={`${theme==='dark'?"text-gray-300":'text-black'} font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5`}>
+          <p
+            className={`${
+              theme === "dark" ? "text-gray-300" : "text-black"
+            } font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5`}
+          >
             {data.ourStaffSubtitle}
           </p>
         </div>
         <>
-        {isLoadingTeam?SkeletonTeam:
-        <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
-          {team && team.length > 0
-            ? team.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
-                >
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    width={90}
-                    height={90}
-                    className="w-full h-32 object-cover"
-                  />
-                  <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
-                    {member.role}
-                  </h2>
-                  <p className="text-[28px] p-2 text-[#49454F] text-center">
-                    {member.name}
-                  </p>
-                  <div className="flex items-center justify-center gap-[2px]">
-                    <a href={member.linkedInProfile || "###"}>
-                      <LiaLinkedinIn className="w-3 h-3" />
-                    </a>
-                    <a href={member.instagramProfile || "###"}>
-                      <FaInstagram className="w-3 h-3 " />
-                    </a>
-                    <a href={member.twiterProfile || "###"}>
-                      <FaTwitter className="w-3 h-3" />
-                    </a>
-                    {/* <link href={member.f}>
+          {isLoadingTeam ? (
+            SkeletonTeam
+          ) : (
+            <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
+              {team && team.length > 0
+                ? team.map((member, index) => (
+                    <div
+                      key={index}
+                      className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        width={90}
+                        height={90}
+                        className="w-full h-32 object-cover"
+                      />
+                      <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
+                        {member.role}
+                      </h2>
+                      <p className="text-[28px] p-2 text-[#49454F] text-center">
+                        {member.name}
+                      </p>
+                      <div className="flex items-center justify-center gap-[2px]">
+                        <a href={member.linkedInProfile || "###"}>
+                          <LiaLinkedinIn className="w-3 h-3" />
+                        </a>
+                        <a href={member.instagramProfile || "###"}>
+                          <FaInstagram className="w-3 h-3 " />
+                        </a>
+                        <a href={member.twiterProfile || "###"}>
+                          <FaTwitter className="w-3 h-3" />
+                        </a>
+                        {/* <link href={member.f}>
                 <FaFacebook className="w-3 h-3 " />
                 </link> */}
-                  </div>
-                </div>
-              ))
-            : "no team info available "}
-        </div>}
+                      </div>
+                    </div>
+                  ))
+                : "no team info available "}
+            </div>
+          )}
         </>
         {/* contact page */}
 
@@ -695,37 +693,37 @@ useEffect(() => {
           </p>
         </div>
         <>
-        {isLoadingBlog ? (
-          SkeletonBlog
-        ) : (
-          <div className="flex items-start justify-center w-full gap-10 mt-10 card-holder">
-            {blog.slice(-3).map((blogItem, index) => (
-              <div
-                key={index}
-                className={`relative card border w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
-              >
-                <div className="flex flex-col gap-2 text-center">
-                  <Image
-                    src={blogItem.image}
-                    alt="cyber"
-                    width={90}
-                    height={90}
-                    className="w-full h-48 object-cover"
-                  />
-                  <h2 className="font-bold text-2xl">{blogItem.title}</h2>
-                  <p className="text-sm text-gray-600 p-2">
-                    {blogItem.content}
-                  </p>
+          {isLoadingBlog ? (
+            SkeletonBlog
+          ) : (
+            <div className="flex items-start justify-center w-full gap-10 mt-10 card-holder">
+              {blog.slice(-3).map((blogItem, index) => (
+                <div
+                  key={index}
+                  className={`relative card border w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
+                >
+                  <div className="flex flex-col gap-2 text-center">
+                    <Image
+                      src={blogItem.image}
+                      alt="cyber"
+                      width={90}
+                      height={90}
+                      className="w-full h-48 object-cover"
+                    />
+                    <h2 className="font-bold text-2xl">{blogItem.title}</h2>
+                    <p className="text-sm text-gray-600 p-2">
+                      {blogItem.content}
+                    </p>
+                  </div>
+                  <div className="absolute bottom-2 flex w-full items-center justify-center">
+                    <button className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
+                      {data.readMore}
+                    </button>
+                  </div>
                 </div>
-                <div className="absolute bottom-2 flex w-full items-center justify-center">
-                  <button className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
-                    {data.readMore}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
         </>
         <div className="flex w-full items-center justify-center mt-5">
           <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white">
