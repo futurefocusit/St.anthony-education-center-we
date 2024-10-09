@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Merriweather, Roboto } from "next/font/google";
 import { AppProvider } from "@/context/appContext";
+import CookieConsent from "@/components/cookieConsent";
 const roboto = Roboto({
   weight: ["300", "400", "700"],
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
           className={`${roboto.variable} ${merriweather.variable} font-roboto`}
         >
           <Header />
+          <CookieConsent/>
           {children}
           <Footer />
         </body>
