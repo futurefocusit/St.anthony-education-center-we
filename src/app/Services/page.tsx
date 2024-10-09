@@ -49,15 +49,15 @@ const Services = () => {
         <div className=" py-7 ">
           <h1
             className={` ${
-              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-            }  max-md:ml-5 max-lg:ml-5 ml-[11em] font-merriweather  text-2xl pb-3`}
+              theme === "dark" ? "text-gray-300" : "text-[#2dc77c]"
+            }  max-md:ml-5 max-lg:ml-5 text-center font-merriweather  text-4xl pb-3`}
           >
             {ServicesLang[language].service1}
           </h1>
           <p
             className={`  ${
               theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-            }   ml-[19em] font-merriweather pb-3 text-sm max-md:ml-5 max-lg:ml-5`}
+            }    font-merriweather pb-3 text-lg max-md:ml-5 max-lg:ml-5`}
           >
             {ServicesLang[language].service1_desc}
           </p>
@@ -194,15 +194,15 @@ const Services = () => {
         <div className=" py-7 ">
           <h1
             className={` ${
-              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-            }  font-merriweather text-10px text-2xl pb-3`}
+              theme === "dark" ? "text-gray-300" : "text-[#2dc77c]"
+            }  font-merriweather   text-center text-4xl pb-3`}
           >
             {ServicesLang[language].service2}
           </h1>
           <p
             className={` ${
               theme === "dark" ? "text-gray-300" : ""
-            }  font-merriweather pb-3 text-sm `}
+            }  font-merriweather pb-3 text-md`}
           >
             {ServicesLang[language].service2_desc}
           </p>
@@ -232,8 +232,7 @@ const Services = () => {
               {ServicesLang[language].subservice1service2_desc}
             </p>
             <div>
-                            <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                 {ServicesLang[language].viewmore}
               </button>
             </div>
@@ -264,8 +263,7 @@ const Services = () => {
               {ServicesLang[language].subservice2service2_desc}
             </p>
             <div>
-                            <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                 {ServicesLang[language].viewmore}
               </button>
             </div>
@@ -296,8 +294,7 @@ const Services = () => {
               {ServicesLang[language].subservice3service2_desc}
             </p>
             <div>
-                            <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                 {ServicesLang[language].viewmore}
               </button>
             </div>
@@ -328,8 +325,7 @@ const Services = () => {
               {ServicesLang[language].subservice4service2_desc}
             </p>
             <div>
-                            <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                 {ServicesLang[language].viewmore}
               </button>
             </div>
@@ -338,19 +334,19 @@ const Services = () => {
       </section>
 
       {/* installation CCTV cameras  service section content*/}
-      <div className="w-[100%] h-full  max-md:bg-[#BEB9B9] max-lg:bg[#BEB9B9] px-20 pb-2  max-md:px-5 mt-0 mx-auto ">
+      <div className="w-[100%] h-full  max-md:bg-[#BEB9B9] max-lg:bg[#BEB9B9] px-20 pb-2  max-md:px-5 mt-0  ">
         <div>
           <h1
             className={` ${
-              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-            }  max-lg:ml-0 font-merriweather text-10px text-2xl ml-[11em] max-md:ml-0  py-3`}
+              theme === "dark" ? "text-gray-300" : "text-[#2dc77c]"
+            }  max-lg:ml-0 font-merriweather text-10px text-4xl text-center  max-md:ml-0  py-3`}
           >
             {ServicesLang[language].service3}
           </h1>
           <p
             className={` ${
               theme === "dark" ? "text-gray-300" : ""
-            }  max-lg:ml-0  font-merriweather pb-3 text-sm ml-[19em] max-md:ml-0  `}
+            }  max-lg:ml-0  font-merriweather pb-3 text-md  max-md:ml-0  `}
           >
             {ServicesLang[language].service3_desc}
           </p>
@@ -380,8 +376,7 @@ const Services = () => {
                 {ServicesLang[language].subservice1service3_desc}
               </p>
               <div>
-                              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                   {ServicesLang[language].viewmore}
                 </button>
               </div>
@@ -411,8 +406,7 @@ const Services = () => {
                 {ServicesLang[language].subservice4service3_desc}
               </p>
               <div>
-                              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                   {ServicesLang[language].viewmore}
                 </button>
               </div>
@@ -442,8 +436,7 @@ const Services = () => {
                 {ServicesLang[language].subservice2service3_desc}
               </p>
               <div>
-                              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                   {ServicesLang[language].viewmore}
                 </button>
               </div>
@@ -473,8 +466,7 @@ const Services = () => {
                 {ServicesLang[language].subservice3service3_desc}
               </p>
               <div>
-                              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                   {ServicesLang[language].viewmore}
                 </button>
               </div>
@@ -504,8 +496,7 @@ const Services = () => {
                 {ServicesLang[language].subservice4service3_desc}
               </p>
               <div>
-                              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                   {ServicesLang[language].viewmore}
                 </button>
               </div>
@@ -535,8 +526,7 @@ const Services = () => {
                 {ServicesLang[language].subservice5service3_desc}
               </p>
               <div>
-                              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                   {ServicesLang[language].viewmore}
                 </button>
               </div>
@@ -566,8 +556,7 @@ const Services = () => {
                 {ServicesLang[language].subservice6service3_desc}
               </p>
               <div>
-                              <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
-
+                <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
                   {ServicesLang[language].viewmore}
                 </button>
               </div>
