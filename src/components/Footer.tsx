@@ -127,6 +127,7 @@ const Footer = () => {
         <div className="mt-5 flex flex-col md:flex-row items-center gap-10 justify-center">
           <div className="flex md:hidden  bg-white p-2 items-center gap-3 w-full rounded-2xl">
             <input
+              onChange={(e) => setEmail(e.target.value)}
               placeholder={
                 language === "en"
                   ? "Please Enter Your Email"
@@ -134,7 +135,10 @@ const Footer = () => {
               }
               className="bg-transparent placeholder:text-[#F39C12] p-2 text-md outline-none border-0 w-full"
             />
-            <button className="bg-[#F39C12] py-2 px-4 rounded-lg">
+            <button
+              onClick={() => handleSubscribe()}
+              className="bg-[#F39C12] py-2 px-4 rounded-lg"
+            >
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
             </button>
             <SiSpringsecurity className="w-7 h-7" />
