@@ -1,28 +1,46 @@
-'use client'
+"use client";
 import { MdOutlineEmail } from "react-icons/md";
 import { SiSpringsecurity } from "react-icons/si";
 import Link from "next/link";
-import { Contacts, Locations, NavigationItem, NavigationItemsRoutes } from "./HeaderAndFooter/constant";
-import Logo from "./HeaderAndFooter/Logo";
-
-import './HeaderAndFooter/style.css';
-
+import {
+  Contacts,
+  Locations,
+  NavigationItem,
+  NavigationItemsRoutes,
+} from "./HeaderAndFooter/constant";
+import "./HeaderAndFooter/style.css";
 import { FaPinterestP } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
-
-import { MdArrowUpward } from "react-icons/md";
 import { usePathname } from "next/navigation";
-import { useAppContext } from "@/context/appContext"
+import { useAppContext } from "@/context/appContext";
+import { useState } from "react";
+import axios from "axios";
+import { BASE_URL } from "@/context/api";
+import { toast } from "react-toastify";
 
 const Footer = () => {
-    const { language } = useAppContext();
+  const { language } = useAppContext();
+  const [email, setEmail] = useState("");
+  // const [loading, setLoading] = useState(false);
   const pathname = usePathname();
-  if (pathname === '/registration') return null;
-  
+  if (pathname === "/registration") return null;
+  const handleSubscribe = async () => {
+    try {
+      // setLoading(true)
+      const response = await axios.post(`${BASE_URL}/usersubscribe`, {
+        email,
+      });
+      toast.success(response.data.message);
+    } catch (error) {
+      toast.error("failed to subscribe");
+    }finally{
+      // setLoading(false)
+    }
+  };
   return (
     <div
       className=" p-5"
@@ -151,6 +169,7 @@ const Footer = () => {
           <div className="hidden md:flex bg-white p-2 items-center gap-3 w-[600px] rounded-2xl">
             <input
               type="text"
+              onChange={(e) => setEmail(e.target.value)}
               placeholder={
                 language === "en"
                   ? "Please Enter Your Email"
@@ -158,14 +177,14 @@ const Footer = () => {
               }
               className="bg-transparent placeholder:text-[#F39C12] p-2 text-md outline-none border-0 w-full"
             />
-            <button className="bg-[#F39C12] py-2 px-4 rounded-lg">
+            <button onClick={()=>handleSubscribe()} className="bg-[#F39C12] py-2 px-4 rounded-lg">
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
             </button>
             <SiSpringsecurity className="w-7 h-7" />
           </div>
         </div>
       </div>
-{/* 
+      {/* 
       <div className="h-[100px] w-full flex items-end justify-end">
         <a
           href="#"
@@ -203,6 +222,6 @@ const Footer = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Footer;
