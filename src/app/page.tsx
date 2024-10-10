@@ -118,17 +118,18 @@ useEffect(() => {
             {data.heroSubtitle}
           </p>
           <div className="bg-[#1ABC9C] w-[200px] h-2 mx-auto rounded-lg" />
-          <button
+          <a
+            href="/Aboutus"
             className={`button hover:bg-teal-500 hover:rounded-lg text-[16px]  w-fit mx-auto px-4 py-2`}
           >
             {data.readMore}
-          </button>
+          </a>
         </div>
       </div>
       <div className="font-roboto min-h-screen w-full">
         <div
           className={`flex justify-between items-center h-full Z
-          }`}
+          `}
         >
           <div
             className={`flex flex-col justify-center items-center text-center md:text-left m-auto `}
@@ -168,24 +169,30 @@ useEffect(() => {
                 <h2 className="font-bold text-2xl">{post.title}</h2>
                 <p
                   className={` ${
-                    theme === "dark" ? "text-gray-300 " : "text-white"
+                    theme === "dark" ? "text-gray-300 " : "text-black"
                   } text-sm p-2`}
                 >
                   {post.content}
                 </p>
               </div>
               <div className="absolute bottom-2 flex w-full items-center justify-center">
-                <button className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg">
+                <a
+                  href="/Services"
+                  className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg"
+                >
                   {data.readMore}
-                </button>
+                </a>
               </div>
             </div>
           ))}
         </div>
         <div className="flex w-full items-center justify-center mt-5">
-          <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white ">
+          <a
+            href="/Services"
+            className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white "
+          >
             {data.visitServicePage}
-          </button>
+          </a>
         </div>
         {/* about us */}
         <div className="flex flex-col md:flex-row justify-center items-center p-4">
@@ -205,9 +212,12 @@ useEffect(() => {
               {data.aboutUsDescription}
             </p>
             <div className="flex w-full justify-center md:justify-start mt-5">
-              <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[15px] md:text-[17px] text-white hover:rounded-lg">
+              <a
+                href="/Aboutus"
+                className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[15px] md:text-[17px] text-white hover:rounded-lg"
+              >
                 {data.readMore}
-              </button>
+              </a>
             </div>
           </div>
           <div className="mt-4 md:mt-0 md:ml-8">
@@ -257,13 +267,14 @@ useEffect(() => {
                   />
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p className="mb-4">{project.content}</p>
-                  <button
+                  <a
+                    href="/Case-study"
                     className={`${
                       theme === "dark" ? "bg-blue-900" : "bg-blue-700"
                     } mx-auto text-white px-4 py-2 rounded-full text-sm`}
                   >
                     {data.readMore}
-                  </button>
+                  </a>
                 </div>
               ))}
             </div>
@@ -322,9 +333,12 @@ useEffect(() => {
                 </p>
               </div>
             </div>
-            <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px]   text-[15px] sm:text-[17px] text-white">
+            <a
+              href="/registration"
+              className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px]   text-[15px] sm:text-[17px] text-white"
+            >
               {data.enrollNow}
-            </button>
+            </a>
           </div>
           <div
             className={`${
@@ -355,9 +369,12 @@ useEffect(() => {
                 </p>
               </div>
             </div>
-            <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white">
+            <a
+              href="/Service"
+              className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
+            >
               {data.getExpertAdvice}
-            </button>
+            </a>
           </div>
           <div
             className={`${
@@ -399,9 +416,12 @@ useEffect(() => {
                 </p>
               </div>
             </div>
-            <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white">
+            <a
+              href="/Services"
+              className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
+            >
               {data.viewMore}
-            </button>
+            </a>
           </div>
         </div>
         {/* tesimonies */}
@@ -446,7 +466,7 @@ useEffect(() => {
             </div>
           </div>
         ) : (
-          "no testimony available"
+          <div className="text-center text-white">no testimony available</div>
         )}
 
         {/* custom rating and review */}

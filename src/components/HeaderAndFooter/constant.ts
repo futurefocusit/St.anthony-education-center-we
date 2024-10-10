@@ -40,50 +40,42 @@ export const NavigationItemsRoutes: NavigationItem[] = [
 
 
 export const Locations = [
-    {
-        country: 'CANADA',
-        location: IoLocation,
-        street: 'atawa kg 636 st'
-    },
-    {
-        country: 'USA',
-        location: IoLocation,
-        street: 'atawa kg 636 st'
-    },
-    {
-        country: 'RWANDA',
-        location: IoLocation,
-        street: 'atawa kg 636 st'
-    },
-    {
-        country: 'CAMEROON',
-        location: IoLocation,
-        street: 'atawa kg 636 st'
-    },
-]
+  {
+    country: "CANADA",
+    location: IoLocation,
+    street: "19 Grenfell Crescent, Ottawa ON, Canada K2G0G3",
+  },
+
+  {
+    country: "RWANDA",
+    location: IoLocation,
+    street: "KN 4 Ave, Kigali, Rwanda",
+  },
+  {
+    country: "CAMEROON",
+    location: IoLocation,
+    street: "Checkpoint Molyko, Buea, Cameroon",
+  },
+];
 
 export const Contacts = [
-    {
-        country: 'CANADA',
-        icon: FaPhoneVolume,
-        phoneNumber: '+1 522 667 7677'
-    },
-    {
-        country: 'USA',
-        icon: FaPhoneVolume,
-        phoneNumber: '+1 522 667 7677'
-    },
-    {
-        country: 'RWANDA',
-        icon: FaPhoneVolume,
-        phoneNumber: '+1 522 667 7677'
-    },
-    {
-        country: 'CAMEROON',
-        icon: FaPhoneVolume,
-        phoneNumber: '+1 522 667 7677'
-    },
-]
+  {
+    country: "CANADA",
+    icon: FaPhoneVolume,
+    phoneNumber: "+1 514-452-4048",
+  },
+
+  {
+    country: "RWANDA",
+    icon: FaPhoneVolume,
+    phoneNumber: "+250795305033",
+  },
+  {
+    country: "CAMEROON",
+    icon: FaPhoneVolume,
+    phoneNumber: "+237691181569 / +237670-93-57-21",
+  },
+];
 
 export const blogs = [
     {

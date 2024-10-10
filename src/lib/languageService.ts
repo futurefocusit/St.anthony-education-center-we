@@ -1,6 +1,9 @@
+
+
 export const ServicesLang = {
   en: {
-    viewmore: "View More",
+    apply: "Apply",
+    join: "Join Online Campus",
     title: "Our Services",
     description:
       "Explore the wide range of services we offer to enhance your cybersecurity.",
@@ -60,7 +63,8 @@ export const ServicesLang = {
   },
   fr: {
     title: "Nos Services",
-    viewmore: "voir plus",
+    apply: "Appliquer",
+    join: "Rejoignez le campus en ligne",
     description:
       "Explorez la large gamme de services que nous proposons pour améliorer votre cybersécurité.",
     service1: "CyberPro Academy",

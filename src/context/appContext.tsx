@@ -39,7 +39,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [hasAcceptedCookies, setHasAcceptedCookies] = useState<boolean>(false);
 
   useEffect(() => {
-    // Check if we are on the client side
+  
     if (typeof window !== "undefined") {
       const storedLanguage = localStorage.getItem("lang") as Language;
       const storedTheme = localStorage.getItem("theme") as Theme;
@@ -91,7 +91,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       const { city, country } = locationData;
 
       await axios.post(`${BASE_URL}/statistics`, {
-        ip,
         page,
         location: `${city}, ${country}`,
         language,

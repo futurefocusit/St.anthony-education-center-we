@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
-
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Merriweather, Roboto } from "next/font/google";
 import { AppProvider } from "@/context/appContext";
 import CookieConsent from "@/components/cookieConsent";
+import { ToastContainer } from "react-toastify";
+import WhatsAppButton from "@/components/Whatsapp";
 const roboto = Roboto({
   weight: ["300", "400", "700"],
   subsets: ["latin"],
@@ -35,9 +36,11 @@ export default function RootLayout({
           className={`${roboto.variable} ${merriweather.variable} font-roboto`}
         >
           <Header />
-          <CookieConsent/>
+          <CookieConsent />
           {children}
           <Footer />
+          <WhatsAppButton/>
+          <ToastContainer />
         </body>
       </AppProvider>
     </html>

@@ -19,7 +19,7 @@ useEffect(() => {
   if (hasAcceptedCookies) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 shadow-lg">
+    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 shadow-l z-">
       <div className="max-w-4xl mx-auto flex justify-between items-center">
         <p className="text-sm">
           This website uses cookies to enhance your experience. By continuing to

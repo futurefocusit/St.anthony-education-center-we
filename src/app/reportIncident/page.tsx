@@ -5,18 +5,47 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const ReportIncident = () => {
+interface Errors {
+  name?: string;
+  email?: string;
+  location?: string;
+  message?: string;
+}
+
+const ReportIncident: React.FC = () => {
   const { language, theme } = useAppContext();
   const [input, setInput] = useState({
     name: "",
     email: "",
-    subject: "",
     location: "",
     message: "",
+    type: "incident",
   });
+  const [errors, setErrors] = useState<Errors>({});
+
+  const validateInputs = (): Errors => {
+    const newErrors: Errors = {};
+    if (!input.name) newErrors.name = "Name is required.";
+    if (!input.email) {
+      newErrors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(input.email)) {
+      newErrors.email = "Email is invalid.";
+    }
+    if (!input.location) newErrors.location = "Location is required.";
+    if (!input.message) newErrors.message = "Message is required.";
+    else if (input.message.length < 10)
+      newErrors.message = "Message should be at least 10 characters long.";
+
+    return newErrors;
+  };
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    const validationErrors = validateInputs();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
     try {
       const response = await axios.post(`${BASE_URL}/incidence/`, {
         input,
@@ -24,14 +53,14 @@ const ReportIncident = () => {
 
       toast.success("Incident reported successfully!");
       console.log("Response:", response.data);
-      // Optionally reset the form after submission
       setInput({
         name: "",
         email: "",
-        subject: "",
         location: "",
         message: "",
+        type: "incident",
       });
+      setErrors({});
     } catch (error) {
       console.error("Error:", error);
       toast.error("Failed to report incident. Please try again.");
@@ -47,23 +76,26 @@ const ReportIncident = () => {
   return (
     <>
       <div
-        className={`${theme === "dark"
-          ? "bg-slate-800 text-gray-300"
-          : "bg-white text-black"
-          } bg-cover bg-center bg-no-repeat h-[10rem] md:h-[450px]`}
+        className={`${
+          theme === "dark"
+            ? "bg-slate-800 text-gray-300"
+            : "bg-white text-black"
+        } bg-cover bg-center bg-no-repeat h-[10rem] md:h-[450px]`}
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/5561921/pexels-photo-5561921.jpeg')`,
         }}
       />
       <div
-        className={`${theme === "dark"
-          ? "bg-slate-800 text-gray-300"
-          : "bg-white text-black"
-          } font-sans md:p-5 p-2`}
+        className={`${
+          theme === "dark"
+            ? "bg-slate-800 text-gray-300"
+            : "bg-white text-black"
+        } font-sans md:p-5 p-2`}
       >
         <h1
-          className={`${theme === "dark" ? "text-gray-300" : "bg-white text-blue-800"
-            } text-center text-2xl my-5`}
+          className={`${
+            theme === "dark" ? "text-gray-300" : "bg-white text-blue-800"
+          } text-center text-2xl my-5`}
         >
           {language === "en"
             ? "Fill the form to report an incident"
@@ -82,24 +114,32 @@ const ReportIncident = () => {
             <input
               type="text"
               name="name"
-              required
+             
               value={input.name}
               onChange={handleOnChange}
-              className="outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border border-transparent rounded"
+              className={`outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border ${
+                errors.name ? "border-red-500" : "border-transparent"
+              } rounded`}
             />
+            {errors.name && <p className="text-red-500">{errors.name}</p>}
           </div>
 
           {/* Email Field */}
           <div className="flex sm:items-center gap-3 flex-col sm:flex-row">
-            <label className="font-bold min-w-[100px] text-start">Email</label>
+            <label className="font-bold min-w-[100px] text-start">
+              {language === "en" ? "Email" : "Email"}
+            </label>
             <input
               type="email"
               name="email"
-              required
+             
               value={input.email}
               onChange={handleOnChange}
-              className="outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border border-transparent rounded"
+              className={`outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border ${
+                errors.email ? "border-red-500" : "border-transparent"
+              } rounded`}
             />
+            {errors.email && <p className="text-red-500">{errors.email}</p>}
           </div>
 
           {/* Location Field */}
@@ -110,31 +150,38 @@ const ReportIncident = () => {
             <input
               type="text"
               name="location"
-              required
+              
               value={input.location}
               onChange={handleOnChange}
-              className="outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border border-transparent rounded"
+              className={`outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border ${
+                errors.location ? "border-red-500" : "border-transparent"
+              } rounded`}
             />
+            {errors.location && (
+              <p className="text-red-500">{errors.location}</p>
+            )}
           </div>
 
           {/* Message Field */}
           <div className="flex sm:items-center gap-3 flex-col sm:flex-row">
             <label className="font-bold min-w-[100px] text-start">
-              Message
+              {language === "en" ? "Message" : "Message"}
             </label>
             <textarea
               name="message"
-              required
               rows={6}
               value={input.message}
               onChange={handleOnChange}
-              className="resize-none outline-none block w-full p-3 mb-5 bg-slate-200 border border-transparent rounded"
+              className={`resize-none outline-none block w-full p-3 mb-5 bg-slate-200 border ${
+                errors.message ? "border-red-500" : "border-transparent"
+              } rounded`}
             />
+            {errors.message && <p className="text-red-500">{errors.message}</p>}
           </div>
 
           <button
             type="submit"
-            className="w-full md:w-[600px] bg-blue-800 text-white py-2 rounded cursor-pointer text-lg"
+            className="w-full md:w-[600px] bg-blue-800 hover:bg-blue-500 text-white py-2 rounded cursor-pointer text-lg"
           >
             {language === "en" ? "Send" : "Envoyer"}
           </button>
