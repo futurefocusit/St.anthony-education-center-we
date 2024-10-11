@@ -214,19 +214,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* 
-      <div className="h-[100px] w-full flex items-end justify-end">
-        <a
-          href="#"
-          className="w-7 h-7 bg-white rounded-full flex items-center justify-center"
-        >
-          <MdArrowUpward className=" w-[30px] h-[30px]" />
-        </a>
-      </div> */}
-      {/* <Message
-        type={success ? "success" : error ? "error" : ""}
-        message={message}
-      /> */}
+     
       <div className="px-10 mt-5">
         <div className="bg-blue-900 h-[2px] w-full" />
         <div className="my-5 flex gap-5">

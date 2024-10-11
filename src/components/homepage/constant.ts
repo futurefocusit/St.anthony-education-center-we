@@ -80,4 +80,20 @@ export const staff = [{
     content:"CEO"
 },]
 
- export  const countries = ['USA', 'CANADA', 'RWANDA', 'CAMEROON'];
+ export  const countries = [
+   {
+     name: "CANADA",
+     location: "19 Grenfell Crescent, Ottawa ON, Canada K2G0G3",
+     contact: "+1 514-452-4048",
+   },
+   {
+     name: "RWANDA",
+     location: "KN 4 Ave, Kigali, Rwanda",
+     contact: "+250795305033",
+   },
+   {
+     name: "CAMEROON",
+     location: "Checkpoint Molyko, Buea, Cameroon",
+     contact: "+237691181569 / +237670-93-57-21",
+   },
+ ];

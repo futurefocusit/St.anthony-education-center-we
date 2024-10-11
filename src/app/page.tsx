@@ -1,17 +1,9 @@
 "use client";
 
-import {
-  countries,
-  posts,
-} from "@/components/homepage/constant";
+import { countries, posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
-import {
-  FaGithub,
-  FaInstagram,
-  FaLessThan,
-  FaTwitter,
-} from "react-icons/fa";
-import { FaGreaterThan } from "react-icons/fa6";
+import { FaFacebookF, FaGithub, FaInstagram, FaLessThan, FaLinkedin, FaTiktok, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaGreaterThan, FaXTwitter } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { ImQuotesRight } from "react-icons/im";
 import { LiaLinkedinIn } from "react-icons/lia";
@@ -25,75 +17,75 @@ import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
 import { Blog, Project, Team, Testimony } from "@/types/types";
 import axios from "axios";
-import { SkeletonBlog, SkeletonPortfolio, SkeletonTeam } from "@/components/skeletons/cardSkeleton";
+import {
+  SkeletonBlog,
+  SkeletonPortfolio,
+  SkeletonTeam,
+} from "@/components/skeletons/cardSkeleton";
 import { BASE_URL } from "@/context/api";
-
-
+import PartnerLogos from "@/components/partenerPart";
 
 const Home = () => {
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
   const [portfolio, setPortfolio] = useState<Project[]>([]);
   const [testimony, setTestimony] = useState<Testimony[]>([]);
-  const [rating, setRating] = useState<{value:number}[]>([]);
+  const [rating, setRating] = useState<{ value: number }[]>([]);
   const [blog, setBlog] = useState<Blog[]>([]);
   const [team, setTeam] = useState<Team[]>([]);
-  const [isLoadingPortfolio,setIsLoadingPortifolio] =  useState(false)
-  const [isLoadingTeam,setIsLoadingTeam] =  useState(false)
-  const [isLoadingBlog,setIsLoadingBlog] =  useState(false)
-  const [,setIsLoadingtestimony] =  useState(false)
-  const [,setIsLoadingRating] =  useState(false)
+  const [isLoadingPortfolio, setIsLoadingPortifolio] = useState(false);
+  const [isLoadingTeam, setIsLoadingTeam] = useState(false);
+  const [isLoadingBlog, setIsLoadingBlog] = useState(false);
+  const [, setIsLoadingtestimony] = useState(false);
+  const [, setIsLoadingRating] = useState(false);
   const [hoveredStar, setHoveredStar] = useState(0);
-const  getPercentage = (arr: {value:number}[], target: number): number =>{
-  const total = arr.length;
-  const count = arr.filter((rate) => rate.value === target).length;
+  const getPercentage = (arr: { value: number }[], target: number): number => {
+    const total = arr.length;
+    const count = arr.filter((rate) => rate.value === target).length;
 
-  if (total === 0) return 0; 
+    if (total === 0) return 0;
 
-  return (count / total) * 100;
-}
-   const fetchData = async (
-     endpoint: string,
-     //@ts-expect-error ERROR
-     setStateFunc: React.Dispatch<React.SetStateAction<>>,
-     setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
-   ) => {
-     try {
-       setLoadingFunc(true);
-       const response = await axios.get(`${BASE_URL}/${endpoint}`);
-       setStateFunc(response.data);
-     } catch (error) {
-       console.error(`Error fetching ${endpoint}:`, error);
-     } finally {
-       setLoadingFunc(false);
-     }
-   };
-  const handleRate = async(value:number)=>{
+    return (count / total) * 100;
+  };
+  const fetchData = async (
+    endpoint: string,
+    //@ts-expect-error ERROR
+    setStateFunc: React.Dispatch<React.SetStateAction<>>,
+    setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
     try {
-     await axios.post(`${BASE_URL}/testimony/rate`,{
-        value
-      })
-    fetchData("testimony/rate", setRating, setIsLoadingRating);
-
+      setLoadingFunc(true);
+      const response = await axios.get(`${BASE_URL}/${endpoint}`);
+      setStateFunc(response.data);
     } catch (error) {
-      console.log(error)
+      console.error(`Error fetching ${endpoint}:`, error);
+    } finally {
+      setLoadingFunc(false);
     }
-  }
+  };
+  const handleRate = async (value: number) => {
+    try {
+      await axios.post(`${BASE_URL}/testimony/rate`, {
+        value,
+      });
+      fetchData("testimony/rate", setRating, setIsLoadingRating);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     //@ts-expect-error error
     setData(language === "en" ? englishContent : frenchContent);
   }, [language]);
 
- 
-
-useEffect(() => {
-  fetchData("project", setPortfolio, setIsLoadingPortifolio);
-  fetchData("testimony", setTestimony, setIsLoadingtestimony);
-  fetchData("testimony/rate", setRating, setIsLoadingRating);
-  fetchData("team", setTeam, setIsLoadingTeam);
-  fetchData("blog", setBlog, setIsLoadingBlog);
-}, []);
+  useEffect(() => {
+    fetchData("project", setPortfolio, setIsLoadingPortifolio);
+    fetchData("testimony", setTestimony, setIsLoadingtestimony);
+    fetchData("testimony/rate", setRating, setIsLoadingRating);
+    fetchData("team", setTeam, setIsLoadingTeam);
+    fetchData("blog", setBlog, setIsLoadingBlog);
+  }, []);
 
   return (
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}`}>
@@ -661,24 +653,24 @@ useEffect(() => {
               {countries.map((country, index) => (
                 <div className="flex flex-col justify-center" key={index}>
                   <h1 className="w-[77.38px] h-[39.31px] font-[800] text-[14px] text-[#1B396E] text-right lg:mx-52">
-                    {country}
+                    {country.name}
                   </h1>
                   <div className="flex flex-row gap-6 lg:gap-40">
-                    <FaLocationDot className="w-[40px] h-[40px] text-red-500" />
+                    <FaLocationDot className="w-[20px] h-[20px] text-red-500" />
                     <div className="flex flex-col">
                       <p className="w-auto h-auto font-[700] text-[16px]">
-                        KIGALI, RWANDA
+                        {country.location}
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-row gap-6 lg:gap-40">
-                    <IoCall className="w-[40px] h-[40px] text-[#1B396E]" />
+                    <IoCall className="w-[20px] h-[20px] text-[#1B396E]" />
                     <p className="w-auto h-auto font-[700] text-[15px]">
-                      +250-733-770-003 <br /> +250-788-674-885
+                      {country.contact}
                     </p>
                   </div>
                   <div className="flex flex-row gap-6 lg:gap-40">
-                    <MdOutlineMailOutline className="w-[40px] h-[40px] text-red-500" />
+                    <MdOutlineMailOutline className="w-[20px] h-[20px] text-red-500" />
                     <p className="w-auto h-auto font-[700] text-[16px]">
                       info@cyberprogroup.com
                     </p>
@@ -691,18 +683,47 @@ useEffect(() => {
                   {data.followUs}
                 </p>
                 <div className="flex flex-row justify-center space-x-4">
-                  <PiPinterestLogo className="w-[20px] lg:w-[30px] h-[20px] lg:h-[30px]" />
-                  <FaGithub className="w-[20px] lg:w-[30px] h-[20px] lg:h-[30px]" />
-                  <LiaLinkedinIn className="w-[20px] lg:w-[30px] h-[20px] lg:h-[30px]" />
-                  <FaInstagram className="w-[20px] lg:w-[30px] h-[20px] lg:h-[30px]" />
-                  <FaTwitter className="w-[20px] lg:w-[30px] h-[20px] lg:h-[30px]" />
+                  <a
+                    className="hover:animate-bounce hover:text-white"
+                    href="https://www.tiktok.com/@cyberpro.group.rw?_t=8qR5bmcQDdG&_r=1"
+                  >
+                    <FaTiktok />
+                  </a>
+                  <a
+                    className="hover:animate-bounce hover:text-white text-red-600"
+                    href="#"
+                  >
+                    <FaYoutube />
+                  </a>
+                  <a
+                    className="hover:animate-bounce hover:text-white bg-blue-500"
+                    href="https://www.linkedin.com/in/cyberpro-group-rw-aa104932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  >
+                    <FaLinkedin />
+                  </a>
+                  <a
+                    className="hover:animate-bounce hover:text-white text-orange-500"
+                    href="https://www.instagram.com/cyberprogrouprw/?next=%2F"
+                  >
+                    <FaInstagram />
+                  </a>
+                  <a
+                    className="hover:animate-bounce hover:text-white text-blue"
+                    href="https://x.com/CyberProGroupRw?t=q15PgUJVt6-ouzlMSiIa8Q&s=09"
+                  >
+                    <FaXTwitter />
+                  </a>
+                  <a
+                    className="hover:animate-bounce hover:text-white text-blue-900"
+                    href="https://www.facebook.com/profile.php?id=61565121267543"
+                  >
+                    <FaFacebookF />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* our blog */}
 
         <div className="flex flex-col justify-center items-center text-center md:text-left m-auto">
           <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px] mt-10">
@@ -764,6 +785,7 @@ useEffect(() => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
+        <PartnerLogos/>
       </div>
     </div>
   );
