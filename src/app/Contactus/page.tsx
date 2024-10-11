@@ -1,8 +1,7 @@
 'use client'
 import React, { useState } from 'react';
-import location from '../../assets/location (1).png';
 import Image from 'next/image';
-import time from '../../assets/clock.png';
+
 import telephone from '../../assets/telephone (1).png';
 import message from '../../assets/mail (1).png';
 import image2 from '../../assets/image2.jpg'
@@ -10,8 +9,7 @@ import { useAppContext } from '@/context/appContext';
 import { BASE_URL } from '@/context/api';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { FaLocationDot, FaLocationPin, FaPhoneFlip, FaSquarePhone } from 'react-icons/fa6';
-import { FaPhone } from 'react-icons/fa';
+import { FaLocationDot } from 'react-icons/fa6';
 interface Errors {
   name?: string;
   email?: string;

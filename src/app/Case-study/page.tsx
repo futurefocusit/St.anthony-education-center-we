@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import shape from "../../assets/shape12.png";
-import profile from "../../assets/profile (1).png";
 import status from "../../assets/status.png";
 import { useAppContext } from "@/context/appContext";
 import axios from "axios";
