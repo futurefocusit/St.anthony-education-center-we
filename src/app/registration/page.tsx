@@ -48,7 +48,7 @@ const RegistrationPage = () => {
       formData.append("photo", input.photo);
       formData.append("diploma", input.diploma);
 
-      await axios.post(`${BASE_URL}/student/`, formData, {
+      await axios.post(`${BASE_URL}/studentS/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
