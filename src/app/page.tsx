@@ -150,11 +150,11 @@ useEffect(() => {
           </div>
         </div>
         {/* cards */}
-        <div className="flex items-start justify-center w-full gap-10 mt-10 card-holder">
+        <div className="flex items-start justify-center w-full gap-10 mt-10 ">
           {posts.map((post, index) => (
             <div
               key={index}
-              className={`relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105 ${
+              className={` relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105 ${
                 theme === "dark" ? "bg-gray-800" : "bg"
               }`}
             >
@@ -170,12 +170,12 @@ useEffect(() => {
                 <p
                   className={` ${
                     theme === "dark" ? "text-gray-300 " : "text-black"
-                  } text-sm p-2`}
+                  } text-sm  p-2`}
                 >
                   {post.content}
                 </p>
               </div>
-              <div className="absolute bottom-2 flex w-full items-center justify-center">
+              <div className=" bottom-2 flex w-full items-center justify-center">
                 <a
                   href="/Services"
                   className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg"

@@ -230,14 +230,20 @@ const Footer = () => {
       <div className="px-10 mt-5">
         <div className="bg-blue-900 h-[2px] w-full" />
         <div className="my-5 flex gap-5">
-          <button className="border-r-2 border-r-blue-50 text-white pr-4">
+          <a
+            href="/terms-conditions"
+            className="border-r-2 border-r-blue-50 text-white pr-4"
+          >
             {language === "en"
               ? "Website Terms"
               : "Conditions d'utilisation du site Web"}
-          </button>
-          <button className="border-r-2 border-r-blue-50 text-white pr-4">
+          </a>
+          <a
+            href="/privacy"
+            className="border-r-2 border-r-blue-50 text-white pr-4"
+          >
             {language ? "Data Privacy" : "Confidentialité des données"}
-          </button>
+          </a>
           <button className="text-white">FAQs</button>
         </div>
         <div>
