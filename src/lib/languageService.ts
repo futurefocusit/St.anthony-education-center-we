@@ -2,7 +2,7 @@
 
 export const ServicesLang = {
   en: {
-    apply: "Apply",
+    apply: "Register",
     join: "Join Online Campus",
     title: "Our Services",
     description:
@@ -63,7 +63,7 @@ export const ServicesLang = {
   },
   fr: {
     title: "Nos Services",
-    apply: "Appliquer",
+    apply: "Registre",
     join: "Rejoignez le campus en ligne",
     description:
       "Explorez la large gamme de services que nous proposons pour améliorer votre cybersécurité.",

@@ -60,12 +60,18 @@ const Services = () => {
             {ServicesLang[language].service1_desc}
           </p>
           <div className="flex gap-4">
-            <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
+            <a
+              href="/registration"
+              className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+            >
               {ServicesLang[language].apply}
-            </button>
-            <button className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]">
+            </a>
+            <a
+              href="https://app.sycamorecampus.com/"
+              className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+            >
               {ServicesLang[language].join}
-            </button>
+            </a>
           </div>
         </div>
 
@@ -192,7 +198,7 @@ text-center text-4xl pb-3`}
           </h1>
           <p
             className={` ${
-              theme === "dark" ? "text-gray-300" : ""
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
             }  font-merriweather pb-3 text-md`}
           >
             {ServicesLang[language].service2_desc}
@@ -320,7 +326,7 @@ text-center text-4xl pb-3`}
           </h1>
           <p
             className={` ${
-              theme === "dark" ? "text-gray-300" : ""
+              theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
             }  max-lg:ml-0  font-merriweather pb-3 text-md  max-md:ml-0  `}
           >
             {ServicesLang[language].service3_desc}
