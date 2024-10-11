@@ -1,6 +1,5 @@
 "use client";
 import { useAppContext } from "@/context/appContext";
-import { AboutUsLang } from "@/lib/languageAbout";
 const cards = [
   {
     image:
@@ -102,7 +101,7 @@ const tools = [
  
 ];
 const Aboutus = () => {
-  const { language, theme } = useAppContext();
+  const {  theme } = useAppContext();
   
 
   return (
@@ -133,8 +132,8 @@ const Aboutus = () => {
           Dive into our courses we provide
         </h1>
         <div className="  grid grid-cols-5 gap-7 my-20 text-center  ">
-          {cards.map((card) => (
-            <div className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out">
+          {cards.map((card, index) => (
+            <div key={index} className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out">
               <img
                 className="rounded-full  h-32 w-32"
                 src={card.image}
@@ -152,8 +151,8 @@ const Aboutus = () => {
           Dive into our Tools we provide
         </h1>
         <div className="  grid grid-cols-5 gap-7 py-20 text-center  ">
-          {tools.map((card) => (
-            <div className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out">
+          {tools.map((card, index) => (
+            <div key={index} className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out">
               <img
                 className="rounded-full  h-32 w-32"
                 src={card.image}

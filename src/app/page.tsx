@@ -2,7 +2,7 @@
 
 import { countries, posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
-import { FaFacebookF, FaGithub, FaInstagram, FaLessThan, FaLinkedin, FaTiktok, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLessThan, FaLinkedin, FaTiktok, FaTwitter, FaYoutube } from "react-icons/fa";
 import { FaGreaterThan, FaXTwitter } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { ImQuotesRight } from "react-icons/im";
@@ -11,7 +11,6 @@ import { IoStarSharp } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
-import { PiPinterestLogo } from "react-icons/pi";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
