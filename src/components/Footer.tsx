@@ -219,7 +219,7 @@ const Footer = () => {
         <div className="bg-blue-900 h-[2px] w-full" />
         <div className="my-5 flex gap-5">
           <a
-            href="/terms-conditions"
+            href="/terms"
             className="border-r-2 border-r-blue-50 text-white pr-4"
           >
             {language === "en"
@@ -232,7 +232,7 @@ const Footer = () => {
           >
             {language ? "Data Privacy" : "Confidentialité des données"}
           </a>
-          <button className="text-white">FAQs</button>
+          <a href="/faq" className="text-white">FAQs</a>
         </div>
         <div>
           <p className="text-white text-center text-[16px]">

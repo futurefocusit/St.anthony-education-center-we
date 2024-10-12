@@ -637,9 +637,9 @@ const Home = () => {
                {AboutUsLang[language].visionDescription}
               </p>
               <div className="flex flex-row items-center justify-center space-x-4">
-                <button className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white">
+                <a href="/Contactus" className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white">
                   {data.contactUs}
-                </button>
+                </a>
                 
               </div>
             </div>
@@ -752,9 +752,9 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="absolute bottom-2 flex w-full items-center justify-center">
-                    <button className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
+                    <a href="/Blog" className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
                       {data.readMore}
-                    </button>
+                    </a>
                   </div>
                 </div>
               ))}
