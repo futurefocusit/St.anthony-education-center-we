@@ -23,6 +23,7 @@ import {
 } from "@/components/skeletons/cardSkeleton";
 import { BASE_URL } from "@/context/api";
 import PartnerLogos from "@/components/partenerPart";
+import { AboutUsLang } from "@/lib/languageAbout";
 
 const Home = () => {
   const { language, theme } = useAppContext();
@@ -619,7 +620,7 @@ const Home = () => {
           </h1>
           <div className="flex flex-col lg:flex-row md:flex-row lg:gap-56 gap-10">
             <div
-              className="w-full max-w-[500px] lg:max-w-[300px] md:max-h-[600px] h-fit sm:h-[500px] p-6 sm:p-10 lg:m-6  "
+              className="w-full max-w-[500px] lg:max-w-[300px]  md:max-h-[600px] h-fit sm:h-[500px] p-6 sm:p-10 lg:m-6  "
               style={{
                 background:
                   "linear-gradient(263.62deg, rgba(106, 151, 230, 0.94) 1.63%, rgba(27, 57, 110, 0.7238) 65.78%)",
@@ -631,20 +632,15 @@ const Home = () => {
               <p className="w-full text-center font-[800] text-[18px] sm:text-[20px] text-[#1B396E] mb-6">
                 {data.secureYourFuture}
               </p>
-              <div className="w-[64px] h-[8px] bg-[#1B396E] mt-3 mx-auto mb-6" />
-              <p className="w-full max-w-[555px] text-center font-[400] text-[14px] sm:text-[16px] mb-8">
-                Explore our portfolio of innovative solutions, detailing the
-                challenges we&apos;ve solved and the successes we&apos;ve
-                delivered for businesses across diverse industries.
+              <div className="w-[64px] h-[8px]  bg-[#1B396E] mt-3 mx-auto mb-6" />
+              <p className="w-full  text-left  text-sm sm:text-[16px] mb-8">
+               {AboutUsLang[language].visionDescription}
               </p>
               <div className="flex flex-row items-center justify-center space-x-4">
                 <button className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white">
                   {data.contactUs}
                 </button>
-                <FaGreaterThan
-                  size={20}
-                  className="bg-white p-1 rounded-full"
-                />
+                
               </div>
             </div>
 
