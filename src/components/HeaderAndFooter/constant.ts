@@ -73,7 +73,7 @@ export const Contacts = [
   {
     country: "CAMEROON",
     icon: FaPhoneVolume,
-    phoneNumber: "+237691181569 / +237670-93-57-21",
+    phoneNumber: "+237691181569/ +237670-93-57-21",
   },
 ];
 
