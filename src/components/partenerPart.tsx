@@ -1,12 +1,13 @@
 import React from "react";
 
 const partnerLogos = [
-  { src: "/logo.png", alt: "Partner 1" },
-  { src: "/logo.png", alt: "Partner 1" },
-  { src: "/logo.png", alt: "Partner 1" },
-  { src: "/logo.png", alt: "Partner 1" },
-  { src: "/logo.png", alt: "Partner 1" },
-  { src: "/logo.png", alt: "Partner 1" },
+  { src: "/logo.png", alt: "Partner 1",link:"###" },
+  { src: "/logo.png", alt: "Partner 1",link:"###" },
+  { src: "/logo.png", alt: "Partner 1",link:"###" },
+  { src: "/logo.png", alt: "Partner 1",link:"###" },
+  { src: "/logo.png", alt: "Partner 1",link:"###" },
+  { src: "/logo.png", alt: "Partner 1",link:"###" },
+ 
   
 ];
 
@@ -14,16 +15,20 @@ const PartnerLogos = () => {
   return (
     <div className="pt-10 mt-5 bg-[#1B396E]">
       <h1 className="text-gray-200 text-3xl font-bold text-center ">
-        Our parteners
+        Our Parteners
       </h1>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 p-6">
         {partnerLogos.map((partner, index) => (
-          <div key={index} className="flex justify-center items-center">
+          <div
+            key={index}
+            className="justify-center  flex flex-col  items-center gap-0 transform transition duration-300 hover:scale-105 cursor-pointer"
+          >
             <img
               src={partner.src}
               alt={partner.alt}
               className="max-h-30 object-contain"
             />
+            <a className="text-white text-lg hover:text-gray-400" href={partner.link}>Visit</a>
           </div>
         ))}
       </div>

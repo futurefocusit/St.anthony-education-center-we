@@ -39,7 +39,7 @@ const Aboutus = () => {
   }, []);
 
   return (
-    <div className={`${theme === "dark" ? "bg-slate-700" : "bg-white"}`}>
+    <div className={`${theme === "dark" ? "bg-slate-700" : "bg-white"} pb-10`}>
       <section
         className="relative pt-72 pb-32"
         style={{
@@ -198,7 +198,7 @@ const Aboutus = () => {
             {isLoadingTeam ? (
               SkeletonTeam
             ) : (
-              <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
+              <div className="flex card-holder   justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto ">
                 {team && team.length > 0
                   ? team.map((member, index) => (
                       <div

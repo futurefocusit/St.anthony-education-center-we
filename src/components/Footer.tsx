@@ -88,7 +88,7 @@ const Footer = () => {
                   <Link
                     href={navigationRoute.path}
                     key={index}
-                    className="hover:text-gray-400"
+                    className="hover:text-blue-400"
                   >
                     {navigationRoute[language as keyof NavigationItem]}
                   </Link>
@@ -140,7 +140,7 @@ const Footer = () => {
             />
             <button
               onClick={() => handleSubscribe()}
-              className="bg-[#F39C12] py-2 px-4 rounded-lg hover:bg-[#9b722f]"
+              className="bg-[#F39C12] py-2 px-4 rounded-lg hover:bg-[#d89b3a]"
             >
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
             </button>
@@ -183,7 +183,7 @@ const Footer = () => {
                 <FaXTwitter />
               </a>
               <a
-                className="hover:animate-bounce hover:text-white text-blue-900"
+                className="hover:animate-bounce hover:text-white text-blue-400"
                 href="https://www.facebook.com/profile.php?id=61565121267543"
               >
                 <FaFacebookF />
@@ -205,7 +205,7 @@ const Footer = () => {
             <button
               onClick={() => handleSubscribe()}
               className={`${
-                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#9b722f]"
+                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#d89b3a]"
               } py-2 px-4 rounded-lg`}
             >
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
@@ -214,13 +214,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-     
+
       <div className="px-10 mt-5">
         <div className="bg-blue-900 h-[2px] w-full" />
         <div className="my-5 flex gap-5">
           <a
             href="/terms"
-            className="border-r-2 border-r-blue-50 text-white pr-4"
+            className="border-r-2 border-r-blue-50 text-white hover:text-gray-400 pr-4"
           >
             {language === "en"
               ? "Website Terms"
@@ -228,11 +228,13 @@ const Footer = () => {
           </a>
           <a
             href="/privacy"
-            className="border-r-2 border-r-blue-50 text-white pr-4"
+            className="border-r-2 border-r-blue-50 hover:text-gray-400 text-white pr-4"
           >
             {language ? "Data Privacy" : "Confidentialité des données"}
           </a>
-          <a href="/faq" className="text-white">FAQs</a>
+          <a href="/faq" className="text-white hover:text-gray-400">
+            FAQs
+          </a>
         </div>
         <div>
           <p className="text-white text-center text-[16px]">
@@ -247,6 +249,9 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      <h1 className="text-teal-400 font-bold text-lg text-center ">
+        Designed and Developed by <a className="text-[#34b886] hover:text-[#2e7451]" href="https://www.edgereachtech.com">EdgeReach Tech</a>
+      </h1>
     </div>
   );
 };

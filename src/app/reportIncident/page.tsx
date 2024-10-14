@@ -98,8 +98,8 @@ const ReportIncident: React.FC = () => {
           } text-center text-2xl my-5`}
         >
           {language === "en"
-            ? "Fill the form to report an incident"
-            : "Remplissez le formulaire pour signaler un incident"}
+            ? "Incident Reporting Form"
+            : "Formulaire de rapport d'incident"}
         </h1>
 
         <form
@@ -114,7 +114,6 @@ const ReportIncident: React.FC = () => {
             <input
               type="text"
               name="name"
-             
               value={input.name}
               onChange={handleOnChange}
               className={`outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border ${
@@ -132,7 +131,6 @@ const ReportIncident: React.FC = () => {
             <input
               type="email"
               name="email"
-             
               value={input.email}
               onChange={handleOnChange}
               className={`outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border ${
@@ -150,7 +148,6 @@ const ReportIncident: React.FC = () => {
             <input
               type="text"
               name="location"
-              
               value={input.location}
               onChange={handleOnChange}
               className={`outline-none block w-full px-3 py-2 mb-2 bg-slate-200 border ${

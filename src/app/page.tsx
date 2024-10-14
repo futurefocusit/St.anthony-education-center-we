@@ -348,7 +348,10 @@ const Home = () => {
                   <TiTick size={20} />
                   {data.cyberSecurityAssessments}
                 </p>
-                <p className="flex items-center">{data.itSecurityAudit}</p>
+                <p className="flex items-center">
+                  <TiTick size={20} />
+                  {data.itSecurityAudit}
+                </p>
               </div>
               <div className="flex flex-col sm:ml-6">
                 <p className="flex items-center">
@@ -412,7 +415,7 @@ const Home = () => {
               href="/Services"
               className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
             >
-              {data.viewMore}
+              {data.promise}
             </a>
           </div>
         </div>
@@ -634,13 +637,15 @@ const Home = () => {
               </p>
               <div className="w-[64px] h-[8px]  bg-[#1B396E] mt-3 mx-auto mb-6" />
               <p className="w-full  text-left  text-sm sm:text-[16px] mb-8">
-               {AboutUsLang[language].visionDescription}
+                {AboutUsLang[language].visionDescription}
               </p>
               <div className="flex flex-row items-center justify-center space-x-4">
-                <a href="/Contactus" className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white">
+                <a
+                  href="/Contactus"
+                  className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white"
+                >
                   {data.contactUs}
                 </a>
-                
               </div>
             </div>
 
@@ -677,39 +682,39 @@ const Home = () => {
                 <p className="w-auto h-auto font-[700] text-[20px] text-[#D9D9D9]">
                   {data.followUs}
                 </p>
-                <div className="flex flex-row justify-center space-x-4">
+                <div className="flex flex-row justify-center space-x-4 ">
                   <a
-                    className="hover:animate-bounce hover:text-white"
+                    className="hover:animate-bounce hover:text-white p-1"
                     href="https://www.tiktok.com/@cyberpro.group.rw?_t=8qR5bmcQDdG&_r=1"
                   >
                     <FaTiktok />
                   </a>
                   <a
-                    className="hover:animate-bounce hover:text-white text-red-600"
+                    className="hover:animate-bounce hover:text-white text-red-600 p-1"
                     href="#"
                   >
                     <FaYoutube />
                   </a>
                   <a
-                    className="hover:animate-bounce hover:text-white bg-blue-500"
+                    className="hover:animate-bounce hover:text-white text-lg text-white"
                     href="https://www.linkedin.com/in/cyberpro-group-rw-aa104932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                   >
                     <FaLinkedin />
                   </a>
                   <a
-                    className="hover:animate-bounce hover:text-white text-orange-500"
+                    className="hover:animate-bounce hover:text-white text-orange-500 p-1"
                     href="https://www.instagram.com/cyberprogrouprw/?next=%2F"
                   >
                     <FaInstagram />
                   </a>
                   <a
-                    className="hover:animate-bounce hover:text-white text-blue"
+                    className="hover:animate-bounce hover:text-white text-blue p-1"
                     href="https://x.com/CyberProGroupRw?t=q15PgUJVt6-ouzlMSiIa8Q&s=09"
                   >
                     <FaXTwitter />
                   </a>
                   <a
-                    className="hover:animate-bounce hover:text-white text-blue-900"
+                    className="hover:animate-bounce hover:text-white text-white bg-blue-400 p-1"
                     href="https://www.facebook.com/profile.php?id=61565121267543"
                   >
                     <FaFacebookF />
@@ -752,7 +757,10 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="absolute bottom-2 flex w-full items-center justify-center">
-                    <a href="/Blog" className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white">
+                    <a
+                      href="/Blog"
+                      className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white"
+                    >
                       {data.readMore}
                     </a>
                   </div>
@@ -762,13 +770,13 @@ const Home = () => {
           )}
         </>
         <div className="flex w-full items-center justify-center mt-5">
-          <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white">
+          <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white rounded">
             {data.viewMore}
           </button>
         </div>
 
         {/* map */}
-        <div className="mx-10 ">
+        <div className="mx-10 pt-10 ">
           <iframe
             className="w-full m-auto"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.775313606574!2d-122.03224420000001!3d37.2767548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e4ad38fa6a251%3A0x4462135701bcadcb!2sSaratoga%20Sunnyvale%20Rd%2C%20Saratoga%2C%20CA%2095070%2C%20USA!5e0!3m2!1sen!2srw!4v1726610527050!5m2!1sen!2srw"
@@ -780,7 +788,7 @@ const Home = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <PartnerLogos/>
+        <PartnerLogos />
       </div>
     </div>
   );

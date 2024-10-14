@@ -51,6 +51,7 @@ export const englishContent = {
   whatsNew: "WHAT'S NEW?",
   latestBlog: "OUR LATEST FROM BLOG",
   viewMore: "VIEW MORE",
+  promise: "Secure your premises",
 };
 
 export const frenchContent = {
@@ -103,5 +104,6 @@ export const frenchContent = {
   whatsNew: "QUOI DE NEUF ?",
   latestBlog: "NOTRE DERNIER BLOG",
   viewMore: "VOIR PLUS",
+  promise: "Sécuriser vos locaux",
 };
 

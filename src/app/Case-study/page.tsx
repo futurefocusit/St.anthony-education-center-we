@@ -78,7 +78,11 @@ useEffect(() => {
                 </div>
               </div>
               <div className="pt-4 flex flex-col items-center md:items-start md:pl-6 min-w-[300px]">
-                <h1 className="font-merriweather mt-3 font-bold text-[20px] md:text-[24px] lg:text-[30px] text-[#1B396E]">
+                <h1
+                  className={`font-merriweather mt-3 font-bold text-[20px] md:text-[24px] lg:text-[30px] text-[#1B396E] ${
+                    theme === "dark" ? "text-teal-600" : "text-[#1B396E]"
+                  }`}
+                >
                   {project.title}
                 </h1>
                 <div className="relative flex flex-row cursor-pointer mt-2 md:mt-4 transition-all duration-300 ease-in-out group">
@@ -91,16 +95,15 @@ useEffect(() => {
                   <p className="text-black font-semibold pl-2 hover:text-[#1abc9c]">
                     {project.status}
                   </p>
-                  
                 </div>
-
-               
 
                 <div className="mt-4  text-black flex flex-col items-center md:items-start">
                   <h1 className="font-roboto text-xl font-bold pb-2">
                     Project Summary
                   </h1>
-                  <p>{project.content}</p>
+                  <p className={`${
+                    theme === "dark" ? "text-black" : "text-white"
+                  }`}>{project.content}</p>
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 export const AboutUsLang = {
   en: {
     title: "About CyberPro",
-    subtitle: "Your Trusted Partner in Cybersecurity and Consultancy",
+    subtitle: "Your Trusted Partner in Cybersecurity ",
     story: "Our Story",
     storyDescription: "Securing Your Future, Protecting Your Business",
     visionTitle: "Vision",
@@ -40,7 +40,7 @@ export const AboutUsLang = {
   },
   fr: {
     title: "À propos de CyberPro",
-    subtitle: "Votre Partenaire de Confiance en Cybersécurité et Conseil",
+    subtitle: "Votre Partenaire de Confiance en Cybersécurité ",
     story: "Notre Histoire",
     storyDescription: "Sécuriser Votre Avenir, Protéger Votre Entreprise",
     visionTitle: "Vision",

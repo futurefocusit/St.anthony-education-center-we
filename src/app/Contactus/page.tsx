@@ -116,11 +116,7 @@ const Contactus = () => {
         </div>
 
         <div className="flex flex-col p-10 md:p-5 md:mt-10 lg:mt-10 w-full md:w-full lg:w-1/2">
-          <p className="font-roboto text-center text-[#1e1e1e] mb-5 font-extralight md:max-w-[350px] lg:max-w-full">
-            {language === "en"
-              ? "Bookings for our cybersecurity consultations are managed by SecureTech Solutions"
-              : "Les réservations pour nos consultations en cybersécurité sont gérées par Solutions de technologie sécurisée"}
-          </p>
+         
           <h1 className="text-[1.7rem] text-[#1b396e] text-center font-normal font-merriweather pb-2">
             {language == "en" ? " Connect With Us" : "Connectez-vous avec nous"}
           </h1>

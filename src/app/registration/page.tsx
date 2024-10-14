@@ -157,7 +157,7 @@ const RegistrationPage = () => {
         </div>
 
         <div className="flex sm:items-center gap-3 flex-col sm:flex-row">
-          <p className="font-bold sm:min-w-[200px] text-start">natinal id</p>
+          <p className="font-bold sm:min-w-[200px] text-start">National ID</p>
           <input
             type="file"
             name="nid"
@@ -168,7 +168,7 @@ const RegistrationPage = () => {
           />
         </div>
         <div className="flex sm:items-center gap-3 flex-col sm:flex-row">
-          <p className="font-bold sm:min-w-[200px] text-start">photo</p>
+          <p className="font-bold sm:min-w-[200px] text-start">Photo</p>
           <input
             type="file"
             name="photo"

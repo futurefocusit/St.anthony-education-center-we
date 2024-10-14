@@ -59,7 +59,7 @@ const Services = () => {
           >
             {ServicesLang[language].service1_desc}
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 w-fit mx-auto">
             <a
               href="/registration"
               className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3  p-2 mt-3 text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
@@ -98,7 +98,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice1service1_desc}
             </p>
-            <div></div>
           </div>
         </section>
 
@@ -125,7 +124,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice2service1_desc}
             </p>
-            <div></div>
           </div>
         </section>
 
@@ -152,7 +150,7 @@ const Services = () => {
             >
               {ServicesLang[language].subservice3service1_desc}
             </p>
-            <div></div>
+          
           </div>
         </section>
 
@@ -179,20 +177,17 @@ const Services = () => {
             >
               {ServicesLang[language].subservice4service1_desc}
             </p>
-            <div></div>
+            
           </div>
         </section>
       </section>
-
-      {/* Consultancy service section content */}
-
       <section className="flex flex-col px-20 max-lg:px-5 justify-start items-start pb-5 gap-4  mt-4  max-md:px-5 space-y-5 border-t-2  ">
         <div className="py-7">
           <h1
             className={` ${
               theme === "dark" ? "text-white font-bold" : "text-[#2dc77c]"
             }  font-merriweather  lg:border-t-gray-200
-text-center text-4xl pb-3`}
+         text-center text-4xl pb-3`}
           >
             {ServicesLang[language].service2}
           </h1>
@@ -228,7 +223,7 @@ text-center text-4xl pb-3`}
             >
               {ServicesLang[language].subservice1service2_desc}
             </p>
-            <div></div>
+          
           </div>
         </div>
 
@@ -255,7 +250,7 @@ text-center text-4xl pb-3`}
             >
               {ServicesLang[language].subservice2service2_desc}
             </p>
-            <div></div>
+         
           </div>
         </div>
 
@@ -282,7 +277,7 @@ text-center text-4xl pb-3`}
             >
               {ServicesLang[language].subservice3service2_desc}
             </p>
-            <div></div>
+           
           </div>
         </div>
 
@@ -309,7 +304,7 @@ text-center text-4xl pb-3`}
             >
               {ServicesLang[language].subservice4service2_desc}
             </p>
-            <div></div>
+           
           </div>
         </div>
       </section>
@@ -356,7 +351,7 @@ text-center text-4xl pb-3`}
               >
                 {ServicesLang[language].subservice1service3_desc}
               </p>
-              <div></div>
+             
             </div>
           </section>
 
@@ -383,7 +378,7 @@ text-center text-4xl pb-3`}
               >
                 {ServicesLang[language].subservice4service3_desc}
               </p>
-              <div></div>
+             
             </div>
           </section>
 
@@ -410,7 +405,7 @@ text-center text-4xl pb-3`}
               >
                 {ServicesLang[language].subservice2service3_desc}
               </p>
-              <div></div>
+
             </div>
           </section>
 
@@ -437,7 +432,7 @@ text-center text-4xl pb-3`}
               >
                 {ServicesLang[language].subservice3service3_desc}
               </p>
-              <div></div>
+
             </div>
           </section>
 
@@ -464,7 +459,7 @@ text-center text-4xl pb-3`}
               >
                 {ServicesLang[language].subservice4service3_desc}
               </p>
-              <div></div>
+
             </div>
           </section>
 
@@ -491,7 +486,7 @@ text-center text-4xl pb-3`}
               >
                 {ServicesLang[language].subservice5service3_desc}
               </p>
-              <div></div>
+
             </div>
           </section>
 
@@ -518,7 +513,7 @@ text-center text-4xl pb-3`}
               >
                 {ServicesLang[language].subservice6service3_desc}
               </p>
-              <div></div>
+              
             </div>
           </section>
         </section>
