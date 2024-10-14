@@ -26,9 +26,9 @@ export interface Team {
 export interface Testimony {
   _id: string;
   content: string
-  authorName:string;
-  authorCompany: string
-  authorRole: string
+  name:string;
+  company: string
+  role: string
   image: string
 
 }

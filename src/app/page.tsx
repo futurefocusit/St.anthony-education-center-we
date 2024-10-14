@@ -2,10 +2,9 @@
 
 import { countries, posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
-import { FaFacebookF, FaInstagram, FaLessThan, FaLinkedin, FaTiktok, FaTwitter, FaYoutube } from "react-icons/fa";
-import { FaGreaterThan, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
-import { ImQuotesRight } from "react-icons/im";
 import { LiaLinkedinIn } from "react-icons/lia";
 import { IoStarSharp } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
@@ -19,11 +18,11 @@ import axios from "axios";
 import {
   SkeletonBlog,
   SkeletonPortfolio,
-  SkeletonTeam,
-} from "@/components/skeletons/cardSkeleton";
+  SkeletonTeam} from "@/components/skeletons/cardSkeleton";
 import { BASE_URL } from "@/context/api";
 import PartnerLogos from "@/components/partenerPart";
 import { AboutUsLang } from "@/lib/languageAbout";
+import TestimonySlideshow from "@/components/slider";
 
 const Home = () => {
   const { language, theme } = useAppContext();
@@ -36,7 +35,7 @@ const Home = () => {
   const [isLoadingPortfolio, setIsLoadingPortifolio] = useState(false);
   const [isLoadingTeam, setIsLoadingTeam] = useState(false);
   const [isLoadingBlog, setIsLoadingBlog] = useState(false);
-  const [, setIsLoadingtestimony] = useState(false);
+  const [isLoadingTestimony, setIsLoadingtestimony] = useState(false);
   const [, setIsLoadingRating] = useState(false);
   const [hoveredStar, setHoveredStar] = useState(0);
   const getPercentage = (arr: { value: number }[], target: number): number => {
@@ -142,7 +141,7 @@ const Home = () => {
           </div>
         </div>
         {/* cards */}
-        <div className="flex items-start justify-center w-full gap-10 mt-10 ">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full gap-10 mt-10 ">
           {posts.map((post, index) => (
             <div
               key={index}
@@ -189,10 +188,14 @@ const Home = () => {
         {/* about us */}
         <div className="flex flex-col md:flex-row justify-center items-center p-4">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h1 className="text-[#1B396E] text-[24px] md:text-[36px]">
+            <h1
+              className={`${
+                theme === "dark" ? "text-gray-100" : "text-gray-800"
+              }text-[24px] md:text-[36px]`}
+            >
               {data.aboutUsTitle}
             </h1>
-            <p className="font-[800] text-[16px] md:text-[18px]">
+            <p className={` font-[800] text-[16px] md:text-[18px]`}>
               {data.aboutUsSubtitle}
             </p>
             <div className="w-[30px] md:w-[50px] h-[5px] md:h-[7px] bg-[#1B396E] my-2"></div>
@@ -423,51 +426,14 @@ const Home = () => {
         <h1 className="my-10 flex justify-center text-center font-[800] text-[36px] text-[#1ABC9C]">
           {data.testimonialTitle}
         </h1>
-        {testimony && testimony.length > 0 ? (
-          <div className="relative flex flex-col lg:flex-row">
-            <Image
-              src={testimony[0].image}
-              alt={`testimony for ${testimony[0].authorRole}`}
-              width={90}
-              height={90}
-              className="lg:relative lg:left-[600px] lg:w-[620px] md:max-w-xl max-w-full mx-6 lg:mx-0 h-[395px] object-cover"
-            />
-
-            <div className="lg:absolute lg:-left-[10px] lg:top-[0px] flex flex-col bg-[#D9D9D9] max-w-full md:max-w-xl p-3 mx-6 mb-6">
-              <ImQuotesRight className="w-[50px] h-[50px] md:w-[81px] md:h-[81px] text-sky-400" />
-
-              <p className="font-[400] text-base md:text-lg mt-5 md:mt-10">
-                {testimony[0].authorRole}
-              </p>
-
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mt-10 md:mt-20">
-                <div>
-                  <h1 className="font-[800] text-[24px] md:text-[36px] text-[#1B396E]">
-                    {testimony[0].authorName}
-                  </h1>
-                  <h2 className="font-[300] text-[16px] md:text-[20px] text-[#1B396E]">
-                    {`${testimony[0].authorRole} - ${testimony[0].authorCompany}`}
-                  </h2>
-                </div>
-
-                <div className="flex gap-4 md:gap-10 mt-5 md:mt-8">
-                  <FaLessThan
-                    size={20}
-                    className="bg-white rounded-3xl font-extrabold"
-                  />
-                  <FaGreaterThan size={20} className="bg-white rounded-3xl" />
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="text-center text-white">no testimony available</div>
-        )}
-
+        <TestimonySlideshow
+          testimony={testimony}
+          isLoadingTestimony={isLoadingTestimony}
+        />
         {/* custom rating and review */}
 
         <p className="w-full max-w-[625px] h-auto font-[800] text-[28px] sm:text-[36px] text-[#1ABC9C] text-center m-auto mt-10">
-          customer reviews and rating
+          Customer Reviews and Rating
         </p>
 
         <div className="flex flex-col lg:flex-row gap-3 mt-10">
@@ -477,12 +443,7 @@ const Home = () => {
             </h1>
 
             <div className="w-full  pb-[5px] py-[3px] mb-6 gap-[10px] flex justify-center bg-[#F3F4FF] rounded-full">
-              <div className="flex items-center gap-2">
-                <IoStarSharp className="w-[20px] h-[20px] text-yellow-300" />
-                <IoStarSharp className="w-[20px] h-[20px] text-yellow-300" />
-                <IoStarSharp className="w-[20px] h-[20px] text-yellow-300" />
-                <IoStarSharp className="w-[20px] h-[20px] text-yellow-300" />
-                <IoStarSharp className="w-[20px] h-[20px] text-yellow-300" />
+              <div className="flex items-center text-center p-1 gap-2">
                 <p className="font-bold text-[18px]">{data.heroSubtitle}</p>
               </div>
             </div>
@@ -570,35 +531,35 @@ const Home = () => {
           {isLoadingTeam ? (
             SkeletonTeam
           ) : (
-            <div className="flex card-holder  justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto  w-fit ">
               {team && team.length > 0
                 ? team.map((member, index) => (
                     <div
                       key={index}
-                      className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
+                      className="bg-[#D9D9D9] min-w-fit h-fit pb-5 rounded transform transition duration-300 hover:scale-105"
                     >
                       <img
                         src={member.image}
                         alt={member.name}
                         width={90}
                         height={90}
-                        className="w-full h-32 object-cover"
+                        className="w-full h-32 object-cover rounded-t"
                       />
                       <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
                         {member.role}
                       </h2>
-                      <p className="text-[28px] p-2 text-[#49454F] text-center">
+                      <p className="text-[20px] p-2 text-[#49454F] text-center">
                         {member.name}
                       </p>
                       <div className="flex items-center justify-center gap-[2px]">
                         <a href={member.linkedInProfile || "###"}>
-                          <LiaLinkedinIn className="w-3 h-3" />
+                          <LiaLinkedinIn className="w-6 h-6 rounded text-white bg-blue-500 hover:bg-blue-700 p-1" />
                         </a>
                         <a href={member.instagramProfile || "###"}>
-                          <FaInstagram className="w-3 h-3 " />
+                          <FaInstagram className="w-6 h-6 text-white rounded bg-[#bb2a7f] hover:bg-[#e0409d] p-1 " />
                         </a>
                         <a href={member.twiterProfile || "###"}>
-                          <FaTwitter className="w-3 h-3" />
+                          <FaXTwitter className="w-6 h-6 text-white rounded bg-[#080808] hover:bg-[#0e0c0c] p-1" />
                         </a>
                         {/* <link href={member.f}>
                 <FaFacebook className="w-3 h-3 " />
@@ -636,13 +597,13 @@ const Home = () => {
                 {data.secureYourFuture}
               </p>
               <div className="w-[64px] h-[8px]  bg-[#1B396E] mt-3 mx-auto mb-6" />
-              <p className="w-full  text-left  text-sm sm:text-[16px] mb-8">
+              <p className="w-full  text-left  max-h-[230px] overflow-auto text-sm sm:text-[16px] mb-8">
                 {AboutUsLang[language].visionDescription}
               </p>
               <div className="flex flex-row items-center justify-center space-x-4">
                 <a
                   href="/Contactus"
-                  className="bg-[#1ABC9C] py-2 px-4 text-[16px] sm:text-[17px] text-white"
+                  className="bg-[#1ABC9C] py-2 px-4 text-[16px] rounded sm:text-[17px] text-white hover:bg-[#1Abc]"
                 >
                   {data.contactUs}
                 </a>
@@ -651,7 +612,7 @@ const Home = () => {
 
             <div className="flex flex-col">
               {countries.map((country, index) => (
-                <div className="flex flex-col justify-center" key={index}>
+                <div className="flex flex-col justify-center mt-5" key={index}>
                   <h1 className="w-[77.38px] h-[39.31px] font-[800] text-[14px] text-[#1B396E] text-right lg:mx-52">
                     {country.name}
                   </h1>
@@ -779,7 +740,7 @@ const Home = () => {
         <div className="mx-10 pt-10 ">
           <iframe
             className="w-full m-auto"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.775313606574!2d-122.03224420000001!3d37.2767548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e4ad38fa6a251%3A0x4462135701bcadcb!2sSaratoga%20Sunnyvale%20Rd%2C%20Saratoga%2C%20CA%2095070%2C%20USA!5e0!3m2!1sen!2srw!4v1726610527050!5m2!1sen!2srw"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.372925704017!2d-75.70215228469056!3d45.352704179101964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccebb0cb651c455%3A0x445c123d0cf4b689!2s19%20Grenfell%20Crescent%2C%20Ottawa%2C%20ON%2C%20Canada%20K2G%200G3!5e0!3m2!1sen!2sus!4v1697198948007!5m2!1sen!2sus"
             width="800"
             height="500"
             style={{ border: 0 }}

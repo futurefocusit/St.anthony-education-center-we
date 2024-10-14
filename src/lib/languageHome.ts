@@ -38,7 +38,7 @@ export const englishContent = {
   fAll: "VIEW ALL",
   testimonialTitle: "TESTIMONIAL",
   customerReviews: "CUSTOMER REVIEWS",
-  rateUs: "rate us",
+  rateUs: "Rate us",
   rateUsSubtitle: "FROM 1 TO 5",
   choose: "CHOOSE",
   ourStaffTitle: "OUR STAFF",

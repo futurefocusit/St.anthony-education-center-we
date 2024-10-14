@@ -14,7 +14,7 @@ const WhatsAppButton = () => {
         rel="noopener noreferrer"
         className="flex items-center gap-3 transition duration-100 "
       >
-        <FaWhatsapp size={50} />
+        <FaWhatsapp size={30} />
         <p className={`${isOpen ? "block" : "hidden"}`}>Get in Touch with Us</p>
       </a>
     </div>
