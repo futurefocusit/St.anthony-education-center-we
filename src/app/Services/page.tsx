@@ -10,11 +10,7 @@ import { ServicesLang } from "@/lib/languageService";
 const Services = () => {
   const { language, theme } = useAppContext();
   return (
-    <div
-      className={`${
-        theme === "dark" ? "bg-slate-700" : ""
-      }   max-md:bg-[#b9bebd] max-lg:bg[#BEB9B9]  `}
-    >
+    <div className={`${theme === "dark" ? "bg-slate-700" : ""}   `}>
       <section
         className="  max-md:w-screen  h-auto relative -top-36  pt-64 pb-32 leading-10 -mb-32 lg:pl-[50px]  pl-[5px] "
         style={{
@@ -98,6 +94,14 @@ const Services = () => {
             >
               {ServicesLang[language].subservice1service1_desc}
             </p>
+            <div className="flex items-center py-5">
+              <a
+                href="/courses"
+                className="bg-blue-600 hover:bg-blue-800 p-2  w-fit mx-auto rounded  text-white"
+              >
+                Read more
+              </a>
+            </div>
           </div>
         </section>
 
@@ -150,7 +154,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice3service1_desc}
             </p>
-          
           </div>
         </section>
 
@@ -177,7 +180,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice4service1_desc}
             </p>
-            
           </div>
         </section>
       </section>
@@ -194,12 +196,17 @@ const Services = () => {
           <p
             className={` ${
               theme === "dark" ? "text-gray-300" : "text-[#1B396E]"
-            }  font-merriweather pb-3 text-md`}
+            }  font-merriweather pb-1 text-md`}
           >
             {ServicesLang[language].service2_desc}
           </p>
         </div>
-
+        <a
+          href="Contactus"
+          className="bg-[#1B396E] hover:bg-teal-600 w-fit mx-auto rounded max-md:ml-3  p-2  text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+        >
+          Secure Your Premises
+        </a>
         <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image
             className="max-sm:w-[400px] max-md:p-3 "
@@ -223,7 +230,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice1service2_desc}
             </p>
-          
           </div>
         </div>
 
@@ -250,7 +256,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice2service2_desc}
             </p>
-         
           </div>
         </div>
 
@@ -277,7 +282,6 @@ const Services = () => {
             >
               {ServicesLang[language].subservice3service2_desc}
             </p>
-           
           </div>
         </div>
 
@@ -304,13 +308,12 @@ const Services = () => {
             >
               {ServicesLang[language].subservice4service2_desc}
             </p>
-           
           </div>
         </div>
       </section>
 
       {/* installation CCTV cameras  service section content*/}
-      <div className="pb-5 md:pb-10 w-[100%] h-full  max-md:bg-[#BEB9B9] max-lg:bg[#BEB9B9] px-20  max-md:px-5 mt-0">
+      <div className="pb-5 md:pb-10 w-[100%] h-full   max-lg:bg[#BEB9B9] px-20  max-md:px-5 mt-0">
         <div>
           <h1
             className={` ${
@@ -326,6 +329,12 @@ const Services = () => {
           >
             {ServicesLang[language].service3_desc}
           </p>
+          <a
+            href="/Contactus"
+            className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3   p-2 w-fit mx-auto text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+          >
+            Secure Your Premises
+          </a>
         </div>
         <section className="space-y-5">
           <section className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3  ">
@@ -351,7 +360,6 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice1service3_desc}
               </p>
-             
             </div>
           </section>
 
@@ -378,7 +386,6 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice4service3_desc}
               </p>
-             
             </div>
           </section>
 
@@ -405,7 +412,6 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice2service3_desc}
               </p>
-
             </div>
           </section>
 
@@ -432,7 +438,6 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice3service3_desc}
               </p>
-
             </div>
           </section>
 
@@ -459,7 +464,6 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice4service3_desc}
               </p>
-
             </div>
           </section>
 
@@ -486,7 +490,6 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice5service3_desc}
               </p>
-
             </div>
           </section>
 
@@ -513,7 +516,6 @@ const Services = () => {
               >
                 {ServicesLang[language].subservice6service3_desc}
               </p>
-              
             </div>
           </section>
         </section>

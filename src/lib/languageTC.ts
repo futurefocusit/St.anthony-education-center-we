@@ -1,4 +1,4 @@
-export const translations = {
+export const content = {
     en: {
       title: "Terms of Use for CyberPro Group Website",
       lastUpdated: "Last Updated: 11 October 2024",

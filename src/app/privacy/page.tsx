@@ -127,14 +127,7 @@ const PrivacyPolicy: React.FC = () => {
             : "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle politique de confidentialité sur notre site Web. Vous êtes invité à consulter cette politique de confidentialité périodiquement pour toute modification."}
         </p>
 
-        <h2 className="font-bold text-xl">
-          {language === "en" ? "6. Contact Us" : "6. Contactez-nous"}
-        </h2>
-        <p>
-          {language === "en"
-            ? "If you have questions or comments about this Privacy Policy, please contact us at support@cyberprogroup.com."
-            : "Si vous avez des questions ou des commentaires concernant cette politique de confidentialité, veuillez nous contacter à support@cyberprogroup.com."}
-        </p>
+      
       </div>
     </div>
   );

@@ -131,9 +131,12 @@ const Aboutus = () => {
         <h1 className="text-center text-4xl font-bold ">
           Dive into our courses we provide
         </h1>
-        <div className="  grid grid-cols-5 gap-7 my-20 text-center  ">
+        <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-7 py-20 text-center  px-10  ">
           {cards.map((card, index) => (
-            <div key={index} className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out">
+            <div
+              key={index}
+              className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out"
+            >
               <img
                 className="rounded-full  h-32 w-32"
                 src={card.image}
@@ -150,9 +153,12 @@ const Aboutus = () => {
         <h1 className="text-center text-4xl font-bold ">
           Dive into our Tools we provide
         </h1>
-        <div className="  grid grid-cols-5 gap-7 py-20 text-center  ">
+        <div className="  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-7 py-20 text-center  px-10 ">
           {tools.map((card, index) => (
-            <div key={index} className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out">
+            <div
+              key={index}
+              className="flex flex-col gap-2 shadow-2xl p-12 items-center hover:scale-105 transform transition duration-300 ease-in-out"
+            >
               <img
                 className="rounded-full  h-32 w-32"
                 src={card.image}
