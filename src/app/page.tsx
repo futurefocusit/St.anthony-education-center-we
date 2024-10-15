@@ -175,7 +175,7 @@ const Home = () => {
               </div>
               <div className=" bottom-2 flex w-full items-center justify-center">
                 <a
-                  href="/Services"
+                  href={`/Services${post.id}`}
                   className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg"
                 >
                   {data.readMore}
