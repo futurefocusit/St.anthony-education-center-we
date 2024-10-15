@@ -9,7 +9,7 @@ const PrivacyPolicy: React.FC = () => {
     <div
       className={`${
         theme === "dark" ? "bg-slate-800 text-gray-300" : "bg-white text-black"
-      } font-sans md:p-5 p-2 lg:pt-32`}
+      } font-sans md:p-5 p-2 pt-24 lg:pt-32`}
     >
       <h1
         className={`${
@@ -126,8 +126,6 @@ const PrivacyPolicy: React.FC = () => {
             ? "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website. You are advised to review this Privacy Policy periodically for any changes."
             : "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle politique de confidentialité sur notre site Web. Vous êtes invité à consulter cette politique de confidentialité périodiquement pour toute modification."}
         </p>
-
-      
       </div>
     </div>
   );

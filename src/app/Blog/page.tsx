@@ -12,7 +12,7 @@ const BlogPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [blog, setBlog] = useState<Blog[]>([]);
   const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>([]);
-  const [,setIsLoadingBlog] = useState(false);
+  const [, setIsLoadingBlog] = useState(false);
 
   const fetchData = async (
     endpoint: string,
@@ -51,9 +51,9 @@ const BlogPage = () => {
   }, [searchQuery, blog]);
 
   return (
-    <div className={`${theme === "dark" ? "bg-gray-800 " : "bg-white"} ` }>
+    <div className={`${theme === "dark" ? "bg-gray-800 " : "bg-white"} `}>
       <section
-        className={`h-fit lg:h-screen pb-10 relative -top-36 pt-64 -mb-32 lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5 ${
+        className={`h-fit lg:h-screen pb-10 relative  pt-52 -mb-32 lg:pl-[50px] pl-[5px] space-y-3 lg:space-y-5 ${
           theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-300"
         }`}
         style={{

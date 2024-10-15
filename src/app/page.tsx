@@ -336,7 +336,7 @@ const Home = () => {
               </div>
             </div>
             <a
-              href="/registration"
+              href="/registration/"
               className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px]   text-[15px] sm:text-[17px] text-white"
             >
               {data.enrollNow}
@@ -375,7 +375,7 @@ const Home = () => {
               </div>
             </div>
             <a
-              href="/Service"
+              href="/Services#service2"
               className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
             >
               {data.getExpertAdvice}
@@ -422,7 +422,7 @@ const Home = () => {
               </div>
             </div>
             <a
-              href="/Services"
+              href="/Services#service3"
               className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
             >
               {data.promise}

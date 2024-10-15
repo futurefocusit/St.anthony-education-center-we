@@ -41,7 +41,7 @@ const Aboutus = () => {
   return (
     <div className={`${theme === "dark" ? "bg-slate-700" : "bg-white"} pb-10`}>
       <section
-        className="relative pt-72 pb-32"
+        className="relative pt-52 pb-32"
         style={{
           backgroundImage:
             "url('https://images.pexels.com/photos/5380613/pexels-photo-5380613.jpeg?auto=compress&cs=tinysrgb&w=600')",

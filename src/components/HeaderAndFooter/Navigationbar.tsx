@@ -10,14 +10,14 @@ const NavigationBar = () => {
   const { theme, sendStatistics, hasAcceptedCookies } = useAppContext();
 
   useEffect(() => {
-    const page = window.location.pathname; 
+    const page = window.location.pathname;
     if (hasAcceptedCookies) {
-      sendStatistics(page); 
+      sendStatistics(page);
     }
   }, [hasAcceptedCookies, sendStatistics]);
 
   return (
-    <div className="w-full absolute z-50">
+    <div className="w-full absolute z-50 ">
       <div
         className={`flex justify-between ${
           theme === "dark" ? "bg-black text-white" : "bg-white text-black"

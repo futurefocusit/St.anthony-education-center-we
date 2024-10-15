@@ -8,35 +8,31 @@ import axios from "axios";
 import { Project } from "@/lib/types";
 import { BASE_URL } from "@/context/api";
 
-
-   
-  
-
 const CardList: React.FC = () => {
-  const { theme} = useAppContext();
+  const { theme } = useAppContext();
   const [, setIsLoadingPortifolio] = useState(false);
   const [portfolio, setPortfolio] = useState<Project[]>([]);
 
- const fetchData = async (
-   endpoint: string,
-   //@ts-expect-error error
-   setStateFunc: React.Dispatch<React.SetStateAction<>>,
-   setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
- ) => {
-   try {
-     setLoadingFunc(true);
-     const response = await axios.get(`${BASE_URL}/${endpoint}`);
-     setStateFunc(response.data);
-   } catch (error) {
-     console.error(`Error fetching ${endpoint}:`, error);
-   } finally {
-     setLoadingFunc(false);
-   }
- };
+  const fetchData = async (
+    endpoint: string,
+    //@ts-expect-error error
+    setStateFunc: React.Dispatch<React.SetStateAction<>>,
+    setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    try {
+      setLoadingFunc(true);
+      const response = await axios.get(`${BASE_URL}/${endpoint}`);
+      setStateFunc(response.data);
+    } catch (error) {
+      console.error(`Error fetching ${endpoint}:`, error);
+    } finally {
+      setLoadingFunc(false);
+    }
+  };
 
-useEffect(() => {
-  fetchData("project", setPortfolio, setIsLoadingPortifolio);
-}, []);
+  useEffect(() => {
+    fetchData("project", setPortfolio, setIsLoadingPortifolio);
+  }, []);
 
   return (
     <div
@@ -93,7 +89,7 @@ useEffect(() => {
                     className="mt-1"
                   />
                   <p className="text-black font-semibold pl-2 hover:text-[#1abc9c]">
-                    {project.status}
+                    {project.company}
                   </p>
                 </div>
 
@@ -101,9 +97,13 @@ useEffect(() => {
                   <h1 className="font-roboto text-xl font-bold pb-2">
                     Project Summary
                   </h1>
-                  <p className={`${
-                    theme === "dark" ? "text-black" : "text-white"
-                  }`}>{project.content}</p>
+                  <p
+                    className={`${
+                      theme === "dark" ? "text-black" : "text-white"
+                    }`}
+                  >
+                    {project.content}
+                  </p>
                 </div>
               </div>
             </div>

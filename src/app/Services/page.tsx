@@ -6,9 +6,26 @@ import Teach from "../../Images/Teach.jpg";
 import Values from "../../Images/Values.jpg";
 import { useAppContext } from "@/context/appContext";
 import { ServicesLang } from "@/lib/languageService";
+import { useEffect } from "react";
 
 const Services = () => {
   const { language, theme } = useAppContext();
+
+  useEffect(() => {
+    document.addEventListener("DOMContentLoaded", () => {
+      const targetId = window.location.hash;
+      if (targetId) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    });
+  }, []);
+
   return (
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}   `}>
       <section
@@ -39,7 +56,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="px-20 max-lg:px-5 space-y-5">
+      <section id="service1" className="px-20 max-lg:px-5 space-y-5">
         <div className=" py-7">
           <h1
             className={` ${
@@ -97,7 +114,7 @@ const Services = () => {
             <div className="flex items-center py-5">
               <a
                 href="/courses"
-                className="bg-blue-600 hover:bg-blue-800 p-2  w-fit  rounded  text-white"
+                className="bg-blue-600 hover:bg-blue-800 p-2  w-fit mx-auto lg:mx-20  rounded  text-white"
               >
                 Read more
               </a>
@@ -183,7 +200,10 @@ const Services = () => {
           </div>
         </section>
       </section>
-      <section className="flex flex-col px-20 max-lg:px-5 justify-start items-start pb-5 gap-4  mt-4  max-md:px-5 space-y-5 border-t-2  ">
+      <section
+        id="service2"
+        className="flex flex-col px-20 max-lg:px-5 justify-start items-start pb-5 gap-4  mt-4  max-md:px-5 space-y-5 border-t-2  "
+      >
         <div className="py-7">
           <h1
             className={` ${
@@ -313,12 +333,15 @@ const Services = () => {
       </section>
 
       {/* installation CCTV cameras  service section content*/}
-      <div className="pb-5 md:pb-10 w-[100%] h-full   max-lg:bg[#BEB9B9] px-20  max-md:px-5 mt-0">
-        <div>
+      <div
+        id="service3"
+        className="pb-5 md:pb-10 w-[100%] h-full   max-lg:bg[#BEB9B9] px-20  max-md:px-5 mt-0"
+      >
+        <div className="">
           <h1
             className={` ${
               theme === "dark" ? "text-gray-300" : "text-[#2dc77c]"
-            }  max-lg:ml-0 font-merriweather text-10px text-4xl text-center  max-md:ml-0  py-3 border-t-2  `}
+            }  max-lg:ml-0  font-merriweather text-10px text-4xl text-center  max-md:ml-0  py-3 border-t-2  `}
           >
             {ServicesLang[language].service3}
           </h1>
@@ -331,7 +354,7 @@ const Services = () => {
           </p>
           <a
             href="/Contactus"
-            className="bg-[#1B396E] hover:bg-teal-600 rounded max-md:ml-3   p-2 w-fit mx-auto text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
+            className="bg-[#1B396E] hover:bg-teal-600 rounded   p-2  block w-fit mx-auto text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
           >
             Secure Your Premises
           </a>
