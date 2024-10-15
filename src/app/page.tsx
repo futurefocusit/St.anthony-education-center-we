@@ -2,7 +2,13 @@
 
 import { countries, posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
-import { FaFacebookF, FaInstagram, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
 import { LiaLinkedinIn } from "react-icons/lia";
@@ -18,7 +24,8 @@ import axios from "axios";
 import {
   SkeletonBlog,
   SkeletonPortfolio,
-  SkeletonTeam} from "@/components/skeletons/cardSkeleton";
+  SkeletonTeam,
+} from "@/components/skeletons/cardSkeleton";
 import { BASE_URL } from "@/context/api";
 import PartnerLogos from "@/components/partenerPart";
 import { AboutUsLang } from "@/lib/languageAbout";
@@ -204,7 +211,7 @@ const Home = () => {
                 theme === "dark" ? "text-gray-100" : "text-gray-800"
               } w-full md:w-[691px] h-auto font-[300] text-sm`}
             >
-              {data.aboutUsDescription}
+              {AboutUsLang[language].missionDescription}
             </p>
             <div className="flex w-full justify-center md:justify-start mt-5">
               <a

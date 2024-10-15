@@ -151,8 +151,8 @@ const Aboutus = () => {
               {AboutUsLang[language].valuesDescription.map((value, index) => (
                 <li key={value.title} className="block">
                   <span>{index + 1}. </span>
-                  <strong className="font-bold">{value.title}:</strong>
-                  <span className="ml-1">{value.description}</span>
+                  <strong className="font-bold ">{value.title}:</strong>
+                  <span className="ml-1 block">{value.description}</span>
                 </li>
               ))}
             </ul>
@@ -187,55 +187,54 @@ const Aboutus = () => {
                   <li key={value.title} className="block">
                     <span>{index + 1}. </span>
                     <strong className="font-bold">{value.title}:</strong>
-                    <span className="ml-1">{value.desc}</span>
+                    <span className="ml-1 block">{value.desc}</span>
                   </li>
                 )
               )}
             </ul>
           </div>
         </section>
-          <>
-            {isLoadingTeam ? (
-              SkeletonTeam
-            ) : (
-              <div className="flex card-holder   justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto ">
-                {team && team.length > 0
-                  ? team.map((member, index) => (
-                      <div
-                        key={index}
-                        className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
-                      >
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          width={90}
-                          height={90}
-                          className="w-full h-32 object-cover"
-                        />
-                        <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
-                          {member.role}
-                        </h2>
-                        <p className="text-[28px] p-2 text-[#49454F] text-center">
-                          {member.name}
-                        </p>
-                        <div className="flex items-center justify-center gap-[2px]">
-                          <a href={member.linkedInProfile || "###"}>
-                            <LiaLinkedinIn className="w-3 h-3" />
-                          </a>
-                          <a href={member.instagramProfile || "###"}>
-                            <FaInstagram className="w-3 h-3 " />
-                          </a>
-                          <a href={member.twiterProfile || "###"}>
-                            <FaTwitter className="w-3 h-3" />
-                          </a>
-                         
-                        </div>
+        <>
+          {isLoadingTeam ? (
+            SkeletonTeam
+          ) : (
+            <div className="flex card-holder   justify-center items-center gap-6 w-full md:w-[600px] lg:w-[1000px] m-auto ">
+              {team && team.length > 0
+                ? team.map((member, index) => (
+                    <div
+                      key={index}
+                      className="bg-[#D9D9D9] min-w-fit h-fit pb-5 transform transition duration-300 hover:scale-105"
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        width={90}
+                        height={90}
+                        className="w-full h-32 object-cover"
+                      />
+                      <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
+                        {member.role}
+                      </h2>
+                      <p className="text-[28px] p-2 text-[#49454F] text-center">
+                        {member.name}
+                      </p>
+                      <div className="flex items-center justify-center gap-[2px]">
+                        <a href={member.linkedInProfile || "###"}>
+                          <LiaLinkedinIn className="w-3 h-3" />
+                        </a>
+                        <a href={member.instagramProfile || "###"}>
+                          <FaInstagram className="w-3 h-3 " />
+                        </a>
+                        <a href={member.twiterProfile || "###"}>
+                          <FaTwitter className="w-3 h-3" />
+                        </a>
                       </div>
-                    ))
-                  : "no team info available "}
-              </div>
-            )}
-          </>
+                    </div>
+                  ))
+                : "no team info available "}
+            </div>
+          )}
+        </>
       </div>
     </div>
   );

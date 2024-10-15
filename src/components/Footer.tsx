@@ -17,27 +17,24 @@ import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "@/context/api";
 import { toast } from "react-toastify";
-import {  FaXTwitter } from "react-icons/fa6";
-
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const { language } = useAppContext();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  
+
   const handleSubscribe = async () => {
     try {
-      setLoading(true)
+      setLoading(true);
       const response = await axios.post(`${BASE_URL}/user/subscribe`, {
         email,
       });
-      toast.success(response.data.message)
-      
+      toast.success(response.data.message);
     } catch (error) {
-      toast.error('failed! try again ')
-     
-    }finally{
-      setLoading(false)
+      toast.error("failed! try again ");
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -140,7 +137,9 @@ const Footer = () => {
             />
             <button
               onClick={() => handleSubscribe()}
-              className="bg-[#F39C12] py-2 px-4 rounded-lg hover:bg-[#d89b3a]"
+              className={`${
+                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#ffe042]"
+              } py-2 px-4 rounded-lg`}
             >
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
             </button>
@@ -205,7 +204,7 @@ const Footer = () => {
             <button
               onClick={() => handleSubscribe()}
               className={`${
-                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#d89b3a]"
+                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#ffe042]"
               } py-2 px-4 rounded-lg`}
             >
               {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
@@ -250,11 +249,16 @@ const Footer = () => {
         </div>
       </div>
       <h1 className="text-teal-400 font-bold text-lg text-center ">
-        Designed and Developed by <a className="text-[#34b886] hover:text-[#2e7451]" href="https://www.edgereachtech.com">EdgeReach Tech</a>
+        Designed and Developed by{" "}
+        <a
+          className="text-[#34b886] hover:text-[#2e7451]"
+          href="https://www.edgereachtech.com"
+        >
+          EdgeReach Tech
+        </a>
       </h1>
     </div>
   );
 };
-
 
 export default Footer;

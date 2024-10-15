@@ -97,7 +97,7 @@ const Services = () => {
             <div className="flex items-center py-5">
               <a
                 href="/courses"
-                className="bg-blue-600 hover:bg-blue-800 p-2  w-fit mx-auto rounded  text-white"
+                className="bg-blue-600 hover:bg-blue-800 p-2  w-fit  rounded  text-white"
               >
                 Read more
               </a>
@@ -205,7 +205,7 @@ const Services = () => {
           href="Contactus"
           className="bg-[#1B396E] hover:bg-teal-600 w-fit mx-auto rounded max-md:ml-3  p-2  text-clip text-[18px] text-[#ffffff]   shadow-[#71a7de]"
         >
-          Secure Your Premises
+          Get Expert Advices
         </a>
         <div className="flex flex-row gap-5 max-sm:flex-col max-lg:mx-14  max-md:mx-[-0.3em] max-md:pl-0 max-md:border-2 max-lg:border-2  max-md:border-black max-lg:border-black max-lg:border- max-lg:p-3 max-md:p-3 mt-3 ">
           <Image

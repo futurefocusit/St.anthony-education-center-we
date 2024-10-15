@@ -1,15 +1,15 @@
-'use client'
-import React, { useState } from 'react';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
 
-import telephone from '../../assets/telephone (1).png';
-import message from '../../assets/mail (1).png';
-import image2 from '../../assets/image2.jpg'
-import { useAppContext } from '@/context/appContext';
-import { BASE_URL } from '@/context/api';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import { FaLocationDot } from 'react-icons/fa6';
+import telephone from "../../assets/telephone (1).png";
+import message from "../../assets/mail (1).png";
+import image2 from "../../assets/image2.jpg";
+import { useAppContext } from "@/context/appContext";
+import { BASE_URL } from "@/context/api";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { FaLocationDot } from "react-icons/fa6";
 interface Errors {
   name?: string;
   email?: string;
@@ -17,65 +17,65 @@ interface Errors {
   message?: string;
 }
 const Contactus = () => {
-    const { language, theme } = useAppContext();
-    const [isLoading,setIsLoading] =useState(false)
-    const [input, setInput] = useState({
-      name: "",
-      email: "",
-      location: "",
-      message: "",
-      type: "message",
-    });
- const [errors, setErrors] = useState<Errors>({});
+  const { language, theme } = useAppContext();
+  const [isLoading, setIsLoading] = useState(false);
+  const [input, setInput] = useState({
+    name: "",
+    email: "",
+    location: "",
+    message: "",
+    type: "message",
+  });
+  const [errors, setErrors] = useState<Errors>({});
 
- const validateInputs = () => {
-   const newErrors:Errors = {};
-   if (!input.name) newErrors.name = "Name is required.";
-   if (!input.email) {
-     newErrors.email = "Email is required.";
-   } else if (!/\S+@\S+\.\S+/.test(input.email)) {
-     newErrors.email = "Email is invalid.";
-   }
-   if (!input.location) newErrors.location = "Location is required.";
-   if (!input.message) newErrors.message = "Message is required.";
-   else if (input.message.length < 10)
-     newErrors.message = "Message should be at least 10 characters long.";
+  const validateInputs = () => {
+    const newErrors: Errors = {};
+    if (!input.name) newErrors.name = "Name is required.";
+    if (!input.email) {
+      newErrors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(input.email)) {
+      newErrors.email = "Email is invalid.";
+    }
+    if (!input.location) newErrors.location = "Location is required.";
+    if (!input.message) newErrors.message = "Message is required.";
+    else if (input.message.length < 10)
+      newErrors.message = "Message should be at least 10 characters long.";
 
-   return newErrors;
- };
-     const onSubmit = async () => {
-       const validationErrors = validateInputs();
-       if (Object.keys(validationErrors).length > 0) {
-         setErrors(validationErrors);
-         return;
-       }
-       try {
-         setIsLoading(true);
-         await axios.post(`${BASE_URL}/incidence/`, {
-           input,
-         });
-         toast.success("Message sent successfully!");
-         setInput({
-           name: "",
-           email: "",
-           location: "",
-           message: "",
-           type: "message",
-         });
-         setErrors({});
-       } catch (error) {
-         console.error("Error:", error);
-         toast.error("Failed to send message. Please try again.");
-       } finally {
-         setIsLoading(false);
-       }
-     };
+    return newErrors;
+  };
+  const onSubmit = async () => {
+    const validationErrors = validateInputs();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    try {
+      setIsLoading(true);
+      await axios.post(`${BASE_URL}/incidence/`, {
+        input,
+      });
+      toast.success("Message sent successfully!");
+      setInput({
+        name: "",
+        email: "",
+        location: "",
+        message: "",
+        type: "message",
+      });
+      setErrors({});
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    const handleOnChange = (
-      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-      setInput({ ...input, [event.target.name]: event.target.value });
-    };
+  const handleOnChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setInput({ ...input, [event.target.name]: event.target.value });
+  };
   return (
     <div
       className={` ${
@@ -107,7 +107,7 @@ const Contactus = () => {
         <div className="p-5 md:p-10 flex justify-center items-center w-full md:w-full lg:w-1/2">
           <iframe
             className="shadow-xl w-full h-[300px] md:h-[400px] lg:h-[500px]"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.775313606574!2d-122.03224420000001!3d37.2767548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e4ad38fa6a251%3A0x4462135701bcadcb!2sSaratoga%20Sunnyvale%20Rd%2C%20Saratoga%2C%20CA%2095070%2C%20USA!5e0!3m2!1sen!2srw!4v1726610527050!5m2!1sen!2srw"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.372925704017!2d-75.70215228469056!3d45.352704179101964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccebb0cb651c455%3A0x445c123d0cf4b689!2s19%20Grenfell%20Crescent%2C%20Ottawa%2C%20ON%2C%20Canada%20K2G%200G3!5e0!3m2!1sen!2sus!4v1697198948007!5m2!1sen!2sus"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
@@ -116,7 +116,6 @@ const Contactus = () => {
         </div>
 
         <div className="flex flex-col p-10 md:p-5 md:mt-10 lg:mt-10 w-full md:w-full lg:w-1/2">
-         
           <h1 className="text-[1.7rem] text-[#1b396e] text-center font-normal font-merriweather pb-2">
             {language == "en" ? " Connect With Us" : "Connectez-vous avec nous"}
           </h1>
