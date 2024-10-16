@@ -711,7 +711,7 @@ const Home = () => {
                   key={index}
                   className={`relative card border w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
                 >
-                  <div className="flex flex-col gap-2 text-center overflow-y-scroll mx-h-24  ">
+                  <div className="flex flex-col gap-2 text-center overflow-y-scroll max-h-24  ">
                     <Image
                       src={blogItem.image}
                       alt="cyber"
