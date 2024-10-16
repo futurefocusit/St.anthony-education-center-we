@@ -268,7 +268,13 @@ const Home = () => {
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="mb-4">{project.content}</p>
+                  <p
+                    className="mb-4  overflow-y-scroll max-h-32"
+                    overflow-y-scroll
+                    max-h-32
+                  >
+                    {project.content}
+                  </p>
                   <a
                     href="/Case-study"
                     className={`${
@@ -711,7 +717,7 @@ const Home = () => {
                   key={index}
                   className={`relative card border w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
                 >
-                  <div className="flex flex-col gap-2 text-center overflow-y-scroll max-h-24  ">
+                  <div className="flex flex-col gap-2 text-center   ">
                     <Image
                       src={blogItem.image}
                       alt="cyber"
@@ -720,7 +726,7 @@ const Home = () => {
                       className="w-full h-48 object-cover"
                     />
                     <h2 className="font-bold text-2xl">{blogItem.title}</h2>
-                    <p className="text-sm text-gray-600 p-2">
+                    <p className="text-sm text-gray-600 p-2 overflow-y-scroll max-h-32">
                       {blogItem.content}
                     </p>
                   </div>
