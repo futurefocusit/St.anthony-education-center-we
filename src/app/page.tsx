@@ -258,7 +258,7 @@ const Home = () => {
               {portfolio.slice(-3).map((project, index) => (
                 <div
                   key={index}
-                  className={`w-full md:w-72 rounded-lg shadow-lg p-4 transition-transform hover:scale-105 max-h-60`}
+                  className={`w-full md:w-72 rounded-lg shadow-lg p-4 transition-transform hover:scale-105 overflow-y-scroll`}
                 >
                   <Image
                     src={project.image}
@@ -711,7 +711,7 @@ const Home = () => {
                   key={index}
                   className={`relative card border w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
                 >
-                  <div className="flex flex-col gap-2 text-center max-h-60">
+                  <div className="flex flex-col gap-2 text-center overflow-y-scroll ">
                     <Image
                       src={blogItem.image}
                       alt="cyber"
