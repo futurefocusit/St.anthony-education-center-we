@@ -1,14 +1,12 @@
 import React from "react";
 
 const partnerLogos = [
-  { src: "/logo.png", alt: "Partner 1",link:"###" },
-  { src: "/logo.png", alt: "Partner 1",link:"###" },
-  { src: "/logo.png", alt: "Partner 1",link:"###" },
-  { src: "/logo.png", alt: "Partner 1",link:"###" },
-  { src: "/logo.png", alt: "Partner 1",link:"###" },
-  { src: "/logo.png", alt: "Partner 1",link:"###" },
- 
-  
+  { src: "/logo.png", alt: "Partner 1", link: "###" },
+  { src: "/logo.png", alt: "Partner 1", link: "###" },
+  { src: "/logo.png", alt: "Partner 1", link: "###" },
+  { src: "/logo.png", alt: "Partner 1", link: "###" },
+  { src: "/logo.png", alt: "Partner 1", link: "###" },
+  { src: "/logo.png", alt: "Partner 1", link: "###" },
 ];
 
 const PartnerLogos = () => {
@@ -21,14 +19,15 @@ const PartnerLogos = () => {
         {partnerLogos.map((partner, index) => (
           <div
             key={index}
-            className="justify-center  flex flex-col  items-center gap-0 transform transition duration-300 hover:scale-105 cursor-pointer"
+            className="justify-center gap-0 transform transition duration-300 hover:scale-105 cursor-pointer"
           >
-            <img
-              src={partner.src}
-              alt={partner.alt}
-              className="max-h-30 object-contain"
-            />
-            <a className="text-white text-lg hover:text-gray-400" href={partner.link}>Visit</a>
+            <a href={partner.link}>
+              <img
+                src={partner.src}
+                alt={partner.alt}
+                className="max-h-30 object-contain"
+              />
+            </a>
           </div>
         ))}
       </div>
