@@ -1,8 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["images.pexels.com", "media.istockphoto.com", 'encrypted-tbn0.gstatic.com'],
-    }
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+                pathname: '**',
+            },
+            {
+                protocol: 'http',
+                hostname: '**',
+                pathname: '**',
+            },
+        ],
+    },
 };
 
 export default nextConfig;
