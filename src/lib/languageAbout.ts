@@ -1,179 +1,153 @@
 export const AboutUsLang = {
   en: {
-    title: "About CyberPro Group",
-    subtitle: "Your Trusted Partner in Cybersecurity ",
+    title: "About St. Anthony Education Center",
+    subtitle: "Your Trusted Partner in language  ",
     story: "Our Story",
-    storyDescription: "Securing Your Future, Protecting Your Business",
+    storyDescription: "Securing Your Future, unlock more language",
     visionTitle: "Vision",
     visionDescription:
-      "To be the global leader in cybersecurity education and consulting, shaping a safer digital world by fostering innovation, resilience, and trust. We aim to revolutionize the way organizations approach security, creating a future where businesses, governments, and individuals are empowered to thrive in a secure and connected world.",
+      "To be the leading global provider of language education, empowering individuals and organizations to communicate across cultures, foster international collaboration, and embrace the world’s diversity. We aim to create a future where language proficiency opens doors to limitless opportunities for personal and professional growth.",
     missionTitle: "Mission",
     missionDescription:
-      "Our mission is to empower communities and organizations with cutting-edge cybersecurity training and expert consulting services. We strive to safeguard digital assets and infrastructures by equipping businesses with the knowledge, tools, and strategies needed to mitigate cyber threats. Through tailored solutions and a commitment to excellence, we help our clients build resilient systems and foster a culture of security, ensuring long-term protection in an evolving digital landscape.",
+      "Our mission is to provide high-quality, engaging, and personalized language learning experiences that enable students to achieve fluency, confidence, and cultural understanding. Through innovative teaching methods, experienced instructors, and a commitment to excellence, we aim to help our learners succeed in a globalized world by mastering new languages and breaking down communication barriers.",
     valuesTitle: "Values",
     valuesDescription: [
       {
-        title: "Integrity",
-        description:
-          "We uphold the highest ethical standards, ensuring trust, transparency, and honesty in every interaction and service.",
-      },
-      {
         title: "Excellence",
         description:
-          "We are committed to delivering top-tier, cutting-edge solutions and training, continuously improving to stay ahead of emerging threats.",
+          "We are dedicated to delivering top-notch language education, continuously improving our teaching methods and resources to meet the highest standards.",
+      },
+      {
+        title: "Cultural Respect",
+        description:
+          "We foster an environment of inclusion and respect, recognizing and celebrating the value of cultural diversity in our classrooms and communities.",
       },
       {
         title: "Innovation",
         description:
-          "We foster a culture of creativity and forward-thinking to provide advanced, adaptable cybersecurity strategies that meet evolving industry challenges.",
+          "We embrace new technologies and methodologies to enhance the language learning experience, ensuring our programs remain dynamic and relevant.",
       },
       {
-        title: "Collaboration",
+        title: "Personalized Learning",
         description:
-          "We believe in strong partnerships and teamwork, working closely with our clients to develop tailored solutions that align with their unique needs.",
+          "We believe in adapting our teaching approach to suit the unique needs and goals of each student, ensuring every learner has the tools to succeed.",
       },
       {
-        title: "Responsibility",
+        title: "Community",
         description:
-          "We take our role in safeguarding digital infrastructures seriously, empowering organizations to protect their assets and data while promoting a culture of security.",
+          "We are committed to building a supportive, collaborative learning environment where students and teachers work together to achieve success.",
       },
       {
-        title: "Education",
+        title: "Passion for Language",
         description:
-          "We prioritize knowledge-sharing and professional development, ensuring our clients and teams are equipped with the latest insights and skills to combat cyber threats effectively.",
+          "e are passionate about the transformative power of language and its ability to connect people, broaden horizons, and create opportunities.",
       },
       {
-        title: "Customer Focus",
+        title: "Integrity",
         description:
-          "We listen to and understand the needs of our clients, delivering personalized solutions that drive success and long-term security.",
+          "We hold ourselves to the highest ethical standards, ensuring transparency, honesty, and trust in all our interactions",
       },
     ],
     objectiveTitle: "Objectives",
     objectiveDescription: [
       {
-        title: "Enhance Cybersecurity Awareness",
-        desc: "Provide comprehensive, up-to-date training programs that raise awareness about emerging cyber threats, risks, and best practices among businesses and professionals.",
+        title: "Enhance Language Proficiency",
+        desc: "Provide comprehensive language programs that develop proficiency across all levels, from beginner to advanced, enabling students to communicate confidently in their target language.",
       },
       {
-        title: "Tailored Consulting Solutions",
-        desc: "Deliver customized cybersecurity consulting services that address specific industry challenges, regulatory requirements, and business needs to strengthen clients’ overall security posture.",
+        title: "Promote Cultural Awareness:",
+        desc: "Offer cultural immersion opportunities that deepen students' understanding of the countries and cultures associated with the languages they are learning, fostering cross-cultural competence and respect.",
       },
       {
-        title: "Foster a Culture of Security",
-        desc: "Help organizations build a proactive security culture by implementing continuous training, policy development, and risk management practices.",
+        title: "Tailored Learning Paths",
+        desc: "Develop personalized learning experiences that cater to the unique goals and learning styles of each student, ensuring that they progress at their own pace and meet their specific language needs.",
       },
       {
-        title: "Develop Industry-Leading Expertise",
-        desc: "Continuously improve and expand our team’s expertise through certifications, research, and partnerships, ensuring that we remain at the forefront of cybersecurity advancements.",
+        title: "Incorporate Cutting-Edge Technology",
+        desc: "Utilize innovative tools and digital platforms, such as interactive language apps and virtual classrooms, to enhance the learning experience and provide flexible, accessible learning options",
       },
       {
-        title: "Support Regulatory Compliance",
-        desc: "Assist clients in achieving and maintaining compliance with industry standards and regulations such as GDPR, HIPAA, and PCI-DSS through focused assessments and guidance.",
+        title: "Support Professional and Academic Success:",
+        desc: "Equip students with the language skills needed to succeed in their careers or academic pursuits, providing specialized language courses for business, travel, and academic purposes",
       },
-      {
-        title: "Minimize Cybersecurity Risks",
-        desc: "Implement advanced risk management strategies and cybersecurity frameworks to reduce the likelihood and impact of cyber incidents for our clients.",
-      },
-      {
-        title: "Promote Innovation and Adaptability",
-        desc: "Develop and integrate cutting-edge technologies and methodologies that adapt to the evolving threat landscape, providing clients with dynamic, future-proof solutions.",
-      },
-      {
-        title: "Drive Client Success",
-        desc: "Ensure that our cybersecurity services and training programs contribute to the long-term success and resilience of our clients by aligning with their strategic goals and business operations.",
-      },
+      
     ],
 
-    meetTeamTitle: "Meet Our Team",
-    ceo: "CEO",
-    readMore: "Read More",
+    
   },
   fr: {
-    title: "À propos de CyberPro Group",
-    subtitle: "Votre Partenaire de Confiance en Cybersécurité ",
+    title: "À propos de St. Anthony Education Center",
+    subtitle: "Votre Partenaire de Confiance en langue ",
     story: "Notre Histoire",
-    storyDescription: "Sécuriser Votre Avenir, Protéger Votre Entreprise",
+    storyDescription: "débloquer plus de langues, Protéger Votre Entreprise",
     visionTitle: "Vision",
     visionDescription:
-      "Être le leader mondial de l’éducation et du conseil en cybersécurité, façonnant un monde numérique plus sûr en favorisant l’innovation, la résilience et la confiance. Notre objectif est de révolutionner la façon dont les organisations abordent la sécurité, en créant un avenir où les entreprises, les gouvernements et les particuliers sont en mesure de prospérer dans un monde sécurisé et connecté.",
+      "Être le leader mondial de l’enseignement des langues, en permettant aux individus et aux organisations de communiquer au-delà des frontières culturelles, de favoriser la collaboration internationale et de célébrer la diversité mondiale. Nous aspirons à créer un avenir où la maîtrise des langues ouvre des portes à des opportunités illimitées de développement personnel et professionnel.",
     missionTitle: "Mission",
     missionDescription:
-      "Notre mission est de fournir aux communautés et aux organisations des formations de pointe en cybersécurité et des services de conseil spécialisés. Nous nous efforçons de protéger les actifs et les infrastructures numériques en dotant les entreprises des connaissances, des outils et des stratégies nécessaires pour atténuer les cybermenaces. Grâce à des solutions sur mesure et à un engagement envers l'excellence, nous aidons nos clients à créer des systèmes résilients et à favoriser une culture de sécurité, garantissant une protection à long terme dans un paysage numérique en évolution.",
+      "Notre mission est de fournir des expériences d’apprentissage des langues de haute qualité, engageantes et personnalisées, qui permettent aux étudiants d’acquérir la fluidité, la confiance et la compréhension interculturelle. Grâce à des méthodes d’enseignement innovantes, des instructeurs expérimentés et un engagement vers l’excellence, nous nous efforçons d’aider nos apprenants à réussir dans un monde globalisé en maîtrisant de nouvelles langues et en brisant les barrières de communication",
     valuesTitle: "Valeurs",
     valuesDescription: [
       {
-        title: "Intégrité",
-        description:
-          "Nous maintenons les normes éthiques les plus élevées, garantissant confiance, transparence et honnêteté dans chaque interaction et service.",
-      },
-      {
         title: "Excellence",
         description:
-          "Nous nous engageons à fournir des solutions et des formations de premier ordre, en nous améliorant continuellement pour rester en avance sur les menaces émergentes.",
+          "Nous nous engageons à offrir un enseignement des langues de la plus haute qualité, en améliorant continuellement nos méthodes et nos ressources pour atteindre les normes les plus élevées.",
+      },
+      {
+        title: "Respect Culturel ",
+        description:
+          "Nous créons un environnement d'inclusion et de respect, en reconnaissant et en célébrant la diversité culturelle au sein de nos salles de classe et de nos communautés.",
       },
       {
         title: "Innovation",
         description:
-          "Nous cultivons une culture de créativité et de pensée prospective pour fournir des stratégies de cybersécurité avancées et adaptables qui répondent aux défis industriels en évolution.",
+          "Nous adoptons les nouvelles technologies et méthodologies pour améliorer l'expérience d'apprentissage des langues, garantissant que nos programmes restent dynamiques et pertinents.",
       },
       {
-        title: "Collaboration",
+        title: "Apprentissage Personnalisé",
         description:
-          "Nous croyons en des partenariats solides et au travail d'équipe, en collaborant étroitement avec nos clients pour développer des solutions sur mesure qui correspondent à leurs besoins uniques.",
+          "Nous croyons en l’adaptation de notre approche pédagogique pour répondre aux besoins et objectifs uniques de chaque étudiant, afin de garantir leur réussite.",
       },
       {
-        title: "Responsabilité",
+        title: "Communauté ",
         description:
-          "Nous prenons notre rôle dans la protection des infrastructures numériques très au sérieux, en habilitant les organisations à protéger leurs actifs et données tout en promouvant une culture de la sécurité.",
+          "Nous nous engageons à construire un environnement d'apprentissage collaboratif et solidaire où les étudiants et les enseignants travaillent ensemble pour réussir.",
       },
       {
-        title: "Éducation",
+        title: "Passion pour les Langues",
         description:
-          "Nous priorisons le partage des connaissances et le développement professionnel, veillant à ce que nos clients et nos équipes soient équipés des dernières informations et compétences pour combattre efficacement les menaces cybernétiques.",
+          "Nous sommes passionnés par le pouvoir transformateur des langues et par leur capacité à connecter les gens, à élargir les horizons et à créer des opportunités.",
       },
       {
-        title: "Orientation client",
+        title: "Intégrité ",
         description:
-          "Nous écoutons et comprenons les besoins de nos clients, en fournissant des solutions personnalisées qui favorisent le succès et la sécurité à long terme.",
+          "Nous respectons les normes éthiques les plus élevées, en garantissant la transparence, l’honnêteté et la confiance dans toutes nos interactions.",
       },
     ],
     objectiveTitle: "Objectifs",
     objectiveDescription: [
       {
-        title: "Sensibiliser à la cybersécurité",
-        desc: "Fournir des programmes de formation complets et à jour qui sensibilisent aux menaces cybernétiques émergentes, aux risques et aux meilleures pratiques parmi les entreprises et les professionnels.",
+        title: "Améliorer la Maîtrise des Langues",
+        desc: "Offrir des programmes linguistiques complets qui développent la maîtrise à tous les niveaux, du débutant à l'avancé, permettant aux étudiants de communiquer en toute confiance dans leur langue cible.",
       },
       {
-        title: "Solutions de conseil sur mesure",
-        desc: "Offrir des services de conseil en cybersécurité personnalisés qui répondent aux défis spécifiques de l'industrie, aux exigences réglementaires et aux besoins des entreprises pour renforcer la posture de sécurité globale des clients.",
+        title: "Promouvoir la Connaissance Culturelle",
+        desc: "Offrir des opportunités d'immersion culturelle qui approfondissent la compréhension des pays et des cultures associés aux langues apprises, favorisant ainsi la compétence interculturelle et le respect.",
       },
       {
-        title: "Favoriser une culture de la sécurité",
-        desc: "Aider les organisations à construire une culture de sécurité proactive en mettant en œuvre une formation continue, le développement de politiques et des pratiques de gestion des risques.",
+        title: "Parcours d'Apprentissage Personnalisés",
+        desc: "Développer des expériences d'apprentissage personnalisées qui répondent aux objectifs et styles d'apprentissage uniques de chaque étudiant, garantissant qu'ils progressent à leur propre rythme et atteignent leurs objectifs spécifiques en matière de langue.",
       },
       {
-        title: "Développer une expertise de pointe",
-        desc: "Améliorer et élargir continuellement l'expertise de notre équipe grâce à des certifications, des recherches et des partenariats, garantissant que nous restons à la pointe des avancées en cybersécurité.",
+        title: "Intégrer des Technologies de Pointe",
+        desc: "Utiliser des outils innovants et des plateformes numériques, tels que des applications linguistiques interactives et des classes virtuelles, pour améliorer l'expérience d'apprentissage et offrir des options d'apprentissage flexibles et accessibles.",
       },
       {
-        title: "Soutenir la conformité réglementaire",
-        desc: "Aider les clients à atteindre et à maintenir la conformité avec les normes et réglementations de l'industrie telles que le RGPD, la HIPAA et le PCI-DSS grâce à des évaluations ciblées et des conseils.",
+        title: "Soutenir la Réussite Professionnelle et Académique",
+        desc: "Fournir aux étudiants les compétences linguistiques nécessaires pour réussir dans leur carrière ou leurs études, en offrant des cours de langue spécialisés pour les affaires, les voyages et les objectifs académiques",
       },
-      {
-        title: "Minimiser les risques de cybersécurité",
-        desc: "Mettre en œuvre des stratégies de gestion des risques avancées et des cadres de cybersécurité pour réduire la probabilité et l'impact des incidents cybernétiques pour nos clients.",
-      },
-      {
-        title: "Promouvoir l'innovation et l'adaptabilité",
-        desc: "Développer et intégrer des technologies et méthodologies à la pointe qui s'adaptent à l'évolution du paysage des menaces, fournissant aux clients des solutions dynamiques et pérennes.",
-      },
-      {
-        title: "Favoriser le succès des clients",
-        desc: "S'assurer que nos services de cybersécurité et nos programmes de formation contribuent au succès à long terme et à la résilience de nos clients en s'alignant sur leurs objectifs stratégiques et leurs opérations commerciales.",
-      },
+      
     ],
-    meetTeamTitle: "Rencontrez Notre Équipe",
-    ceo: "PDG",
-    readMore: "Lire la suite",
+    
   },
 };

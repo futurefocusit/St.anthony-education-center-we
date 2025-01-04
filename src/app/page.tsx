@@ -1,6 +1,6 @@
 "use client";
 
-import { countries, posts } from "@/components/homepage/constant";
+import { posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
 import {
   FaFacebookF,
@@ -19,27 +19,23 @@ import { IoCall } from "react-icons/io5";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
-import { Blog, Project, Team, Testimony } from "@/types/types";
+import { Blog, Team, Testimony } from "@/types/types";
 import axios from "axios";
 import {
   SkeletonBlog,
-  SkeletonPortfolio,
   SkeletonTeam,
 } from "@/components/skeletons/cardSkeleton";
 import { BASE_URL } from "@/context/api";
-import PartnerLogos from "@/components/partenerPart";
 import { AboutUsLang } from "@/lib/languageAbout";
-import TestimonySlideshow from "@/components/slider";
 
 const Home = () => {
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
-  const [portfolio, setPortfolio] = useState<Project[]>([]);
   const [testimony, setTestimony] = useState<Testimony[]>([]);
   const [rating, setRating] = useState<{ value: number }[]>([]);
   const [blog, setBlog] = useState<Blog[]>([]);
   const [team, setTeam] = useState<Team[]>([]);
-  const [isLoadingPortfolio, setIsLoadingPortifolio] = useState(false);
+  const [, setIsLoadingPortifolio] = useState(false);
   const [isLoadingTeam, setIsLoadingTeam] = useState(false);
   const [isLoadingBlog, setIsLoadingBlog] = useState(false);
   const [isLoadingTestimony, setIsLoadingtestimony] = useState(false);
@@ -86,7 +82,6 @@ const Home = () => {
   }, [language]);
 
   useEffect(() => {
-    fetchData("project", setPortfolio, setIsLoadingPortifolio);
     fetchData("testimony", setTestimony, setIsLoadingtestimony);
     fetchData("testimony/rate", setRating, setIsLoadingRating);
     fetchData("team", setTeam, setIsLoadingTeam);
@@ -129,6 +124,8 @@ const Home = () => {
           className={`flex justify-between items-center h-full Z
           `}
         >
+
+          
           <div
             className={`flex flex-col justify-center items-center text-center md:text-left m-auto `}
           >
@@ -152,45 +149,39 @@ const Home = () => {
           {posts.map((post, index) => (
             <div
               key={index}
-              className={` relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[25rem] transform transition duration-300 hover:scale-105 ${
-                theme === "dark" ? "bg-gray-800" : "bg"
+              className={` relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[27rem] transform transition duration-300 hover:scale-105 ${
+                theme === "dark" ? "bg-gray-800" : "bg-green-900"
               }`}
             >
-              <div className="flex flex-col gap-2 text-center">
+              <div className="flex flex-col gap-2 text-center  ">
                 <Image
-                  src="https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg"
+                src={post.image}
                   alt="cyber"
                   width={90}
                   height={90}
                   className="w-full h-48 object-cover"
                 />
                 <h2 className="font-bold text-2xl">{post.title}</h2>
-                <p
-                  className={` ${
-                    theme === "dark" ? "text-gray-300 " : "text-black"
-                  } text-sm  p-2`}
-                >
-                  {post.content}
-                </p>
+                <div className="flex flex-wrap  ">
+                  {post.content.map((item,index)=>(
+                    <li
+                    className={` ${
+                      theme === "dark" ? "text-gray-300 " : "text-white"
+                    }  p-2 font-extrabold `}
+                  >
+                    {item}
+                  </li>
+                  ))}
+                </div>
               </div>
               <div className=" bottom-2 flex w-full items-center justify-center">
-                <a
-                  href={`/Services${post.id}`}
-                  className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white hover:rounded-lg"
-                >
-                  {data.readMore}
-                </a>
+               
               </div>
             </div>
           ))}
         </div>
         <div className="flex w-full items-center justify-center mt-5">
-          <a
-            href="/Services"
-            className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white "
-          >
-            {data.visitServicePage}
-          </a>
+         
         </div>
         {/* about us */}
         <div className="flex flex-col md:flex-row justify-center items-center p-4">
@@ -211,7 +202,7 @@ const Home = () => {
                 theme === "dark" ? "text-gray-100" : "text-gray-800"
               } w-full md:w-[691px] h-auto font-[300] text-sm`}
             >
-              {AboutUsLang[language].missionDescription}
+              {data.aboutUsDescription}
             </p>
             <div className="flex w-full justify-center md:justify-start mt-5">
               <a
@@ -233,61 +224,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* PORTFOLIO */}
-        <section className="mb-20">
-          <div className="text-center mb-10">
-            <h2
-              className={` text-2xl text-teal-500 lg:text-4xl font-bold mb-2`}
-            >
-              Portfolio
-            </h2>
-            <p
-              className={` ${
-                theme === "dark" ? "text-gray-300" : "text-black"
-              } text-3xl lg:text-5xl font-bold mb-4`}
-            >
-              View Our Case Studies
-            </p>
-            <div className={`w-[150px] h-2 mx-auto rounded-lg`} />
-          </div>
-
-          {isLoadingPortfolio ? (
-            <SkeletonPortfolio />
-          ) : (
-            <div className="flex flex-wrap justify-center items-center gap-6">
-              {portfolio.slice(-3).map((project, index) => (
-                <div
-                  key={index}
-                  className={`w-full md:w-72 rounded-lg shadow-lg p-4 transition-transform hover:scale-105 overflow-y-scroll`}
-                >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={300}
-                    height={200}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                  />
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p
-                    className="mb-4  overflow-y-scroll max-h-32"
-                    overflow-y-scroll
-                    max-h-32
-                  >
-                    {project.content}
-                  </p>
-                  <a
-                    href="/Case-study"
-                    className={`${
-                      theme === "dark" ? "bg-blue-900" : "bg-blue-700"
-                    } mx-auto text-white px-4 py-2 rounded-full text-sm`}
-                  >
-                    {data.readMore}
-                  </a>
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
+      
 
         <div
           className=" bg-cover bg-center w-full  h-fit lg:h-[730px] "
@@ -296,13 +233,13 @@ const Home = () => {
           }}
         >
           <div className="flex flex-col justify-center items-center text-center md:text-left m-auto">
-            <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
+            {/* <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
               {data.financeTitle}
-            </h1>
+            </h1> */}
             <p
               className={`font-[800] ${
                 theme === "dark" ? "text-gray-300" : "text-black"
-              } text-[32px] sm:text-[36px] md:text-[28px] text-white`}
+              } text-[32px] sm:text-[36px] md:text-[28px] text-custom-blue  font-extrabold`}
             >
               {data.financeSubtitle}
             </p>
@@ -315,134 +252,56 @@ const Home = () => {
                 : "text-gray-900 bg-white"
             }  flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
           >
-            <p className="text-center sm:text-left ">
-              Professional Training <br />
-              (CyberPro Academy)
+            <p className="text-center sm:text-left text-2xl text-custom-blue ">
+              Professional Certificates <br />
             </p>
-            <div className="flex flex-col sm:flex-row">
-              <div className="flex flex-col lg:mx-10">
+              <div className="grid grid-cols-3 gap-5 lg:mx-10 ">
                 <p className="flex items-center">
                   <TiTick size={20} />
-                  {data.professionalCourse}
+                TOEFL
                 </p>
                 <p className="flex items-center">
                   <TiTick size={20} />
-                  {data.professionalCertification}
-                </p>
-              </div>
-              <div className="flex flex-col sm:ml-6">
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.freeResource}
+                DUOLINGO
                 </p>
                 <p className="flex items-center">
                   <TiTick size={20} />
-                  {data.seminarsConferences}
+                SAT
                 </p>
-              </div>
+                <p className="flex items-center">
+                  <TiTick size={20} />
+                DELF
+                </p>
+                <p className="flex items-center">
+                  <TiTick size={20} />
+                DALF
+                </p>
+
+                <p className="flex items-center">
+                  <TiTick size={20} />
+                IELTS
+                </p>
+                <p className="flex items-center">
+                  <TiTick size={20} />
+                TCF
+                </p>
+                <p className="flex items-center">
+                  <TiTick size={20} />
+                HSK
+                </p>
+                <p className="flex items-center">
+                  <TiTick size={20} />
+                GOETHE
+                </p>
+                
+              
             </div>
-            <a
-              href="/registration/"
-              className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px]   text-[15px] sm:text-[17px] text-white"
-            >
-              {data.enrollNow}
-            </a>
+            
           </div>
-          <div
-            className={`${
-              theme === "dark"
-                ? "bg-gray-900 text-gray-100"
-                : "text-gray-900 bg-white"
-            }  flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
-          >
-            <p className="text-center sm:text-left">
-              {data.consultingServices}
-            </p>
-            <div className="flex flex-col sm:flex-row">
-              <div className="flex flex-col">
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.cyberSecurityAssessments}
-                </p>
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.itSecurityAudit}
-                </p>
-              </div>
-              <div className="flex flex-col sm:ml-6">
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.threatIntelligence}
-                </p>
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.thirdPartyRiskAssessment}
-                </p>
-              </div>
-            </div>
-            <a
-              href="/Services"
-              className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
-            >
-              {data.getExpertAdvice}
-            </a>
-          </div>
-          <div
-            className={`${
-              theme === "dark"
-                ? "bg-gray-900 text-gray-100"
-                : "text-gray-900 bg-white"
-            }  flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
-          >
-            <p className="text-center sm:text-left">
-              {data.cctvCameraSecurity}
-            </p>
-            <div className="flex flex-col sm:flex-row">
-              <div className="flex flex-col">
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.consultationAndAssessment}
-                </p>
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.professionalInstallation}
-                </p>
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.upgradeAndExplanation}
-                </p>
-              </div>
-              <div className="flex flex-col sm:ml-6">
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.systemConfiguration}
-                </p>
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.maintenanceAndSupport}
-                </p>
-                <p className="flex items-center">
-                  <TiTick size={20} />
-                  {data.trainingInternship}
-                </p>
-              </div>
-            </div>
-            <a
-              href="/Services"
-              className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-[208px] text-[15px] sm:text-[17px] text-white"
-            >
-              {data.promise}
-            </a>
-          </div>
+            
         </div>
         {/* tesimonies */}
-        <h1 className="my-10 flex justify-center text-center font-[800] text-[36px] text-[#1ABC9C]">
-          {data.testimonialTitle}
-        </h1>
-        <TestimonySlideshow
-          testimony={testimony}
-          isLoadingTestimony={isLoadingTestimony}
-        />
+        
         {/* custom rating and review */}
 
         <p className="w-full max-w-[625px] h-auto font-[800] text-[28px] sm:text-[36px] text-[#1ABC9C] text-center m-auto mt-10">
@@ -540,6 +399,7 @@ const Home = () => {
             {data.ourStaffSubtitle}
           </p>
         </div>
+        {/* @ts-expect-error error */}
         <>
           {isLoadingTeam ? (
             SkeletonTeam
@@ -574,9 +434,7 @@ const Home = () => {
                         <a href={member.twiterProfile || "###"}>
                           <FaXTwitter className="w-6 h-6 text-white rounded bg-[#080808] hover:bg-[#0e0c0c] p-1" />
                         </a>
-                        {/* <link href={member.f}>
-                <FaFacebook className="w-3 h-3 " />
-                </link> */}
+                        
                       </div>
                     </div>
                   ))
@@ -592,10 +450,8 @@ const Home = () => {
             backgroundImage: `url('https://media.istockphoto.com/id/1292545007/photo/female-hands-using-smartphone-while-sitting-in-home-office-room.jpg?s=612x612&w=0&k=20&c=x9Umo0bYowtiWt849JWZ3XZK-IgxbbsHUBU8k9siinE=')`,
           }}
         >
-          <h1 className="w-[265px] h-[60.57px] font-[800] text-[24px] sm:text-[36px] text-[#1ABC9C] text-center m-auto">
-            {data.contactTitle}
-          </h1>
-          <div className="flex flex-col lg:flex-row md:flex-row lg:gap-56 gap-10">
+       
+          <div className="flex flex-col lg:flex-row md:flex-row items-center  lg:gap-56 gap-10">
             <div
               className="w-full max-w-[500px] lg:max-w-[300px]  md:max-h-[600px] h-fit sm:h-[500px] p-6 sm:p-10 lg:m-6  "
               style={{
@@ -603,6 +459,7 @@ const Home = () => {
                   "linear-gradient(263.62deg, rgba(106, 151, 230, 0.94) 1.63%, rgba(27, 57, 110, 0.7238) 65.78%)",
               }}
             >
+              
               <h1 className="w-full text-center font-[800] text-[20px] sm:text-[24px] text-[#1ABC9C] mb-4">
                 {data.letsStart}
               </h1>
@@ -611,7 +468,7 @@ const Home = () => {
               </p>
               <div className="w-[64px] h-[8px]  bg-[#1B396E] mt-3 mx-auto mb-6" />
               <p className="w-full  text-left  max-h-[230px] overflow-auto text-sm sm:text-[16px] mb-8">
-                {AboutUsLang[language].visionDescription}
+                {AboutUsLang[language].missionDescription}
               </p>
               <div className="flex flex-row items-center justify-center space-x-4">
                 <a
@@ -624,33 +481,34 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col">
-              {countries.map((country, index) => (
-                <div className="flex flex-col justify-center mt-5" key={index}>
-                  <h1 className="w-[77.38px] h-[39.31px] font-[800] text-[14px] text-[#1B396E] text-right lg:mx-52">
-                    {country.name}
-                  </h1>
-                  <div className="flex flex-row gap-6 lg:gap-40">
+            <h1 className="w-[265px] h-[60.57px] font-[800] text-[24px] sm:text-[36px] text-[#1ABC9C] text-center m-auto">
+            {data.contactTitle}
+          </h1>
+                <div className="flex flex-col justify-center mt-5 gap-5">
+                  
+                  <div className="flex flex-row gap-6 lg:gap-10">
                     <FaLocationDot className="w-[20px] h-[20px] text-red-500" />
                     <div className="flex flex-col">
                       <p className="w-auto h-auto font-[700] text-[16px]">
-                        {country.location}
+                  Gasabo,Remera, Giporoso (behind Remera bus park) Rukiri ,near healing center
+                        
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-row gap-6 lg:gap-40">
+                  <div className="flex flex-row gap-6 lg:gap-10">
                     <IoCall className="w-[20px] h-[20px] text-[#1B396E]" />
                     <p className="w-auto h-auto font-[700] text-[15px]">
-                      {country.contact}
+                    +250 783 129 463 /  +250 735 119 680
                     </p>
                   </div>
-                  <div className="flex flex-row gap-6 lg:gap-40">
+                  <div className="flex flex-row gap-6 lg:gap-10">
                     <MdOutlineMailOutline className="w-[20px] h-[20px] text-red-500" />
                     <p className="w-auto h-auto font-[700] text-[16px]">
-                      info@cyberprogroup.com
+                      rodrirwigara@gmail.com
                     </p>
                   </div>
                 </div>
-              ))}
+              
 
               <div className="w-full max-w-[400px] py-[2px] mb-6 mt-10 gap-[21px] flex flex-col text-center justify-center bg-[#1B396E]">
                 <p className="w-auto h-auto font-[700] text-[20px] text-[#D9D9D9]">
@@ -707,6 +565,7 @@ const Home = () => {
             {data.latestBlog}
           </p>
         </div>
+        {/* @ts-expect-error error */}
         <>
           {isLoadingBlog ? (
             SkeletonBlog
@@ -753,7 +612,7 @@ const Home = () => {
         <div className="mx-10 pt-10 ">
           <iframe
             className="w-full m-auto"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.372925704017!2d-75.70215228469056!3d45.352704179101964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccebb0cb651c455%3A0x445c123d0cf4b689!2s19%20Grenfell%20Crescent%2C%20Ottawa%2C%20ON%2C%20Canada%20K2G%200G3!5e0!3m2!1sen!2sus!4v1697198948007!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.21789901411387!2d30.11779119040893!3d-1.9590275772212618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca7aa23568803%3A0xa37310a1de8b923e!2sHealing%20Centre%20Church!5e0!3m2!1sen!2srw!4v1735916706303!5m2!1sen!2srw"
             width="800"
             height="500"
             style={{ border: 0 }}
@@ -762,7 +621,6 @@ const Home = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <PartnerLogos />
       </div>
     </div>
   );

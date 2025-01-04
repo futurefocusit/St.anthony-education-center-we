@@ -9,7 +9,7 @@ const WhatsAppButton = () => {
       <a
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        href="https://wa.me/+250795305033"
+        href="https://wa.me/+250783129463"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-3 transition duration-100 "

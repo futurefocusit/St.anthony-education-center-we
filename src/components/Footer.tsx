@@ -238,8 +238,8 @@ const Footer = () => {
         <div>
           <p className="text-white text-center text-[16px]">
             {language === "en"
-              ? "copyright©2024 CyberProGroup"
-              : "droits d'auteur©2024 CyberProGroup"}
+              ? "copyright©2024 St.Anthony Education Center"
+              : "droits d'auteur©2025 St.Anthony Education Center"}
           </p>
           <p className="text-white text-center text-[16px]">
             {language === "en"
@@ -252,9 +252,9 @@ const Footer = () => {
         Designed and Developed by{" "}
         <a
           className="text-[#34b886] hover:text-[#2e7451]"
-          href="https://www.edgereachtech.com"
+          href="https://www.futurefocus.co.rw"
         >
-          EdgeReach Tech
+          Future Focus Team
         </a>
       </h1>
     </div>

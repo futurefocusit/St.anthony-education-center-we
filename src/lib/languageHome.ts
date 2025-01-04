@@ -4,16 +4,16 @@
 export const englishContent = {
   heroTitle: "OUR STORY",
   heroSubtitle:
-    "Secure Your Business, Your Career And Your Home By CyberPro Group",
+    "Learn a New Language, Discover New Opportunities",
   readMore: "READ MORE",
   featureTitle: "Feature",
-  featureSubtitle: "Discover Our Services",
-  visitServicePage: "Visit Service Page",
+  featureSubtitle: "Discover Our Courses",
+  visitServicePage: "Visit Courses Page",
   aboutUsTitle: "ABOUT US",
   aboutUsSubtitle:
-    "Secure Your Business, Your Career And Your Home By CyberPro Group",
+    "Learn a New Language, Discover New Opportunities",
   aboutUsDescription:
-    "CyberPro Academy's mission is to mitigate cybersecurity risk through instruction in cybersecurity, computer security, information security, and operations. We do so by providing high-quality classroom instruction and training to students, managers, executives, and employees with a focus on filling critical job-related skill gaps. The company will begin with a small group of practitioners/instructors who are subject-matter experts in our core offerings.",
+    "St. Anthony education center is a private company located in Africa,East Africa Rwanda, Kigali City, Remera sector,Giporoso it's where  Headquater are located. The company is legally allowed to carry  services all over the country. We train different courses online and at school. We offer both short-term and long-term trainings namely; vocational studies, languages, Aviation language and safety, Traffic rules and driving, Computer literacy, Recreational and sports trainings among others. We started training on 17thJuly, 2018. We receive local and international students and mainly study in their home countries through online platform.",
   financeTitle: "FINANCE",
   financeSubtitle: "SECURE YOUR FUTURE TODAY",
   professionalTraining: "Professional Training (CyberPro Academy)",
@@ -57,16 +57,16 @@ export const englishContent = {
 export const frenchContent = {
   heroTitle: "NOTRE HISTOIRE",
   heroSubtitle:
-    "Sécurisez votre entreprise, votre carrière et votre maison avec CyberPro Group",
+    "Apprenez une nouvelle langue, découvrez de nouvelles opportunités.",
   readMore: "LIRE LA SUITE",
   featureTitle: "Fonctionnalité",
-  featureSubtitle: "Découvrez nos services",
-  visitServicePage: "Visiter la page des services",
+  featureSubtitle: "Découvrez nos formations",
+  visitServicePage: "Visiter la page des formations",
   aboutUsTitle: "À PROPOS DE NOUS",
   aboutUsSubtitle:
-    "Sécurisez votre entreprise, votre carrière et votre maison avec CyberPro Group",
+    "Apprenez une nouvelle langue, découvrez de nouvelles opportunités.",
   aboutUsDescription:
-    "La mission de CyberPro Academy est d'atténuer les risques de cybersécurité grâce à l'enseignement de la cybersécurité, de la sécurité informatique, de la sécurité de l'information et des opérations. Nous le faisons en fournissant une instruction et une formation en classe de haute qualité aux étudiants, aux gestionnaires, aux cadres et aux employés, en mettant l'accent sur le comblement des lacunes critiques en matière de compétences liées à l'emploi. L'entreprise commencera avec un petit groupe de praticiens/instructeurs qui sont des experts en la matière dans nos offres principales.",
+    "Le centre d'éducation St. Anthony est une entreprise privée située en Afrique, en Afrique de l'Est, au Rwanda, dans la ville de Kigali, dans le secteur de Remera, à Giporoso, c'est là que se trouve le siège social. L'entreprise est légalement autorisée à fournir des services dans tout le pays. Nous dispensons différents cours en ligne et à l'école. Nous proposons des formations à court et à long terme, à savoir : études professionnelles, langues, langage et sécurité de l'aviation, règles de circulation et conduite, alphabétisation informatique, formations récréatives et sportives, entre autres. Nous avons commencé la formation le 17 juillet 2018. Nous recevons des étudiants locaux et internationaux et étudions principalement dans leur pays d'origine via une plateforme en ligne.",
   financeTitle: "FINANCE",
   financeSubtitle: "SÉCURISEZ VOTRE AVENIR AUJOURD'HUI",
   professionalTraining: "Formation professionnelle (CyberPro Academy)",

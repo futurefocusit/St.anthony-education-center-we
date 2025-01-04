@@ -41,12 +41,7 @@ const NavigationItems = () => {
             </Link>
           );
         })}
-        <Link
-          href="/reportIncident"
-          className="bg-blue-600 hover:bg-blue-700 hover:rounded-lg text-white px-2 py-2 cursor-pointer"
-        >
-          {language === "en" ? "Report Incident" : "Signaler un incident"}
-        </Link>
+        
       </div>
       {showMenuItems && (
         <div
