@@ -1,5 +1,4 @@
 "use client";
-import {  TestimonyObj } from "@/lib/type"; // Adjusted to use ProjectObj
 import React, { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -8,6 +7,7 @@ import { API_BASE_URL } from "@/api/api";
 import withAdminAuth from "@/components/withAdminAuth";
 import TestimonyUpdateCreate from "@/components/testimonyUpdateCreate";
 import { toast } from "react-toastify";
+import { TestimonyObj } from "@/types/types";
 
 const ProjectPage = () => {
   const [testimony, setTestimony] = useState<TestimonyObj[]>([]);
@@ -76,7 +76,6 @@ const ProjectPage = () => {
         testimony={selectedTestimony}
         showFields={showFields}
         setShowFields={setShowFields}
-        //@ts-expect-error error
         setIndex={setSelectedTestimony}
         index={0}
       />

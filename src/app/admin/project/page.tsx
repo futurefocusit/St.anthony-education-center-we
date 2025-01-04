@@ -1,12 +1,12 @@
 "use client";
 import ProjectUpdateCreate from "@/components/ProjectUpdateCreate";
-import { ProjectObj } from "@/lib/type"; // Adjusted to use ProjectObj
 import React, { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { API_BASE_URL } from "@/api/api";
 import withAdminAuth from "@/components/withAdminAuth";
+import { ProjectObj } from "@/types/types";
 
 const ProjectPage = () => {
   const [projects, setProjects] = useState<ProjectObj[]>([]);
@@ -73,7 +73,6 @@ const ProjectPage = () => {
         project={selectedProject}
         showFields={showFields}
         setShowFields={setShowFields}
-        //@ts-expect-error error
         setIndex={setSelectedProject} 
         index={0} 
       />
