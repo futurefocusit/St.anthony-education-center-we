@@ -64,8 +64,8 @@ const Contactus = () => {
       });
       setErrors({});
     } catch (error) {
-      console.error("Error:", error);
       toast.error("Failed to send message. Please try again.");
+      throw error
     } finally {
       setIsLoading(false);
     }
@@ -127,23 +127,20 @@ const Contactus = () => {
                 href="mailto:info@cyberprogroup.com "
                 className="ml-2 text-[#1e1e1e] hover:underline font-thin"
               >
-                info@cyberprogroup.com
+                info@demo.com
               </a>
             </div>
 
             <div className="flex flex-row items-center mt-2">
               <Image src={telephone} alt="telephone image" width={20} />
               <p className="ml-2 text-[#1e1e1e] font-thin">
-                +237691181569 / +237670-93-57-21
+                +250 783 129 463
               </p>
             </div>
+           
             <div className="flex flex-row items-center mt-2">
               <Image src={telephone} alt="telephone image" width={20} />
-              <p className="ml-2 text-[#1e1e1e] font-thin">+1 514-452-4048</p>
-            </div>
-            <div className="flex flex-row items-center mt-2">
-              <Image src={telephone} alt="telephone image" width={20} />
-              <p className="ml-2 text-[#1e1e1e] font-thin">+250795305033</p>
+              <p className="ml-2 text-[#1e1e1e] font-thin">+250 735 119 680</p>
             </div>
 
             <h1 className="text-[1.5rem] text-[#1b396e] text-center font-normal font-merriweather pb-2 mt-10 mb-3">
@@ -152,22 +149,12 @@ const Contactus = () => {
 
             <div className="flex flex-row items-center">
               <FaLocationDot width={20} />
-              <p className="ml-2 mt-5 text-[#1e1e1e] font-thin text-center max-w-lg">
-                KN 4 Ave, Kigali, Rwanda
+              <p className="ml-2  text-[#1e1e1e] font-thin text-center max-w-lg ">
+              Remera, Giporoso (behind Remera bus park) Rukiri ,near healing center
               </p>
             </div>
-            <div className="flex flex-row items-center">
-              <FaLocationDot width={20} />
-              <p className="ml-2 mt-5 text-[#1e1e1e] font-thin text-center max-w-lg">
-                19 Grenfell Crescent, Ottawa ON, Canada K2G0G3
-              </p>
-            </div>
-            <div className="flex flex-row items-center">
-              <FaLocationDot width={20} />
-              <p className="ml-2 mt-5 text-[#1e1e1e] font-thin text-center max-w-lg">
-                Checkpoint Molyko, Buea, Cameroon
-              </p>
-            </div>
+            
+            
           </div>
         </div>
       </div>

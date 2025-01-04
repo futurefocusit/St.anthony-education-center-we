@@ -14,7 +14,7 @@ const LeftSideBar = () => {
       <div>
         <div className="py-10 flex flex-col gap-10">
           <h1 className="text-white text-2xl text-center font-semibold">
-            CyberPro
+           Admin
           </h1>
           <hr className="py-[2px] bg-white" />
         </div>

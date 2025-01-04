@@ -42,8 +42,8 @@ const AuthContextAPI: React.FC<AuthProviderProps> = ({ children }) => {
         }
       );
       setLoggedUser(response.data);
-      localStorage.setItem("ffa-admin", response.data.token);
-      window.location.href = `/`;
+      localStorage.setItem("admin", response.data.token);
+      window.location.href = `/admin`;
       toast.success("Login successfully");
     } catch (error) {
       handleAxiosError(error);
@@ -60,7 +60,7 @@ const AuthContextAPI: React.FC<AuthProviderProps> = ({ children }) => {
       //   { withCredentials: true }
       // );
       setLoggedUser(null);
-      localStorage.removeItem("ffa-admin");
+      localStorage.removeItem("admin");
       window.location.href = "/auth/login";
     } catch (error) {
       handleAxiosError(error);

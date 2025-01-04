@@ -6,7 +6,7 @@ let loggedUserData = null;
 export const fetchUser = async () => {
   try {
 
-    const token = localStorage.getItem("ffa-admin");
+    const token = localStorage.getItem("admin");
     if (!token) {
       throw new Error("No token found");
     }

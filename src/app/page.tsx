@@ -254,43 +254,44 @@ const Home = () => {
             }  flex flex-col sm:flex-row justify-center items-center gap-10 w-full p-6 sm:p-10 mb-10 mt-6`}
           >
             <p className="text-center sm:text-left text-2xl text-custom-blue ">
-              Professional Certificates <br />
+              {data.professionalCertification}
+               <br />
             </p>
               <div className="grid grid-cols-3 gap-5 lg:mx-10 ">
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 TOEFL
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 DUOLINGO
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 SAT
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 DELF
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 DALF
                 </p>
 
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 IELTS
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 TCF
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 HSK
                 </p>
-                <p className="flex items-center">
+                <p className="flex items-center font-extrabold">
                   <TiTick size={20} />
                 GOETHE
                 </p>

@@ -16,7 +16,7 @@ const MobileSidebar = () => {
                         <button onClick={() => setShowSidebar(false)} className='text-white absolute top-4 right-3 text-2xl cursor-pointer border-2 border-[#D9D9D9] rounded-full'><BiX /></button>
                         <div>
                             <div className='py-10 flex flex-col gap-10'>
-                                <h1 className='text-white text-2xl text-center font-semibold'>CyberPro</h1>
+                                <h1 className='text-white text-2xl text-center font-semibold'>Admin</h1>
                                 <hr className='py-[2px] bg-white' />
                             </div>
                             {iconsTop.map((item) => {

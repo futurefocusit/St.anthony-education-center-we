@@ -249,12 +249,12 @@ const Footer = () => {
         </div>
       </div>
       <h1 className="text-teal-400 font-bold text-lg text-center ">
-        Designed and Developed by{" "}
+        Developer {" "}
         <a
           className="text-[#34b886] hover:text-[#2e7451]"
-          href="https://www.futurefocus.co.rw"
+          href="https://www.github.com/rodriguecyber"
         >
-          Future Focus Team
+         rodriguecyber
         </a>
       </h1>
     </div>

@@ -9,6 +9,7 @@ import CookieConsent from "@/components/cookieConsent";
 import { ToastContainer } from "react-toastify";
 import WhatsAppButton from "@/components/Whatsapp";
 import { usePathname } from "next/navigation";
+import AuthContextAPI from "@/context/AuthContext";
 
 const roboto = Roboto({
   weight: ["300", "400", "700"],
@@ -40,8 +41,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppProvider>
+
         <body className={`${roboto.variable} ${merriweather.variable} font-roboto`}>
-          {/* Conditionally render Header, CookieConsent, WhatsAppButton, and Footer */}
+      <AuthContextAPI>
+
           {!isLoginPage && !isResetPage && !isAdminPage && !isForgotPage &&(
             <>
               <Header />
@@ -49,12 +52,22 @@ export default function RootLayout({
               <WhatsAppButton />
             </>
           )}
+          
           {children}
           {/* Footer should always be rendered */}
+          {!isLoginPage && !isResetPage && !isAdminPage && !isForgotPage &&(
+            <>
           <Footer />
+             
+            </>
+          )}
           <ToastContainer />
+          
+        </AuthContextAPI>
         </body>
+
       </AppProvider>
+
     </html>
   );
 }

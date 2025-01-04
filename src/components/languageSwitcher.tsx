@@ -18,7 +18,7 @@ const LanguageThemeSwitcher = () => {
           }`}
         >
           <span role="img" aria-label="English" className="mr-2">
-            🇬🇧
+            EN
           </span>
         </button>
         <button
@@ -28,7 +28,7 @@ const LanguageThemeSwitcher = () => {
           }`}
         >
           <span role="img" aria-label="Français" className="mr-2">
-            🇫🇷
+            FR
           </span>
         </button>
       </div>

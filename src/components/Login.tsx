@@ -1,6 +1,8 @@
-"use client";
+'use client'
 import { useAuth } from "@/context/AuthContext";
-import React, { FormEvent, useState } from "react";
+import Link from "next/link";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const { login, isLoading } = useAuth();
@@ -18,26 +20,26 @@ const LoginForm = () => {
     });
   };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
       await login(formData);
     } catch (error) {
-      console.log(error);
+      //@ts-expect-error error
+      toast.error(error.message)
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-     
+     <Link href="/" className="bg-blue-700 p-2 rounded-md fixed top-2 left-2 text-white">Back</Link>
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
      
         <div className="text-center mb-6">
-          <img src="/logo.png" alt="Logo" className="w-32 h-32 mx-auto" />
+          <img src="/logo.jpg" alt="Logo" className="w-32 h-32 mx-auto" />
         </div>
 
    
-        <form onSubmit={handleSubmit}>
+        <div>
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -91,13 +93,13 @@ const LoginForm = () => {
             </a>
           </div>
           <button
-            type="submit"
+            onClick={handleSubmit}
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
             disabled={isLoading}
           >
             {isLoading ? "Logging in..." : "Login"}
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );

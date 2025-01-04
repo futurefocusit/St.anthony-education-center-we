@@ -5,43 +5,41 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-// Define the type for the incident data
 interface Incident {
   id: number;
   name: string;
   email: string;
-  location: number; // Assuming this represents a location ID or similar
+  location: number; 
   message: string;
-  type: "incident" | "message"; // Incident or message
-  createdAt: string; // Incident date
-  status: "read" | "unread"; // Status of the incident
+  type: "incident" | "message"; 
+  createdAt: string;
+  status: "read" | "unread"; 
 }
 
 const IncidentRegistrationPage: React.FC = () => {
   const [incidents, setIncidents] = useState<Incident[]>([]);
   const [filteredIncidents, setFilteredIncidents] = useState<Incident[]>([]);
-  const [activeTab, setActiveTab] = useState<string>("all"); // Active tab for filtering
+  const [activeTab, setActiveTab] = useState<string>("all"); 
 
   useEffect(() => {
     const fetchIncidents = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/incidence`); // Replace with your API endpoint
+        const response = await axios.get(`${API_BASE_URL}/message`); 
         if (!response) {
-          throw new Error("Network response was not ok");
         }
 
         setIncidents(response.data);
-        setFilteredIncidents(response.data); // Initialize with all incidents
+        setFilteredIncidents(response.data); 
       } catch (error) {
-        console.error("Error fetching incident data:", error);
         toast.error("Failed to fetch incidents. Check internet connection.");
+        throw error;
+
       }
     };
 
     fetchIncidents();
   }, []);
 
-  // Update filtered incidents based on the active tab
   useEffect(() => {
     if (activeTab === "all") {
       setFilteredIncidents(incidents);
@@ -52,7 +50,6 @@ const IncidentRegistrationPage: React.FC = () => {
     }
   }, [activeTab, incidents]);
 
-  // Group incidents by date
   const groupedIncidents = filteredIncidents.reduce((acc, incident) => {
     const date = new Date(incident.createdAt).toLocaleDateString(); // Format date
     if (!acc[date]) {
