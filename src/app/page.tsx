@@ -145,11 +145,11 @@ const Home = () => {
           </div>
         </div>
         {/* cards */}
-        <div className="flex flex-col md:flex-row items-center justify-center w-full gap-10 mt-10 ">
+        <div className="flex flex-col md:flex-row items-center flex-wrap justify-center w-full gap-10 mt-10 ">
           {posts.map((post, index) => (
             <div
               key={index}
-              className={` relative card border border-gray-400 w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[27rem] transform transition duration-300 hover:scale-105 ${
+              className={` relative card border border-gray-400 w-60 md:w-80   rounded-lg shadow-md max-w-full box-border mb-3 h-[29rem] transform transition duration-300 hover:scale-105 ${
                 theme === "dark" ? "bg-gray-800" : "bg-green-900"
               }`}
             >
@@ -159,16 +159,16 @@ const Home = () => {
                   alt="cyber"
                   width={90}
                   height={90}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover rounded-t-lg"
                 />
                 <h2 className="font-bold text-2xl">{post.title}</h2>
-                <div className="flex flex-wrap  ">
+                <div className="flex flex-wrap text-[0.9rem]  ">
                   {post.content.map((item,index)=>(
                     <li
                     key={index}
                     className={` ${
                       theme === "dark" ? "text-gray-300 " : "text-white"
-                    }  p-2 font-extrabold `}
+                    }  p-2 font-bold `}
                   >
                     {item}
                   </li>
@@ -506,7 +506,7 @@ const Home = () => {
                   <div className="flex flex-row gap-6 lg:gap-10">
                     <MdOutlineMailOutline className="w-[20px] h-[20px] text-red-500" />
                     <p className="w-auto h-auto font-[700] text-[16px]">
-                      rodrirwigara@gmail.com
+                    Info@stanthonyeducationcenter.com
                     </p>
                   </div>
                 </div>

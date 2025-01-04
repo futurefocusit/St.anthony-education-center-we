@@ -119,7 +119,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-3 text-white text-medium sm:text-sm md:text-xl mt-4 w-[100%]">
               <FaEnvelope className="text-xl md:text-3xl" />{" "}
-              <a href="mailto:info@cyberprogroup.com">info@cyberprogroup.com</a>
+              <a href="mailto:info@cyberprogroup.com">Info@stanthonyeducationcenter.com</a>
             </div>
           </div>
         </div>

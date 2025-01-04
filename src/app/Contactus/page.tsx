@@ -127,7 +127,7 @@ const Contactus = () => {
                 href="mailto:info@cyberprogroup.com "
                 className="ml-2 text-[#1e1e1e] hover:underline font-thin"
               >
-                info@demo.com
+               Info@stanthonyeducationcenter.com
               </a>
             </div>
 
