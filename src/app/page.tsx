@@ -19,7 +19,7 @@ import { IoCall } from "react-icons/io5";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
-import { Blog, Team, Testimony } from "@/types/types";
+import { Blog, Team} from "@/types/types";
 import axios from "axios";
 import {
   SkeletonBlog,
