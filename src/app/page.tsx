@@ -31,14 +31,14 @@ import { AboutUsLang } from "@/lib/languageAbout";
 const Home = () => {
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
-  const [testimony, setTestimony] = useState<Testimony[]>([]);
+  // const [testimony, setTestimony] = useState<Testimony[]>([]);
   const [rating, setRating] = useState<{ value: number }[]>([]);
   const [blog, setBlog] = useState<Blog[]>([]);
   const [team, setTeam] = useState<Team[]>([]);
-  const [, setIsLoadingPortifolio] = useState(false);
+  // const [, setIsLoadingPortifolio] = useState(false);
   const [isLoadingTeam, setIsLoadingTeam] = useState(false);
   const [isLoadingBlog, setIsLoadingBlog] = useState(false);
-  const [isLoadingTestimony, setIsLoadingtestimony] = useState(false);
+  // const [isLoadingTestimony, setIsLoadingtestimony] = useState(false);
   const [, setIsLoadingRating] = useState(false);
   const [hoveredStar, setHoveredStar] = useState(0);
   const getPercentage = (arr: { value: number }[], target: number): number => {
@@ -82,7 +82,7 @@ const Home = () => {
   }, [language]);
 
   useEffect(() => {
-    fetchData("testimony", setTestimony, setIsLoadingtestimony);
+    // fetchData("testimony", setTestimony, setIsLoadingtestimony);
     fetchData("testimony/rate", setRating, setIsLoadingRating);
     fetchData("team", setTeam, setIsLoadingTeam);
     fetchData("blog", setBlog, setIsLoadingBlog);
@@ -165,6 +165,7 @@ const Home = () => {
                 <div className="flex flex-wrap  ">
                   {post.content.map((item,index)=>(
                     <li
+                    key={index}
                     className={` ${
                       theme === "dark" ? "text-gray-300 " : "text-white"
                     }  p-2 font-extrabold `}
