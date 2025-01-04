@@ -1,15 +1,14 @@
 "use client";
-import { BlogUpdateCreateProps } from "@/lib/type";
 import { useEffect, useState } from "react";
 import { BiLeftArrow } from "react-icons/bi";
 import axios from "axios";
 import { API_BASE_URL } from "@/api/api";
+import { BlogUpdateCreateProps } from "@/types/types";
 
 const BlogUpdateCreate = ({
   blog,
   showFields,
   setShowFields,
-  setIndex,
 }: BlogUpdateCreateProps) => {
   const [input, setInput] = useState({
     title: "",
@@ -30,7 +29,6 @@ const BlogUpdateCreate = ({
       }
       setShowFields(false);
   
-      setIndex(null);
     } catch (error) {
       console.error("Error saving blog:", error);
     }

@@ -1,16 +1,15 @@
 "use client";
-import { ProjectUpdateCreateProps } from "@/lib/type"; // Adjusted import
 import { useEffect, useState } from "react";
 import { BiLeftArrow } from "react-icons/bi";
 import axios from "axios";
 import { API_BASE_URL } from "@/api/api";
 import { toast } from "react-toastify";
+import { ProjectUpdateCreateProps } from "@/types/types";
 
 const ProjectUpdateCreate = ({
   project,
   showFields,
   setShowFields,
-  setIndex,
 }: ProjectUpdateCreateProps) => {
   const [input, setInput] = useState({
     title: "",
@@ -32,7 +31,6 @@ const ProjectUpdateCreate = ({
         toast.success("new testimony added");
       }
       setShowFields(false);
-      setIndex(null);
     } catch (error) {
       console.error("Error saving project:", error);
     }

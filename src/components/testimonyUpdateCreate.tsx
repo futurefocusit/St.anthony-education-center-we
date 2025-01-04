@@ -1,15 +1,14 @@
 "use client";
-import { TetimonyUpdateCreateProps } from "@/lib/type"; // Adjusted import
 import { useEffect, useState } from "react";
 import { BiLeftArrow } from "react-icons/bi";
 import axios from "axios";
 import { API_BASE_URL } from "@/api/api";
+import { TetimonyUpdateCreateProps } from "@/types/types";
 
 const TestimonyUpdateCreate = ({
   testimony,
   showFields,
   setShowFields,
-  setIndex,
 }: TetimonyUpdateCreateProps) => {
   const [input, setInput] = useState({
     name: "",
@@ -28,7 +27,6 @@ const TestimonyUpdateCreate = ({
         await axios.post(`${API_BASE_URL}/testimony`, input);
       }
       setShowFields(false);
-      setIndex(null);
     } catch (error) {
       console.error("Error saving project:", error);
     }

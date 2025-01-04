@@ -76,7 +76,6 @@ const ProjectPage = () => {
         testimony={selectedTestimony}
         showFields={showFields}
         setShowFields={setShowFields}
-        setIndex={setSelectedTestimony}
         index={0}
       />
 

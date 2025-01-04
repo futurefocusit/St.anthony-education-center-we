@@ -73,7 +73,6 @@ const ProjectPage = () => {
         project={selectedProject}
         showFields={showFields}
         setShowFields={setShowFields}
-        setIndex={setSelectedProject} 
         index={0} 
       />
 

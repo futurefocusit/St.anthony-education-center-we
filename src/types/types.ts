@@ -82,11 +82,10 @@ export interface ProjectObj {
 }
 
 export interface ProjectUpdateCreateProps {
-  project?: ProjectObj;
+  project?: ProjectObj|null;
   index: number;
   showFields: boolean;
   setShowFields: React.Dispatch<React.SetStateAction<boolean>>;
-  setIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface BlogsObj {
@@ -98,11 +97,10 @@ export interface BlogsObj {
 }
 
 export interface BlogUpdateCreateProps {
-  blog?: BlogsObj; // teamMember can be undefined
+  blog?: BlogsObj|null; // teamMember can be undefined
   index: number;
   showFields: boolean;
   setShowFields: React.Dispatch<React.SetStateAction<boolean>>;
-  setIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 export interface TestimonyObj {
   name: string;
@@ -113,10 +111,9 @@ export interface TestimonyObj {
   _id: string;
 }
 export interface TetimonyUpdateCreateProps {
-  testimony?: TestimonyObj;
+  testimony?: TestimonyObj | null;
   index: number;
   showFields: boolean;
   setShowFields: React.Dispatch<React.SetStateAction<boolean>>;
-  setIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
