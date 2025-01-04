@@ -1,5 +1,4 @@
 'use client'
-import type { Metadata } from "next";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Footer";
@@ -17,10 +16,7 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-export const metadata: Metadata = {
-  title: "Language School",
-  description: "Language school",
-};
+
 
 const merriweather = Merriweather({
   weight: ["300", "400", "700"],
