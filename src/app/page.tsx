@@ -401,7 +401,6 @@ const Home = () => {
             {data.ourStaffSubtitle}
           </p>
         </div>
-        {/* @ts-expect-error error */}
         <>
           {isLoadingTeam ? (
             SkeletonTeam
