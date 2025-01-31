@@ -566,7 +566,7 @@ const Home = () => {
             {data.latestBlog}
           </p>
         </div>
-        {/* @ts-expect-error error */}
+    
         <>
           {isLoadingBlog ? (
             SkeletonBlog
