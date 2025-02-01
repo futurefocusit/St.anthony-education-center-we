@@ -17,6 +17,7 @@ import { IoCall } from "react-icons/io5";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
+
 import { AboutUsLang } from "@/lib/languageAbout";
 
 const Home = () => {
