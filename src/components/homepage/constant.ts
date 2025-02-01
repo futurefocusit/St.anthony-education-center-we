@@ -25,7 +25,7 @@ export const posts = [
       "/driving-school.jpg",
     title: "Others",
 
-    content:['Driving ','Trafic Rules','Computer Literacy','Airport Safety','BArista']
+    content:['Driving ','Trafic Rules','Computer Literacy','Airport Safety','Barista Class']
   },
   
 ];

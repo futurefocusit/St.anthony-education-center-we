@@ -347,48 +347,43 @@ const Home = () => {
                 </div>
               
 
-              <div className="w-full max-w-[400px] py-[2px] mb-6 mt-10 gap-[21px] flex flex-col text-center justify-center bg-[#1B396E]">
+              <div className="w-full max-w-[400px] py-[2px] mb-6 mt-10 gap-[21px] flex flex-col text-center justify-center p-2 border-blue-700 border-solid border-2 rounded-md">
                 <p className="w-auto h-auto font-[700] text-[20px] text-[#D9D9D9]">
                   {data.followUs}
                 </p>
-                <div className="flex flex-row justify-center space-x-4 ">
-                  <a
-                    className="hover:animate-bounce hover:text-white p-1"
-                    href="https://www.tiktok.com/@cyberpro.group.rw?_t=8qR5bmcQDdG&_r=1"
-                  >
-                    <FaTiktok />
-                  </a>
-                  <a
-                    className="hover:animate-bounce hover:text-white text-red-600 p-1"
-                    href="#"
-                  >
-                    <FaYoutube />
-                  </a>
-                  <a
-                    className="hover:animate-bounce hover:text-white text-lg text-white"
-                    href="https://www.linkedin.com/in/cyberpro-group-rw-aa104932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                  >
-                    <FaLinkedin />
-                  </a>
-                  <a
-                    className="hover:animate-bounce hover:text-white text-orange-500 p-1"
-                    href="https://www.instagram.com/cyberprogrouprw/?next=%2F"
-                  >
-                    <FaInstagram />
-                  </a>
-                  <a
-                    className="hover:animate-bounce hover:text-white text-blue p-1"
-                    href="https://x.com/CyberProGroupRw?t=q15PgUJVt6-ouzlMSiIa8Q&s=09"
-                  >
-                    <FaXTwitter />
-                  </a>
-                  <a
-                    className="hover:animate-bounce hover:text-white text-white bg-blue-400 p-1"
-                    href="https://www.facebook.com/profile.php?id=61565121267543"
-                  >
-                    <FaFacebookF />
-                  </a>
-                </div>
+                <div className="flex justify-between items-center gap-2 mt-2">
+              <a
+                className="hover:animate-bounce hover:text-white text-xl border-orange-500 border-2 border-solid rounded p-2"
+                href="https://www.tiktok.com/@cyberpro.group.rw?_t=8qR5bmcQDdG&_r=1"
+              >
+                <FaTiktok />
+              </a>
+              
+              <a
+                className="hover:animate-bounce hover:text-white bg-blue-500 text-2xl"
+                href="https://www.linkedin.com/in/cyberpro-group-rw-aa104932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                className="hover:animate-bounce hover:text-white text-orange-500 text-2xl"
+                href="https://www.instagram.com/cyberprogrouprw/?next=%2F"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                className="hover:animate-bounce hover:text-white text-blue text-2xl"
+                href="https://x.com/CyberProGroupRw?t=q15PgUJVt6-ouzlMSiIa8Q&s=09"
+              >
+                <FaXTwitter />
+              </a>
+              <a
+                className="hover:animate-bounce hover:text-white text-blue-400 text-2xl"
+                href="https://www.facebook.com/profile.php?id=61565121267543"
+              >
+                <FaFacebookF />
+              </a>
+            </div>
               </div>
             </div>
           </div>
