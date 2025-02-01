@@ -16,12 +16,6 @@ export const NavigationItemsRoutes: NavigationItem[] = [
     fr: "À propos",
     path: "/Aboutus",
   },
-
-  {
-    en: "Blog",
-    fr: "Blog",
-    path: "/Blog",
-  },
   {
     en: "Contact",
     fr: "Contact",

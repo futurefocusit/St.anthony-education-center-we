@@ -11,82 +11,48 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { TiTick } from "react-icons/ti";
-import { LiaLinkedinIn } from "react-icons/lia";
-import { IoStarSharp } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
-import { Blog, Team} from "@/types/types";
-import axios from "axios";
-import {
-  SkeletonBlog,
-  SkeletonTeam,
-} from "@/components/skeletons/cardSkeleton";
-import { BASE_URL } from "@/context/api";
 import { AboutUsLang } from "@/lib/languageAbout";
 
 const Home = () => {
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
-  // const [testimony, setTestimony] = useState<Testimony[]>([]);
-  const [rating, setRating] = useState<{ value: number }[]>([]);
-  const [blog, setBlog] = useState<Blog[]>([]);
-  const [team, setTeam] = useState<Team[]>([]);
-  // const [, setIsLoadingPortifolio] = useState(false);
-  const [isLoadingTeam, setIsLoadingTeam] = useState(false);
-  const [isLoadingBlog, setIsLoadingBlog] = useState(false);
-  // const [isLoadingTestimony, setIsLoadingtestimony] = useState(false);
-  const [, setIsLoadingRating] = useState(false);
-  const [hoveredStar, setHoveredStar] = useState(0);
-  const getPercentage = (arr: { value: number }[], target: number): number => {
-    const total = arr.length;
-    const count = arr.filter((rate) => rate.value === target).length;
-
-    if (total === 0) return 0;
-
-    return (count / total) * 100;
-  };
-  const fetchData = async (
-    endpoint: string,
-    //@ts-expect-error ERROR
-    setStateFunc: React.Dispatch<React.SetStateAction<>>,
-    setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
-  ) => {
-    try {
-      setLoadingFunc(true);
-      const response = await axios.get(`${BASE_URL}/${endpoint}`);
-      setStateFunc(response.data);
-    } catch (error) {
-      console.error(`Error fetching ${endpoint}:`, error);
-    } finally {
-      setLoadingFunc(false);
-    }
-  };
-  const handleRate = async (value: number) => {
-    try {
-      await axios.post(`${BASE_URL}/testimony/rate`, {
-        value,
-      });
-      fetchData("testimony/rate", setRating, setIsLoadingRating);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
+  // const fetchData = async (
+  //   endpoint: string,
+  //   //@ts-expect-error ERROR
+  //   setStateFunc: React.Dispatch<React.SetStateAction<>>,
+  //   setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
+  // ) => {
+  //   try {
+  //     setLoadingFunc(true);
+  //     const response = await axios.get(`${BASE_URL}/${endpoint}`);
+  //     setStateFunc(response.data);
+  //   } catch (error) {
+  //     console.error(`Error fetching ${endpoint}:`, error);
+  //   } finally {
+  //     setLoadingFunc(false);
+  //   }
+  // };
+  
+  
 
   useEffect(() => {
     //@ts-expect-error error
     setData(language === "en" ? englishContent : frenchContent);
   }, [language]);
 
-  useEffect(() => {
-    // fetchData("testimony", setTestimony, setIsLoadingtestimony);
-    fetchData("testimony/rate", setRating, setIsLoadingRating);
-    fetchData("team", setTeam, setIsLoadingTeam);
-    fetchData("blog", setBlog, setIsLoadingBlog);
-  }, []);
+  // useEffect(() => {
+  //   // fetchData("testimony", setTestimony, setIsLoadingtestimony);
+  //   fetchData("testimony/rate", setRating, setIsLoadingRating);
+  //   fetchData("team", setTeam, setIsLoadingTeam);
+  //   fetchData("blog", setBlog, setIsLoadingBlog);
+  // }, []);
 
   return (
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}`}>
@@ -95,14 +61,14 @@ const Home = () => {
           theme === "dark" ? "text-gray-300" : "text-white"
         }`}
         style={{
-          backgroundImage: `url('https://images.pexels.com/photos/5380590/pexels-photo-5380590.jpeg')`,
+          backgroundImage: `url('/hero2.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
         <div className={`flex flex-col gap-2 lg:gap-5 $`}>
-          <p className="text-[#1ABC9C] lg:text-[48px] text-[28px] text-center">
+          <p className="text-[#1ABC9C] font-extrabold lg:text-[48px] text-[28px] text-center">
             {data.heroTitle}
           </p>
           <p
@@ -230,7 +196,7 @@ const Home = () => {
         <div
           className=" bg-cover bg-center w-full  h-fit lg:h-[730px] "
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/8134239/pexels-photo-8134239.jpeg?auto=compress&cs=tinysrgb&w=600')`,
+            backgroundImage: `url('/certificate.jpg')`,
           }}
         >
           <div className="flex flex-col justify-center items-center text-center md:text-left m-auto">
@@ -306,143 +272,12 @@ const Home = () => {
         
         {/* custom rating and review */}
 
-        <p className="w-full max-w-[625px] h-auto font-[800] text-[28px] sm:text-[36px] text-[#1ABC9C] text-center m-auto mt-10">
-          Customer Reviews and Rating
-        </p>
+       
 
-        <div className="flex flex-col lg:flex-row gap-3 mt-10">
-          <div className="bg-[#D9D9D9] max-w-[500px] w-full h-auto sm:h-[400px] p-4 sm:p-8 mx-auto flex flex-col items-center">
-            <h1 className="w-full text-center font-[800] text-[36px] sm:text-[28px] text-[#1B396E]">
-              {data.customerReviews}
-            </h1>
+      
 
-            <div className="w-full  pb-[5px] py-[3px] mb-6 gap-[10px] flex justify-center bg-[#F3F4FF] rounded-full">
-              <div className="flex items-center text-center p-1 gap-2">
-                <p className="font-bold text-[18px]">{data.heroSubtitle}</p>
-              </div>
-            </div>
-
-            <p className="text-sm mb-6">{`${rating.length} CUSTOMER Ratings`}</p>
-
-            <div className="w-full max-w-[454px] bg-white p-4 space-y-2">
-              {/** Rating Bar Rows */}
-              {[
-                {
-                  label: "5 stars",
-                  percentage: getPercentage(rating, 5).toFixed() + "%",
-                },
-                {
-                  label: "4 stars",
-                  percentage: getPercentage(rating, 4).toFixed() + "%",
-                },
-                {
-                  label: "3 stars",
-                  percentage: getPercentage(rating, 3).toFixed() + "%",
-                },
-                {
-                  label: "2 stars",
-                  percentage: getPercentage(rating, 2).toFixed() + "%",
-                },
-                {
-                  label: "1 star",
-                  percentage: getPercentage(rating, 1).toFixed() + "%",
-                },
-              ].map((rating, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <p className="w-[60px] text-nowrap">{rating.label}</p>
-                  <div className="w-full h-3 bg-slate-300 mx-2">
-                    <div
-                      className="bg-yellow-300 h-3"
-                      style={{ width: rating.percentage }}
-                    ></div>
-                  </div>
-                  <p>{rating.percentage}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-[#D9D9D9] w-full max-w-[500px] h-auto sm:h-[400px] p-4 sm:p-8 mx-auto flex flex-col items-center">
-            <h1 className="font-[800] text-[#1B396E] text-[36px] sm:text-[28px] text-center mb-4">
-              {data.rateUs}
-            </h1>
-            <p className="font-[300] text-[14px] text-center text-[#2D2A2A] mb-6">
-              {data.rateUsSubtitle}
-            </p>
-
-            <div className="w-full max-w-[487px] py-[10px] mb-6 gap-[21px] flex justify-center bg-[#F3F4FF]">
-              {Array.from({ length: 5 }, (_, index) => (
-                <IoStarSharp
-                  key={index}
-                  onClick={() => handleRate(index + 1)}
-                  onMouseEnter={() => setHoveredStar(index + 1)}
-                  onMouseLeave={() => setHoveredStar(0)}
-                  className={`w-[40px] sm:w-[54px] h-[40px] sm:h-[54px] ${
-                    index < (hoveredStar || 0)
-                      ? "text-yellow-300"
-                      : "text-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* our staff  */}
-        <div className="flex flex-col  justify-center items-center text-center md:text-left m-auto mt-11">
-          <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px]">
-            {data.ourStaffTitle}
-          </h1>
-          <p
-            className={`${
-              theme === "dark" ? "text-gray-300" : "text-black"
-            } font-[800] text-[32px] sm:text-[36px] md:text-[48px] mb-5`}
-          >
-            {data.ourStaffSubtitle}
-          </p>
-        </div>
-        <>
-          {isLoadingTeam ? (
-            SkeletonTeam
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mx-auto  w-fit ">
-              {team && team.length > 0
-                ? team.map((member, index) => (
-                    <div
-                      key={index}
-                      className="bg-[#D9D9D9] min-w-fit h-fit pb-5 rounded transform transition duration-300 hover:scale-105"
-                    >
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        width={90}
-                        height={90}
-                        className="w-full h-32 object-cover rounded-t"
-                      />
-                      <h2 className="font-bold text-[24px] text-[#1B396E]  text-center">
-                        {member.role}
-                      </h2>
-                      <p className="text-[20px] p-2 text-[#49454F] text-center">
-                        {member.name}
-                      </p>
-                      <div className="flex items-center justify-center gap-[2px]">
-                        <a href={member.linkedInProfile || "###"}>
-                          <LiaLinkedinIn className="w-6 h-6 rounded text-white bg-blue-500 hover:bg-blue-700 p-1" />
-                        </a>
-                        <a href={member.instagramProfile || "###"}>
-                          <FaInstagram className="w-6 h-6 text-white rounded bg-[#bb2a7f] hover:bg-[#e0409d] p-1 " />
-                        </a>
-                        <a href={member.twiterProfile || "###"}>
-                          <FaXTwitter className="w-6 h-6 text-white rounded bg-[#080808] hover:bg-[#0e0c0c] p-1" />
-                        </a>
-                        
-                      </div>
-                    </div>
-                  ))
-                : "no team info available "}
-            </div>
-          )}
-        </>
+        
+       
         {/* contact page */}
 
         <div
@@ -556,57 +391,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="flex flex-col justify-center items-center text-center md:text-left m-auto">
-          <h1 className="font-[800] text-teal-500 text-[24px] sm:text-[28px] md:text-[36px] mt-10">
-            {data.whatsNew}
-          </h1>
-          <p className="font-[800] text-[32px] sm:text-[36px] md:text-[48px]">
-            {data.latestBlog}
-          </p>
-        </div>
-    
-        <>
-          {isLoadingBlog ? (
-            SkeletonBlog
-          ) : (
-            <div className="flex items-start justify-center w-full gap-10 mt-10 card-holder">
-              {blog.slice(-3).map((blogItem, index) => (
-                <div
-                  key={index}
-                  className={`relative card border w-60 rounded-lg shadow-md max-w-full box-border mb-3 h-[500px] transform transition duration-300 hover:scale-105`}
-                >
-                  <div className="flex flex-col gap-2 text-center   ">
-                    <Image
-                      src={blogItem.image}
-                      alt="cyber"
-                      width={90}
-                      height={90}
-                      className="w-full h-48 object-cover"
-                    />
-                    <h2 className="font-bold text-2xl">{blogItem.title}</h2>
-                    <p className="text-sm text-gray-600 p-2 overflow-y-scroll max-h-32">
-                      {blogItem.content}
-                    </p>
-                  </div>
-                  <div className="absolute bottom-2 flex w-full items-center justify-center">
-                    <a
-                      href="/Blog"
-                      className="bg-teal-500 hover:bg-[#1B396E] rounded-full py-2 px-3 w-fit text-[7px] text-white"
-                    >
-                      {data.readMore}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </>
-        <div className="flex w-full items-center justify-center mt-5">
-          <button className="bg-[#1B396E] hover:bg-teal-500 py-2 px-3 w-fit text-[17px] text-white rounded">
-            {data.viewMore}
-          </button>
         </div>
 
         {/* map */}

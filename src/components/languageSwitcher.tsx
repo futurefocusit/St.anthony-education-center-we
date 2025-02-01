@@ -9,7 +9,6 @@ const LanguageThemeSwitcher = () => {
 
   return (
     <div className="flex items-center gap-4">
-      {/* Language Switcher */}
       <div className="flex gap-2">
         <button
           onClick={() => toggleLanguage("en")}

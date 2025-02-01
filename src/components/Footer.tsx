@@ -190,27 +190,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex bg-white p-2 items-center gap-3 w-[600px] rounded-2xl">
-            <input
-              type="text"
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={
-                language === "en"
-                  ? "Please Enter Your Email"
-                  : "Veuillez entrer votre email"
-              }
-              className="bg-transparent placeholder:text-[#F39C12] p-2 text-md outline-none border-0 w-full"
-            />
-            <button
-              onClick={() => handleSubscribe()}
-              className={`${
-                loading ? "bg-slate-400" : "bg-[#F39C12] hover:bg-[#ffe042]"
-              } py-2 px-4 rounded-lg`}
-            >
-              {language === "en" ? "  SUBSCRIBE" : "S'ABONNER"}
-            </button>
-            <SiSpringsecurity className="w-7 h-7" />
-          </div>
+         
         </div>
       </div>
 
