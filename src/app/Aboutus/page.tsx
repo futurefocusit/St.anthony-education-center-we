@@ -1,17 +1,10 @@
 "use client";
 import Image from "next/image";
-import { Team } from "@/types/types";
 import House from "../../Images/House.jpeg";
 import myImage from "../../Images/myImage.jpeg";
 import Values from "../../Images/Values.jpg";
 import { useAppContext } from "@/context/appContext";
-import { useEffect, useState } from "react";
 import { AboutUsLang } from "@/lib/languageAbout";
-import axios from "axios";
-import { SkeletonTeam } from "@/components/skeletons/cardSkeleton";
-import { BASE_URL } from "@/context/api";
-import { FaInstagram, FaTwitter } from "react-icons/fa";
-import { LiaLinkedinIn } from "react-icons/lia";
 
 const Aboutus = () => {
   const { language, theme } = useAppContext();

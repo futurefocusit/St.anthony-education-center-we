@@ -1,5 +1,4 @@
 "use client";
-import { SiSpringsecurity } from "react-icons/si";
 import Link from "next/link";
 import {
   Contacts,
@@ -8,7 +7,7 @@ import {
   NavigationItemsRoutes,
 } from "./HeaderAndFooter/constant";
 import "./HeaderAndFooter/style.css";
-import { FaEnvelope, FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaTiktok } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
