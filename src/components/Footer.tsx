@@ -12,30 +12,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { useAppContext } from "@/context/appContext";
-import { useState } from "react";
-import axios from "axios";
-import { BASE_URL } from "@/context/api";
-import { toast } from "react-toastify";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const { language } = useAppContext();
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  const handleSubscribe = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.post(`${BASE_URL}/user/subscribe`, {
-        email,
-      });
-      toast.success(response.data.message);
-    } catch (error) {
-      toast.error("failed! try again ");
-    } finally {
-      setLoading(false);
-    }
-  };
+ 
   return (
     <div
       className=" p-5 bg-gray-900"
