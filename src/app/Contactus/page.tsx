@@ -107,7 +107,7 @@ const Contactus = () => {
         <div className="p-5 md:p-10 flex justify-center items-center w-full md:w-full lg:w-1/2">
           <iframe
             className="shadow-xl w-full h-[300px] md:h-[400px] lg:h-[500px]"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.372925704017!2d-75.70215228469056!3d45.352704179101964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccebb0cb651c455%3A0x445c123d0cf4b689!2s19%20Grenfell%20Crescent%2C%20Ottawa%2C%20ON%2C%20Canada%20K2G%200G3!5e0!3m2!1sen!2sus!4v1697198948007!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.21789901411387!2d30.11779119040893!3d-1.9590275772212618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca7aa23568803%3A0xa37310a1de8b923e!2sHealing%20Centre%20Church!5e0!3m2!1sen!2srw!4v1735916706303!5m2!1sen!2srw"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
