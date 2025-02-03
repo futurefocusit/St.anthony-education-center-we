@@ -268,17 +268,7 @@ const Home = () => {
           </div>
             
         </div>
-        {/* tesimonies */}
-        
-        {/* custom rating and review */}
-
        
-
-      
-
-        
-       
-        {/* contact page */}
 
         <div
           className="w-full h-auto mt-16 bg-cover bg-center "
@@ -340,7 +330,7 @@ const Home = () => {
                   <div className="flex flex-row gap-6 lg:gap-10">
                     <MdOutlineMailOutline className="w-[20px] h-[20px] text-red-500" />
                     <p className="w-auto h-auto font-[700] text-[16px]">
-                    Info@stanthonyeducationcenter.com
+                    stanthonyeducationcenter@gmail.com
                     </p>
                   </div>
                 </div>
@@ -353,32 +343,32 @@ const Home = () => {
                 <div className="flex justify-between items-center gap-2 mt-2">
               <a
                 className="hover:animate-bounce hover:text-white text-xl border-orange-500 border-2 border-solid rounded p-2"
-                href="https://www.tiktok.com/@cyberpro.group.rw?_t=8qR5bmcQDdG&_r=1"
+                href="https://vm.tiktok.com/ZMkqpg4km/"
               >
                 <FaTiktok />
               </a>
               
-              <a
+              {/* <a
                 className="hover:animate-bounce hover:text-white bg-blue-500 text-2xl"
                 href="https://www.linkedin.com/in/cyberpro-group-rw-aa104932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               >
                 <FaLinkedin />
-              </a>
+              </a> */}
               <a
                 className="hover:animate-bounce hover:text-white text-orange-500 text-2xl"
-                href="https://www.instagram.com/cyberprogrouprw/?next=%2F"
+                href="https://www.instagram.com/st.anthony.education.center?igsh=MTRhc2hteWg1eWl5Yw=="
               >
                 <FaInstagram />
               </a>
-              <a
+              {/* <a
                 className="hover:animate-bounce hover:text-white text-blue text-2xl"
                 href="https://x.com/CyberProGroupRw?t=q15PgUJVt6-ouzlMSiIa8Q&s=09"
               >
                 <FaXTwitter />
-              </a>
+              </a> */}
               <a
                 className="hover:animate-bounce hover:text-white text-blue-400 text-2xl"
-                href="https://www.facebook.com/profile.php?id=61565121267543"
+                href="https://www.facebook.com/share/1ynfCknuYF/"
               >
                 <FaFacebookF />
               </a>
