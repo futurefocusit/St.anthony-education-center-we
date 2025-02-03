@@ -8,11 +8,9 @@ import {
 } from "./HeaderAndFooter/constant";
 import "./HeaderAndFooter/style.css";
 import { FaEnvelope, FaTiktok } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { useAppContext } from "@/context/appContext";
-import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const { language } = useAppContext();
