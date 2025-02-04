@@ -349,7 +349,7 @@ const Home = () => {
               
               <a
               
-                className="hover:animate-bounce hover:text-white bg-blue-500 text-2xl"
+                className="hover:animate-bounce hover:text-white bg-blue-500 text-2xl text-red-600"
                 href="https://www.youtube.com/@stanthonyeducationcenter"
               >
                 <FaYoutube />
