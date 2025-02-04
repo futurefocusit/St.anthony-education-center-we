@@ -7,7 +7,7 @@ import {
   NavigationItemsRoutes,
 } from "./HeaderAndFooter/constant";
 import "./HeaderAndFooter/style.css";
-import { FaEnvelope, FaTiktok } from "react-icons/fa";
+import { FaEnvelope, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { useAppContext } from "@/context/appContext";
@@ -136,13 +136,13 @@ const Footer = () => {
               >
                 <FaTiktok />
               </a>
-{/*               
+              
               <a
                 className="hover:animate-bounce hover:text-white bg-blue-500 text-2xl"
-                href="https://www.linkedin.com/in/cyberpro-group-rw-aa104932a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                href="https://www.youtube.com/@stanthonyeducationcenter"
               >
-                <FaLinkedin />
-              </a> */}
+                <FaYoutube />
+              </a>
               <a
                 className="hover:animate-bounce hover:text-white text-orange-500 text-2xl"
                 href="https://www.instagram.com/st.anthony.education.center?igsh=MTRhc2hteWg1eWl5Yw=="
