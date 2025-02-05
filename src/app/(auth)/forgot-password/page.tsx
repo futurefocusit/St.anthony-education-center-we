@@ -1,5 +1,5 @@
 "use client";
-import { API_BASE_URL } from "@/api/api";
+import { BASE_URL } from "@/context/api";
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -17,7 +17,7 @@ const Page = () => {
        return;
      }
      setIsLoading(true);
-     const response = await axios.post(`${API_BASE_URL}/user/forgot-password`, {
+     const response = await axios.post(`${BASE_URL}/user/forgot-password`, {
        email: email,
      });
      toast.success(response.data.message);

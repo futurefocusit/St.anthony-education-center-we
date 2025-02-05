@@ -1,6 +1,6 @@
 "use client";
-import { API_BASE_URL } from "@/api/api";
 import withAdminAuth from "@/components/withAdminAuth";
+import { BASE_URL } from "@/context/api";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -33,7 +33,7 @@ const StatisticsPage: React.FC = () => {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/statistics`);
+        const response = await axios.get(`${BASE_URL}/statistics`);
         if (!response) {
           throw new Error("Network response was not ok");
         }

@@ -1,30 +1,29 @@
 "use client";
-import { API_BASE_URL } from "@/api/api";
 import withAdminAuth from "@/components/withAdminAuth";
+import { BASE_URL } from "@/context/api";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-interface Incident {
+interface Message {
   id: number;
   name: string;
   email: string;
   location: number; 
   message: string;
-  type: "incident" | "message"; 
   createdAt: string;
   status: "read" | "unread"; 
 }
 
 const IncidentRegistrationPage: React.FC = () => {
-  const [incidents, setIncidents] = useState<Incident[]>([]);
-  const [filteredIncidents, setFilteredIncidents] = useState<Incident[]>([]);
+  const [incidents, setIncidents] = useState<Message[]>([]);
+  const [filteredIncidents, setFilteredIncidents] = useState<Message[]>([]);
   const [activeTab, setActiveTab] = useState<string>("all"); 
 
   useEffect(() => {
     const fetchIncidents = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/message`); 
+        const response = await axios.get(`${BASE_URL}/message`); 
         if (!response) {
         }
 
@@ -45,7 +44,7 @@ const IncidentRegistrationPage: React.FC = () => {
       setFilteredIncidents(incidents);
     } else {
       setFilteredIncidents(
-        incidents.filter((incident) => incident.type === activeTab)
+        incidents.filter((incident) => incident.status === activeTab)
       );
     }
   }, [activeTab, incidents]);
@@ -57,7 +56,7 @@ const IncidentRegistrationPage: React.FC = () => {
     }
     acc[date].push(incident);
     return acc;
-  }, {} as Record<string, Incident[]>);
+  }, {} as Record<string, Message[]>);
 
   return (
     <div>
@@ -75,23 +74,23 @@ const IncidentRegistrationPage: React.FC = () => {
           </button>
           <button
             className={`p-2 border-b-2 ${
-              activeTab === "incident"
+              activeTab === "read"
                 ? "border-blue-500 font-bold"
                 : "border-transparent"
             }`}
-            onClick={() => setActiveTab("incident")}
+            onClick={() => setActiveTab("read")}
           >
-            Incidents
+            Read
           </button>
           <button
             className={`p-2 border-b-2 ${
-              activeTab === "message"
+              activeTab === "unread"
                 ? "border-blue-500 font-bold"
                 : "border-transparent"
             }`}
-            onClick={() => setActiveTab("message")}
+            onClick={() => setActiveTab("unread")}
           >
-            Messages
+       Unread
           </button>
         </div>
       </div>
@@ -103,7 +102,7 @@ const IncidentRegistrationPage: React.FC = () => {
               <th className="border-b border-gray-300 p-4">Email</th>
               <th className="border-b border-gray-300 p-4">Location</th>
               <th className="border-b border-gray-300 p-4">Message</th>
-              <th className="border-b border-gray-300 p-4">Type</th>
+              <th className="border-b border-gray-300 p-4">Status</th>
         
             </tr>
           </thead>
@@ -129,11 +128,11 @@ const IncidentRegistrationPage: React.FC = () => {
                     <td className="border-b border-gray-300 p-4">
                       {incident.location}
                     </td>
-                    <td className="border-b border-gray-300 p-4">
+                    <td className="border-b max-w text-wrap border-gray-300 p-4">
                       {incident.message}
                     </td>
                     <td className="border-b border-gray-300 p-4">
-                      {incident.type}
+                      {incident.status}
                     </td>
                     
                   

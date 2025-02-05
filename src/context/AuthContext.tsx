@@ -1,9 +1,9 @@
 'use client'
-import { API_BASE_URL } from "@/api/api";
 import axios from "axios";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "./api";
 
 interface Admin {
   email: string;
@@ -35,11 +35,8 @@ const AuthContextAPI: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/user/login`,
+        `${BASE_URL}/user/login`,
         userData,
-        {
-          withCredentials: true,
-        }
       );
       setLoggedUser(response.data);
       localStorage.setItem("admin", response.data.token);
@@ -61,7 +58,7 @@ const AuthContextAPI: React.FC<AuthProviderProps> = ({ children }) => {
       // );
       setLoggedUser(null);
       localStorage.removeItem("admin");
-      window.location.href = "/auth/login";
+      window.location.href = "/login";
     } catch (error) {
       handleAxiosError(error);
     }

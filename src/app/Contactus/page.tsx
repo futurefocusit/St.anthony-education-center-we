@@ -24,7 +24,6 @@ const Contactus = () => {
     email: "",
     location: "",
     message: "",
-    type: "message",
   });
   const [errors, setErrors] = useState<Errors>({});
 
@@ -51,7 +50,7 @@ const Contactus = () => {
     }
     try {
       setIsLoading(true);
-      await axios.post(`${BASE_URL}/incidence/`, {
+      await axios.post(`${BASE_URL}/message/`, {
         input,
       });
       toast.success("Message sent successfully!");
@@ -60,7 +59,6 @@ const Contactus = () => {
         email: "",
         location: "",
         message: "",
-        type: "message",
       });
       setErrors({});
     } catch (error) {

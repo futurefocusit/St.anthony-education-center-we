@@ -1,6 +1,5 @@
-import { FaChartBar } from "react-icons/fa";
+import { FaBook, FaChartBar } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
-import { HiUsers } from "react-icons/hi2";
 
 import { IoLogOut } from "react-icons/io5";
 
@@ -17,9 +16,9 @@ export type IconBottomType = {
 };
 
 export const iconsTop: IconType[] = [
-    { Icon: FaChartBar, title: "Dashboard", href: "/" },
-    { Icon: FaMessage, title: "message", href: "/message" },
-    { Icon: HiUsers, title: "Team", href: "/team" },
+    { Icon: FaChartBar, title: "Dashboard", href: "admin/" },
+    { Icon: FaMessage, title: "message", href: "admin/message" },
+    { Icon: FaBook, title: "Course", href: "admin/course" },
 ];
 
 export const iconsBottom: IconBottomType[] = [

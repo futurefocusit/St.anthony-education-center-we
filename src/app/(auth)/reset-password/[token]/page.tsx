@@ -1,5 +1,5 @@
 "use client";
-import { API_BASE_URL } from "@/api/api";
+import { BASE_URL } from "@/context/api";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -49,7 +49,7 @@ const ResetPasswordPage = () => {
     try {
       setIsLoading(true);
       const response = await axios.put(
-        `${API_BASE_URL}/user/reset-password/${token}`,
+        `${BASE_URL}/user/reset-password/${token}`,
         { password:password }
       );
       toast.success(response.data.message);

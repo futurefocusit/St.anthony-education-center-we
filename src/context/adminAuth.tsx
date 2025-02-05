@@ -1,5 +1,5 @@
-import { API_BASE_URL } from "@/api/api";
 import axios from "axios";
+import { BASE_URL } from "./api";
 //@ts-expect-error error
 let loggedUserData = null; 
 
@@ -11,7 +11,7 @@ export const fetchUser = async () => {
       throw new Error("No token found");
     }
 
-    const response = await axios.get(`${API_BASE_URL}/user`, {
+    const response = await axios.get(`${BASE_URL}/user`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,

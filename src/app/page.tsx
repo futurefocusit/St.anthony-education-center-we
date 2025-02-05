@@ -1,5 +1,9 @@
 "use client";
 
+
+import { AboutUsLang } from "@/lib/languageAbout";
+import axios from "axios";
+import { BASE_URL } from "@/context/api";
 import { posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
 import {
@@ -15,10 +19,29 @@ import { IoCall } from "react-icons/io5";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
+  
 
-import { AboutUsLang } from "@/lib/languageAbout";
-
+    interface Service {
+      _id: string;
+      image: string; // Icon name
+      category: string;
+      courses: string[];
+    }
 const Home = () => {
+  const [posts, setServices] = useState<Service[]>([]);
+
+
+  const fetchServices = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/course`);
+      setServices(response.data);
+    } catch (error) {
+      console.error("Error fetching services", error);
+    }
+  };
+  useEffect(() => {
+      fetchServices();
+    }, []);
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
  
@@ -126,9 +149,9 @@ const Home = () => {
                   height={90}
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
-                <h2 className="font-bold text-2xl">{post.title}</h2>
+                <h2 className="font-bold text-2xl">{post.category}</h2>
                 <div className="flex flex-wrap text-[0.9rem]  ">
-                  {post.content.map((item,index)=>(
+                  {post.courses.map((item,index)=>(
                     <li
                     key={index}
                     className={` ${
@@ -182,7 +205,7 @@ const Home = () => {
           <div className="mt-4 md:mt-0 md:ml-8">
             <Image
               src="https://images.pexels.com/photos/5240548/pexels-photo-5240548.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="CyberPro"
+              alt="Course"
               width={90}
               height={90}
               className="w-[300px] md:w-[400px] h-[300px] md:h-[400px] object-cover"

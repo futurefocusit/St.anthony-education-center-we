@@ -1,7 +1,7 @@
 export const posts = [
   {
     image:
-      "/multimedia.jpg",
+      "/multimedia.jpg", 
     title: "Art Courses",
 
     content:['Video Production','Photography','Graphic design','Music Production','Piano or Guitar','web development','computer software','computer hardware','computer training']

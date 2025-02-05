@@ -3,12 +3,11 @@ import { iconsBottom, iconsTop } from "@/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import withAdminAuth from "./withAdminAuth";
 
 const LeftSideBar = () => {
   const pathname = usePathname();
-  if (pathname.startsWith(`/auth`)) {
-    return <></>;
-  }
+
   return (
     <div className="hidden md:flex flex-col bg-[#1B396E] min-h-screen min-w-fit p-5 lg:p-[20px_5px_20px_20px] justify-between overflow-y-auto">
       <div>
@@ -72,4 +71,4 @@ const LeftSideBar = () => {
   );
 };
 
-export default LeftSideBar;
+export default withAdminAuth(LeftSideBar);
