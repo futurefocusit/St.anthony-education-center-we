@@ -62,7 +62,6 @@ const TestimonySlideshow: React.FC<TestimonySlideshowProps> = ({
                   <p className="text-sm text-center mb-4">{test.content}</p>
                   <div className="text-center">
                     <h3 className="font-semibold text-lg text-blue-700">{test.name}</h3>
-                    <p className="text-sm text-gray-600">{`${test.role} - ${test.company}`}</p>
                   </div>
                 </div>
               </div>
