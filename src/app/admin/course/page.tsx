@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import * as FaIcons from "react-icons/fa"; 
 import withAdminAuth from "@/components/withAdminAuth";
 import { BASE_URL } from "@/context/api";
 import Modal from "@/components/Modal";

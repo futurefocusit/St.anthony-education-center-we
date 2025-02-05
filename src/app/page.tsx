@@ -4,13 +4,10 @@
 import { AboutUsLang } from "@/lib/languageAbout";
 import axios from "axios";
 import { BASE_URL } from "@/context/api";
-import { posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
 import {
   FaFacebookF,
-  FaGreaterThan,
   FaInstagram,
-  FaLessThan,
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa";
@@ -21,7 +18,6 @@ import { IoCall } from "react-icons/io5";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
-import { ImQuotesRight } from "react-icons/im";
 import { Testimony } from "@/types/types";
 import TestimonySlider from "@/components/testimonyComponent";
   
@@ -36,7 +32,7 @@ const Home = () => {
   const [posts, setServices] = useState<Service[]>([]);
   const [,setIsLoadingtestimony] =  useState(false)
   const [testimony, setTestimony] = useState<Testimony[]>([]);
-  const [currentTestimonyIndex, setCurrentTestimonyIndex] = useState(0);
+  // const [currentTestimonyIndex, setCurrentTestimonyIndex] = useState(0);
   
 
   const fetchServices = async () => {
@@ -50,7 +46,7 @@ const Home = () => {
   useEffect(() => {
       fetchServices();
       const interval = setInterval(() => {
-        setCurrentTestimonyIndex((prevIndex) => (prevIndex + 1) % testimony.length);
+        // setCurrentTestimonyIndex((prevIndex) => (prevIndex + 1) % testimony.length);
       }, 5000);
       return () => clearInterval(interval)
     }, [testimony.length]);
