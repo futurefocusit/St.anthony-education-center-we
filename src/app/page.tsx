@@ -8,7 +8,9 @@ import { posts } from "@/components/homepage/constant";
 import React, { useEffect, useState } from "react";
 import {
   FaFacebookF,
+  FaGreaterThan,
   FaInstagram,
+  FaLessThan,
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa";
@@ -19,6 +21,9 @@ import { IoCall } from "react-icons/io5";
 import Image from "next/image";
 import { englishContent, frenchContent } from "@/lib/languageHome";
 import { useAppContext } from "@/context/appContext";
+import { ImQuotesRight } from "react-icons/im";
+import { Testimony } from "@/types/types";
+import TestimonySlider from "@/components/testimonyComponent";
   
 
     interface Service {
@@ -29,7 +34,10 @@ import { useAppContext } from "@/context/appContext";
     }
 const Home = () => {
   const [posts, setServices] = useState<Service[]>([]);
-
+  const [,setIsLoadingtestimony] =  useState(false)
+  const [testimony, setTestimony] = useState<Testimony[]>([]);
+  const [currentTestimonyIndex, setCurrentTestimonyIndex] = useState(0);
+  
 
   const fetchServices = async () => {
     try {
@@ -41,26 +49,30 @@ const Home = () => {
   };
   useEffect(() => {
       fetchServices();
-    }, []);
+      const interval = setInterval(() => {
+        setCurrentTestimonyIndex((prevIndex) => (prevIndex + 1) % testimony.length);
+      }, 5000);
+      return () => clearInterval(interval)
+    }, [testimony.length]);
   const { language, theme } = useAppContext();
   const [data, setData] = useState(englishContent);
  
-  // const fetchData = async (
-  //   endpoint: string,
-  //   //@ts-expect-error ERROR
-  //   setStateFunc: React.Dispatch<React.SetStateAction<>>,
-  //   setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
-  // ) => {
-  //   try {
-  //     setLoadingFunc(true);
-  //     const response = await axios.get(`${BASE_URL}/${endpoint}`);
-  //     setStateFunc(response.data);
-  //   } catch (error) {
-  //     console.error(`Error fetching ${endpoint}:`, error);
-  //   } finally {
-  //     setLoadingFunc(false);
-  //   }
-  // };
+  const fetchData = async (
+    endpoint: string,
+    //@ts-expect-error ERROR
+    setStateFunc: React.Dispatch<React.SetStateAction<>>,
+    setLoadingFunc: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    try {
+      setLoadingFunc(true);
+      const response = await axios.get(`${BASE_URL}/${endpoint}`);
+      setStateFunc(response.data);
+    } catch (error) {
+      console.error(`Error fetching ${endpoint}:`, error);
+    } finally {
+      setLoadingFunc(false);
+    }
+  };
   
   
 
@@ -69,12 +81,9 @@ const Home = () => {
     setData(language === "en" ? englishContent : frenchContent);
   }, [language]);
 
-  // useEffect(() => {
-  //   // fetchData("testimony", setTestimony, setIsLoadingtestimony);
-  //   fetchData("testimony/rate", setRating, setIsLoadingRating);
-  //   fetchData("team", setTeam, setIsLoadingTeam);
-  //   fetchData("blog", setBlog, setIsLoadingBlog);
-  // }, []);
+  useEffect(() => {
+    fetchData("testimony", setTestimony, setIsLoadingtestimony);
+  }, []);
 
   return (
     <div className={`${theme === "dark" ? "bg-slate-700" : ""}`}>
@@ -290,7 +299,7 @@ const Home = () => {
           </div>
             
         </div>
-       
+      <TestimonySlider testimony={testimony}/>
 
         <div
           className="w-full h-auto mt-16 bg-cover bg-center "
@@ -327,7 +336,7 @@ const Home = () => {
                 </a>
               </div>
             </div>
-
+  
             <div className="flex flex-col">
             <h1 className="w-[265px] h-[60.57px] font-[800] text-[24px] sm:text-[36px] text-[#1ABC9C] text-center m-auto">
             {data.contactTitle}

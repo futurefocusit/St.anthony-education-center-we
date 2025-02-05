@@ -27,8 +27,6 @@ export interface Testimony {
   _id: string;
   content: string
   name:string;
-  company: string
-  role: string
   image: string
 
 }
