@@ -104,12 +104,20 @@ const Home = () => {
             {data.heroSubtitle}
           </p>
           <div className="bg-[#1ABC9C] w-[200px] h-2 mx-auto rounded-lg" />
-          <a
+        <div className ="flex gap-3">
+            <a
             href="/Aboutus"
             className={`button hover:bg-teal-500 hover:rounded-lg text-[16px]  w-fit mx-auto px-4 py-2`}
           >
             {data.readMore}
           </a>
+            <a
+            href="https://forms.gle/dWpTzxWB4dydEJ9Q8"
+            className={`button hover:bg-[#1ABC9D]  bg-[#1ABC9C] hover:rounded-lg text-[16px]   w-fit mx-auto px-4 py-2`}
+          >
+            Apply Now
+          </a>
+          </div>
         </div>
       </div>
       <div className="font-roboto min-h-screen w-full">

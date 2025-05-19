@@ -24,6 +24,7 @@ const NavigationBar = () => {
       >
         <Logo />
         <div className="flex items-center gap-5 m-5">
+          <a className="bg-blue-500 p-2 text-white" href="https://forms.gle/dWpTzxWB4dydEJ9Q8">APPLY</a>
           <NavigationItems />
           <LanguageSwitcher />
         </div>
