@@ -104,7 +104,7 @@ const Home = () => {
             {data.heroSubtitle}
           </p>
           <div className="bg-[#1ABC9C] w-[200px] h-2 mx-auto rounded-lg" />
-        <div className ="flex gap-3">
+        <div className ="flex gap-3 justify-center">
             <a
             href="/Aboutus"
             className={`button hover:bg-teal-500 hover:rounded-lg text-[16px]  w-fit mx-auto px-4 py-2`}
